@@ -1,6 +1,5 @@
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { Pending } from "@/components/typography";
 import { BrandIcon, Button, Card, CTABand, SectionHeader } from "@/components/ui";
 import { Photo } from "@/components/ui/Photo";
 import { photos } from "@/content/media";
@@ -44,22 +43,15 @@ export default function PartnersPage() {
         <SectionHeader id="links" title={copy.linksHeading} intro={copy.linksNote} />
         <ul className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {copy.countries.map((c) => (
-            <li key={c}>
+            <li key={c.name}>
               <Card>
                 <BrandIcon name="global" className="mb-5" />
-                <h3 className="type-h3 mb-2 text-ink">{c}</h3>
-                <p className="type-small text-graphite">{copy.countryNote}</p>
+                <h3 className="type-h3 mb-2 text-ink">{c.name}</h3>
+                <p className="type-small text-graphite">{c.note}</p>
               </Card>
             </li>
           ))}
         </ul>
-        <div className="mt-7 flex max-w-prose flex-col gap-3 border-t border-stone pt-5">
-          <h3 className="type-h3 text-ink">{copy.partnersHeading}</h3>
-          <p className="type-body flex flex-wrap items-center gap-3 text-ink">
-            <Pending />
-            <span>{copy.partnersNote}</span>
-          </p>
-        </div>
       </Section>
 
       <CTABand

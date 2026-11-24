@@ -74,12 +74,22 @@ export const aboutPages = {
       "The reproductive expertise Brazil built on Indian Gir is the expertise we are bringing back to Indian farms: protocols and conception rates that stand up to scrutiny, applied to indigenous bloodlines.",
     ],
     linksHeading: "International links",
-    countries: ["Brazil", "Mexico", "UAE"],
-    countryNote: "Direction of the link (expertise in, genetics out, or both) to be confirmed.",
+    countries: [
+      {
+        name: "Brazil",
+        note: "A two-way link. We bring in Brazilian reproductive expertise, and share our own work and Indian genetics in return.",
+      },
+      {
+        name: "Mexico",
+        note: "We provide our expertise in IVF and reproductive programmes to farms and partners in Mexico.",
+      },
+      {
+        name: "UAE",
+        note: "We provide our expertise in IVF and reproductive programmes to farms and partners in the UAE.",
+      },
+    ],
     linksNote:
-      "We work with links into Brazil, Mexico and the UAE. Whether each is a source of expertise, a destination for our genetics, or both is being confirmed. This page will say exactly which once it is.",
-    partnersHeading: "Named partners",
-    partnersNote: "Partner organisations will be listed here once confirmed for publication.",
+      "Our work reaches beyond India. With Brazil the exchange runs both ways; in Mexico and the UAE we provide our expertise.",
     cta: {
       heading: "World-class science, applied locally",
       body: "Talk to our team about bringing these protocols to your herd.",
