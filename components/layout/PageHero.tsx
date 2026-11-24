@@ -1,6 +1,9 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import type { Photo } from "@/content/media";
+import type { StatItem } from "@/content/types";
+import { CountUp } from "../motion/CountUp";
+import { BrandIcon, type BrandIconName } from "../ui/BrandIcon";
 import { cn } from "@/lib/cn";
 import { Reveal, RevealItem } from "../motion/Reveal";
 import { Button, ButtonGroup } from "../ui/Button";
@@ -14,7 +17,7 @@ import { Container } from "./Container";
  *
  * A full-bleed photograph (or a looping video) under a deep gradient, with the page's single
  * H1 bottom-aligned in white. Buttons are passed as data so they always render as dark-ground
- * buttons; the first is the primary. An optional white `highlight` card floats bottom-right.
+ * buttons; the first is the primary. Key figures sit in a frosted glass bar along the bottom.
  * `tall` for section landing pages, `compact` for detail pages.
  */
 export interface HeroAction {
@@ -40,8 +43,8 @@ export interface PageHeroProps {
   note?: string;
   /** Photo caption, bottom-right (names people in the photo). */
   caption?: string;
-  /** White card floating bottom-right (a key stat, a fact). Light-ground content. */
-  highlight?: ReactNode;
+  /** Key figures in a frosted glass bar along the bottom of the hero. */
+  stats?: StatItem[];
   size?: "tall" | "compact";
   /** Which part of the photo to keep in frame. */
   /** Which part of the photo to keep in frame. Defaults to "upper" for portrait/square photos. */
@@ -65,7 +68,7 @@ export function PageHero({
   tags,
   note,
   caption,
-  highlight,
+  stats,
   size = "compact",
   focus,
 }: PageHeroProps) {
@@ -96,10 +99,11 @@ export function PageHero({
       />
       <Container
         className={cn(
-          "flex flex-col justify-end gap-7 pt-9 pb-8 md:pb-9 lg:flex-row lg:items-end lg:justify-between",
+          "flex flex-col justify-end gap-7 pt-9 pb-8 md:pb-9",
           size === "tall" ? "min-h-hero" : "min-h-hero-compact",
         )}
       >
+        <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
         <Reveal stagger={0.08} className="flex max-w-prose flex-col gap-5">
           {breadcrumbs && (
             <RevealItem>
@@ -148,14 +152,41 @@ export function PageHero({
           )}
         </Reveal>
 
-        {(highlight || caption) && (
-          <Reveal delay={0.5} className="flex flex-col items-start gap-3 lg:items-end">
-            {highlight && (
-              <div data-ground="light" className="max-w-card rounded-lg bg-white p-5 shadow-md">
-                {highlight}
-              </div>
-            )}
-            {caption && <p className="type-small max-w-card text-mist lg:text-right">{caption}</p>}
+        {caption && (
+          <Reveal delay={0.5}>
+            <p className="type-small max-w-card text-mist lg:text-right">{caption}</p>
+          </Reveal>
+        )}
+        </div>
+
+        {stats && stats.length > 0 && (
+          <Reveal delay={0.45}>
+            <dl
+              className={cn(
+                "grid gap-x-4 gap-y-5 rounded-lg border border-white/15 bg-deep/40 p-4 backdrop-blur-md md:gap-x-6 md:p-6",
+                stats.length === 1 ? "max-w-prose" : stats.length === 2 ? "sm:grid-cols-2" : "grid-cols-2 lg:grid-cols-4",
+              )}
+            >
+              {stats.map((st, k) => (
+                <div
+                  key={st.id}
+                  className={cn("flex items-start gap-4", k > 0 && stats.length > 2 && "lg:border-l lg:border-white/15 lg:pl-6")}
+                >
+                  {st.brandIcon && stats.length <= 2 && (
+                    <dd aria-hidden="true" className="order-1 hidden sm:block">
+                      <BrandIcon name={st.brandIcon as BrandIconName} ground="dark" size="sm" />
+                    </dd>
+                  )}
+                  <div className="order-2 flex flex-col gap-1">
+                    <dt className="type-label order-2 text-mist">{st.label}</dt>
+                    <dd className="type-stat-compact order-1 whitespace-nowrap text-white">
+                      <CountUp value={st.value} />
+                    </dd>
+                    {st.note && stats.length === 1 && <dd className="type-small order-3 text-sand">{st.note}</dd>}
+                  </div>
+                </div>
+              ))}
+            </dl>
           </Reveal>
         )}
       </Container>

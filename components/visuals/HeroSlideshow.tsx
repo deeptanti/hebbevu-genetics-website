@@ -67,7 +67,8 @@ export function HeroSlideshow({ photos }: { photos: Photo[] }) {
                   src={p.src}
                   alt={on ? p.alt : ""}
                   fill
-                  priority={k === 0}
+                  loading={k === 0 ? "eager" : "lazy"}
+                  fetchPriority={k === 0 ? "high" : "auto"}
                   sizes="100vw"
                   className={cn("object-cover", isTall(p) ? "object-upper" : "object-center")}
                 />
@@ -78,7 +79,7 @@ export function HeroSlideshow({ photos }: { photos: Photo[] }) {
       </div>
 
       {!reduce && photos.length > 1 && (
-        <div className="absolute top-6 right-4 z-10 flex gap-2 md:right-6 lg:top-auto lg:right-auto lg:bottom-6 lg:left-1/2 lg:-translate-x-1/2">
+        <div className="absolute top-5 right-4 z-10 flex gap-2 md:right-6">
           {photos.map((p, k) => (
             <button
               key={p.src}

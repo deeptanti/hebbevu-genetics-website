@@ -2,13 +2,10 @@ import { BulletList } from "@/components/blocks/BulletList";
 import { ContactPanel } from "@/components/blocks/ContactPanel";
 import { FaqList } from "@/components/blocks/FaqList";
 import { FeatureGrid } from "@/components/blocks/FeatureGrid";
-import { StatsBand } from "@/components/blocks/StatsBand";
 import { TraceChain } from "@/components/blocks/TraceChain";
 import { Section } from "@/components/layout/Section";
 import { Button, ButtonGroup, CTABand, SectionHeader } from "@/components/ui";
 import { PageHero } from "@/components/layout/PageHero";
-import { CountUp } from "@/components/motion/CountUp";
-import { BrandIcon } from "@/components/ui/BrandIcon";
 import { PhotoStrip } from "@/components/visuals/PhotoStrip";
 import { Photo } from "@/components/ui/Photo";
 import { photos } from "@/content/media";
@@ -22,7 +19,7 @@ import { ivfCycle, traceChain, traceExplainer, labIntro } from "@/content/lab";
 import { homeCopy } from "@/content/pages/home";
 import { pathOptions, servicesCta } from "@/content/services";
 import { homeHero, pillars, revolution } from "@/content/site";
-import { impactStats, stats } from "@/content/stats";
+import { impactStats } from "@/content/stats";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
@@ -57,17 +54,7 @@ export default function HomePage() {
           photos["farm/aerial"],
         ]}
         actions={[homeCopy.heroActions.primary, homeCopy.heroActions.secondary]}
-        highlight={
-          <div className="flex items-center gap-4">
-            <BrandIcon name="calves" size="md" />
-            <dl className="flex flex-col gap-1">
-              <dt className="type-label order-2 text-graphite">{stats.calves.label}</dt>
-              <dd className="type-stat order-1 text-deep">
-                <CountUp value={stats.calves.value} />
-              </dd>
-            </dl>
-          </div>
-        }
+        stats={impactStats}
       />
       <Ticker items={homeCopy.ticker} />
 
@@ -94,7 +81,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <StatsBand title={homeCopy.statsHeading} stats={impactStats} />
 
       <Section labelledBy="services">
         <SectionHeader

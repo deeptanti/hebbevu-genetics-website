@@ -54,6 +54,9 @@
   --container-prose: 720px; /* body text and section headers */
   --container-card: 320px; /* floating cards over photography */
 
+  /* Frosted glass over hero photography. */
+  --blur-md: 14px;
+
   /* ---- Radius (§6) ---------------------------------------------------- */
   --radius-sm: 2px; /* chips, inputs, tables */
   --radius-md: 4px; /* buttons */
@@ -169,6 +172,18 @@
   font-weight: 600;
   font-size: 40px;
   line-height: 48px;
+  font-variant-numeric: tabular-nums lining-nums;
+  @media (width >= 768px) {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+/* Stat figures in tight spaces (the hero glass bar): one step smaller on phones. */
+@utility type-stat-compact {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
   font-variant-numeric: tabular-nums lining-nums;
   @media (width >= 768px) {
     font-size: 48px;

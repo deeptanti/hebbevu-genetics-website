@@ -1,7 +1,7 @@
 import { FeatureGrid } from "@/components/blocks/FeatureGrid";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { DataTable, SectionHeader, Stat } from "@/components/ui";
+import { DataTable, SectionHeader } from "@/components/ui";
 import { Photo } from "@/components/ui/Photo";
 import { pregnancyChecks } from "@/content/lab";
 import { photos } from "@/content/media";
@@ -26,11 +26,7 @@ export default function EmbryoTransferPage() {
           { label: "Book a Consultation", href: "/book?service=embryo-transfer" },
           { label: "Our conception rate", href: "/the-lab/results" },
         ]}
-        highlight={
-          <dl>
-            <Stat value={stats.conception.value} label={stats.conception.label} note={stats.conception.note} />
-          </dl>
-        }
+        stats={[stats.conception]}
       />
 
       <Section labelledBy="includes">
