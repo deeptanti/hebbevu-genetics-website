@@ -49,7 +49,7 @@ export const photos = {
   },
   "farm/handler-with-calf": {
     "src": "/photos/farm/handler-with-calf.jpg",
-    "alt": "A team member kneeling beside a spotted calf",
+    "alt": "Founder Mr. Amith Kishan kneeling beside a spotted calf",
     "width": 1080,
     "height": 1350
   },
@@ -73,19 +73,19 @@ export const photos = {
   },
   "people/team-at-fence": {
     "src": "/photos/people/team-at-fence.jpg",
-    "alt": "The Hebbevu team leaning on the paddock fence",
+    "alt": "The Hebbevu team at the paddock fence, with founder Mr. Amith Kishan fourth from left",
     "width": 1080,
     "height": 1350
   },
   "people/two-at-fence": {
     "src": "/photos/people/two-at-fence.jpg",
-    "alt": "Two team members at the paddock fence",
+    "alt": "Founder Mr. Amith Kishan (right) with a team member at the paddock fence",
     "width": 1080,
     "height": 1350
   },
   "people/two-with-bull": {
     "src": "/photos/people/two-with-bull.jpg",
-    "alt": "Two team members standing in front of a bull at the barn",
+    "alt": "Founder Mr. Amith Kishan (left) and co-founder Mr. Ashrith Kishan at the farm",
     "width": 800,
     "height": 800
   },

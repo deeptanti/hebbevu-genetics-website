@@ -1,6 +1,12 @@
 import type { TeamMember } from "./types";
 
 /** Named bios — the rarest thing in the category (brief §10). Copy from the client doc. */
+/** Founders (named by the client). Roles only — no bios have been supplied yet. */
+export const founders = [
+  { slug: "amith-kishan", name: "Mr. Amith Kishan", role: "Founder" },
+  { slug: "ashrith-kishan", name: "Mr. Ashrith Kishan", role: "Co-founder" },
+];
+
 export const team: TeamMember[] = [
   {
     slug: "dr-neha",

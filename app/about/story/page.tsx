@@ -19,7 +19,7 @@ export default function StoryPage() {
   return (
     <>
       <PageHero
-        aside={<Photo photo={photos["people/two-at-fence"]} aspect="portrait" priority />}
+        aside={<Photo photo={photos["people/two-with-bull"]} aspect="photo" priority caption="Mr. Amith Kishan, founder (left), and Mr. Ashrith Kishan, co-founder" />}
         title={copy.heading}
         lede={site.vision.statement}
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Our story" }]}

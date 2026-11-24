@@ -6,7 +6,7 @@ import { Card, CTABand, SectionHeader } from "@/components/ui";
 import { aboutPages } from "@/content/pages/about";
 import { site } from "@/content/site";
 import { milestoneStats } from "@/content/stats";
-import { team, teamCommitment, teamIntro } from "@/content/team";
+import { founders, team, teamCommitment, teamIntro } from "@/content/team";
 import { Photo } from "@/components/ui/Photo";
 import { getPhoto, photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
@@ -28,6 +28,25 @@ export default function TeamPage() {
       <Section tone="mist">
         <SectionHeader title={copy.teamHeading} intro={teamIntro} />
         <div className="flex flex-col gap-7">
+          <div>
+            <Heading level={3} className="mb-5">
+              Founders
+            </Heading>
+            <Card flush className="lg:flex-row">
+              <div className="lg:w-1/2">
+                <Photo photo={photos["people/two-with-bull"]} aspect="photo" rounded={false} sizes="(min-width: 1024px) 600px, 100vw" />
+              </div>
+              <ul className="flex flex-col justify-center gap-5 p-5 md:p-6 lg:w-1/2">
+                {founders.map((f) => (
+                  <li key={f.slug} id={f.slug} className="flex flex-col gap-1 border-b border-stone pb-5 last:border-b-0 last:pb-0">
+                    <span className="type-label text-graphite">{f.role}</span>
+                    <span className="type-h3 text-ink">{f.name}</span>
+                  </li>
+                ))}
+                <li className="type-small text-graphite">Mr. Amith Kishan, founder (left), and Mr. Ashrith Kishan, co-founder.</li>
+              </ul>
+            </Card>
+          </div>
           {copy.groups.map((g) => {
             const members = team.filter((m) => m.group === g.id);
             if (!members.length) return null;

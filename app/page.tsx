@@ -101,7 +101,7 @@ export default function HomePage() {
 
       <Section tone="mist" labelledBy="revolution">
         <div className="grid items-center gap-7 lg:grid-cols-2">
-          <Photo photo={photos["people/two-with-bull"]} aspect="photo" />
+          <Photo photo={photos["people/two-with-bull"]} aspect="photo" caption="Mr. Amith Kishan, founder (left), and Mr. Ashrith Kishan, co-founder" />
           <div className="flex flex-col gap-5">
           <SectionHeader id="revolution" kicker={revolution.kicker} title={revolution.heading} intro={revolution.paragraphs} flush />
           <div className="flex flex-col gap-5 rounded-lg border border-stone bg-white p-5 md:p-6">
