@@ -274,6 +274,18 @@ export const photos = {
     "alt": "A team member with a black bull with long, sweeping horns",
     "width": 1080,
     "height": 1350
+  },
+  "breeds/murrah": {
+    "src": "/photos/breeds/murrah.jpg",
+    "alt": "A Murrah-type buffalo with tightly curled horns at the farm",
+    "width": 800,
+    "height": 800
+  },
+  "farm/buffalo-group": {
+    "src": "/photos/farm/buffalo-group.jpg",
+    "alt": "Murrah-type buffalo at Hebbevu Farms",
+    "width": 800,
+    "height": 800
   }
 } as const satisfies Record<string, Photo>;
 

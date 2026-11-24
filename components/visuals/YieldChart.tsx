@@ -74,11 +74,15 @@ export function YieldChart({ rows, caption, highlight }: { rows: YieldRow[]; cap
               >
                 <span className="flex items-center justify-between gap-4">
                   <span className="flex items-center gap-3">
-                    {r.image && (
-                      <span className={cn("transition-move relative size-7 shrink-0 overflow-hidden rounded-full bg-clay ring-2", on ? "ring-brown" : "ring-transparent")}>
-                        <Image src={r.image.src} alt="" fill sizes="48px" className="object-cover" />
-                      </span>
-                    )}
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        "transition-move type-subheading relative flex size-7 shrink-0 items-center justify-center overflow-hidden rounded-full bg-clay text-brown ring-2",
+                        on ? "ring-brown" : "ring-transparent",
+                      )}
+                    >
+                      {r.image ? <Image src={r.image.src} alt="" fill sizes="48px" className="object-cover" /> : r.name.charAt(0)}
+                    </span>
                     <span className={cn("type-subheading transition-ui", on ? "text-brown" : "text-ink")}>{r.name}</span>
                   </span>
                   <span className="type-small whitespace-nowrap text-graphite">

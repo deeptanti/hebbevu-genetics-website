@@ -76,7 +76,7 @@ export default function QualifierPage() {
         </ol>
         <div className="mt-6">
           <Button href="/breeds/compare" variant="secondary" arrow>
-            Compare all seven breeds
+            Compare all breeds
           </Button>
         </div>
       </Section>

@@ -57,7 +57,7 @@ export const primaryNav: NavItem[] = [
   {
     label: "Breeds",
     href: "/breeds",
-    description: "Seven breeds, and how to choose between them.",
+    description: "Indigenous cattle, buffalo and global dairy breeds, and how to choose between them.",
   },
   {
     label: "About",

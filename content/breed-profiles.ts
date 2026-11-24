@@ -25,12 +25,17 @@ export interface BreedProfile {
   size: { cow?: string; bull?: string; cowHeight?: string; bullHeight?: string };
   dairy: {
     lactation: string;
+    /** Overrides the default "National average per lactation" (ICAR-NBAGR) labelling. */
+    lactationLabel?: string;
+    lactationSource?: string;
     lactationRange?: string;
     fat: string;
     firstCalving?: string;
     calvingInterval?: string;
     note?: string;
   };
+  /** Milk-type line for the records table; overrides the default from the A2 flag. */
+  milkTypeText?: string;
   uses: string[];
   adaptation: string[];
   world?: { heading: string; paragraphs: string[]; countries?: string[] };
@@ -342,6 +347,65 @@ export const breedProfiles: BreedProfile[] = [
     ],
   },
   {
+    slug: "murrah",
+    species: "Water buffalo · Bubalus bubalis (river type)",
+    isBuffalo: true,
+    intro:
+      "Murrah is India’s most important dairy buffalo: jet black, with tightly curled horns and milk that averages over 7% fat. It is also the breed behind much of India’s pioneering buffalo IVF and cloning work.",
+    homeland: {
+      tract: "Hisar, Rohtak, Gurgaon and Jind districts of Haryana, and Delhi. It has since spread to almost every part of India.",
+      nameOrigin: "‘Murrah’ means curled, after the breed’s horns.",
+      localNames: ["Delhi", "Kundi", "Kali"],
+    },
+    looks: [
+      { label: "Coat", text: "Jet black. White marks on the face or legs are rare and not preferred." },
+      { label: "Horns", text: "Short and tightly curled in a spiral." },
+      { label: "Build", text: "A massive, wedge-shaped body with a long head and neck, a well-developed udder and broad hips." },
+    ],
+    size: { cow: "516 kg", bull: "567 kg", cowHeight: "133 cm", bullHeight: "142 cm" },
+    dairy: {
+      lactation: "1,752 kg",
+      lactationRange: "1,003–2,057 kg",
+      fat: "7.3%",
+      firstCalving: "43 months",
+      calvingInterval: "14.9 months",
+      note: "On organised farms, 305-day yields run from about 1,370 to 2,090 kg, with peaks of about 10 to 11 kg a day. The milk is also rich in solids-not-fat, at about 9.4 to 9.8%.",
+    },
+    milkTypeText: "A2 (Murrah tested in Tamil Nadu were all A2A2)",
+    uses: ["Milk", "Meat", "Males for breeding and draught"],
+    adaptation: [
+      "Suited to stall-feeding on seasonal fodder: berseem, oats and mustard in winter; sorghum, pearl millet and cluster bean in summer",
+      "Adapted to a wide range of conditions, from Haryana to the south",
+      "Few sweat glands, so it needs shade, water or a wallow in hot weather",
+    ],
+    world: {
+      heading: "Murrah, and India’s buffalo IVF firsts",
+      paragraphs: [
+        "Murrah is established in Bulgaria, the Philippines, Malaysia, Vietnam, Brazil and Sri Lanka, among others. Bulgaria imported Murrah from India between 1962 and 1990 to upgrade its local buffalo.",
+        "India has led buffalo reproductive science. The world’s first IVF buffalo calf was born at NDRI Karnal in 1990. In 2015, CIRB Hisar cloned a superior Murrah bull, and in 2022 it produced a calf by OPU and IVF using that clone’s semen and an elite female.",
+      ],
+      countries: ["Bulgaria", "Philippines", "Brazil", "Malaysia", "Vietnam", "Sri Lanka"],
+    },
+    population: "About 1.17 crore pure and 3.66 crore graded Murrah in India’s 2013 breed survey.",
+    farmerNotes: [
+      { title: "Plan for late maturity", body: "First calving comes at about 43 months and the calving interval is about 15 months. Heifer feeding and fertility management decide the profit." },
+      { title: "Watch for silent heat", body: "In summer, buffaloes often show no outward signs of heat. Give shade and water or a wallow, and watch closely so insemination is timed right." },
+      { title: "Check the bull, not just the name", body: "Most ‘Murrah’ in India are graded: 3.66 crore graded against 1.17 crore pure in 2013. Use semen from progeny-tested Murrah bulls with published breeding values." },
+    ],
+    sources: [
+      NBAGR,
+      { label: "NDDB Dairy Knowledge Portal: Murrah", url: "https://dairyknowledge.in/dkp/node/1244" },
+      { label: "ICAR-CIRB Buffalopedia: Murrah", url: "https://buffalopedianew.cirb.res.in/murrah/" },
+      { label: "Kumar et al. 2019, Indian Journal of Animal Sciences: Murrah performance review", url: "https://epubs.icar.org.in/index.php/IJAnS/article/download/96616/38477/249138" },
+      { label: "Kathiravan et al. 2023, Indian Journal of Animal Research: A1/A2 in cattle and buffalo", url: "https://arccjournals.com/journal/indian-journal-of-animal-research/B-4344" },
+      { label: "Napolitano et al. 2023, Animals: heat stress in buffalo", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10571975/" },
+      { label: "ICAR: CIRB clones a superior Murrah bull (2015)", url: "https://icar.org.in/en/node/4887" },
+      { label: "ICAR: OPU-IVF calf from the cloned bull (2022)", url: "https://icar.org.in/hi/node/17530" },
+      { label: "ICAR-CIRB: Murrah in Bulgaria", url: "https://buffalopedianew.cirb.res.in/?p=642" },
+      { label: "The Tribune: NDRI and the first IVF buffalo calf", url: "https://www.tribuneindia.com/news/haryana/world-ivf-day-ndri-to-impart-training-on-ovum-pick-up-ivf-to-vets-415756" },
+    ],
+  },
+  {
     slug: "holstein-friesian",
     species: "Cattle · Bos taurus (European dairy)",
     intro:
@@ -357,9 +421,12 @@ export const breedProfiles: BreedProfile[] = [
     size: { cow: "about 680 kg", cowHeight: "about 147 cm" },
     dairy: {
       lactation: "9,600–12,700 kg",
+      lactationLabel: "Per 305-day lactation, recorded herds abroad",
+      lactationSource: "Recorded herds, 305 days",
       fat: "about 4.1%",
       note: "305-day averages for recorded Holsteins in the Netherlands, Canada and the USA. In India, exotic and crossbred cows averaged 8.55 kg of milk a day in 2022–23, against 3.44 kg for indigenous and non-descript cows.",
     },
+    milkTypeText: "Mixed, not reliably A2",
     uses: ["Milk", "Crossbreeding with indigenous breeds, for example the Girolando in Brazil"],
     adaptation: [
       "Sweats far less than zebu cattle and pants nearly twice as fast under heat",
@@ -393,6 +460,63 @@ export const breedProfiles: BreedProfile[] = [
       { label: "Wang et al. 2015: sweating rates of zebu and Holstein cattle", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4647095" },
       { label: "FAO: crossbreeding in India", url: "https://www.fao.org/4/t0095e/T0095E05.htm" },
       A1A2,
+    ],
+  },
+  {
+    slug: "jersey",
+    species: "Cattle · Bos taurus (European dairy)",
+    intro:
+      "Jersey is the small dairy breed from the island of Jersey, prized for milk rich in fat and protein. In India it is mostly met as the Jersey cross: crossbred Jersey makes up about half of the country’s exotic and crossbred cattle.",
+    homeland: {
+      tract: "The Island of Jersey in the Channel Islands. The island kept its herd closed to imports for over 200 years, until 2008.",
+      nameOrigin: "Named after the island. In India it is usually met as the Jersey crossbred.",
+    },
+    looks: [
+      { label: "Coat", text: "Usually reddish fawn." },
+      { label: "Build", text: "The smallest dairy breed: compact and angular, with a dished forehead." },
+    ],
+    size: { cow: "410–480 kg" },
+    dairy: {
+      lactation: "2,394 kg",
+      lactationLabel: "Per 305-day lactation, Jersey crosses in India",
+      lactationSource: "75,627 crossbred cows, Tamil Nadu",
+      fat: "4.5–5%",
+      firstCalving: "25–30 months",
+      calvingInterval: "13–14 months",
+      note: "Purebred Jerseys on the hot Tamil Nadu plains averaged about 1,490 kg per 305 days, far below herds at high altitude. Recorded US Jerseys, by contrast, average over 9,000 kg a lactation.",
+    },
+    milkTypeText: "Mixed, not reliably A2",
+    uses: ["Milk, especially for butter, ghee and cheese", "Crossbreeding with non-descript cattle, keeping exotic inheritance to about half"],
+    adaptation: [
+      "Handles heat better than Holstein Friesian: in a US study on one farm, Jersey yield held up where Holstein yield fell",
+      "Performs best in cooler, high-altitude areas; much lower yields on hot plains",
+      "Gives less milk by volume than Holstein, but richer in fat",
+    ],
+    world: {
+      heading: "From one island to over 80 countries",
+      paragraphs: [
+        "Jerseys are now found in at least 82 countries. In the United States, about 1.8 million Jerseys make up some 14% of dairy cows.",
+        "In India, Jersey became the backbone of crossbreeding. In Tamil Nadu, Jersey crossbreds produce about 90% of the state’s milk, and in Kerala, Jersey bulls helped create the Sunandini breed.",
+      ],
+      countries: ["United States", "Denmark", "Japan", "Mexico"],
+    },
+    population: "Crossbred Jersey is about half of India’s exotic and crossbred cattle (20th Livestock Census breed report).",
+    farmerNotes: [
+      { title: "Expect less on hot plains", body: "A purebred Jersey on a hot Tamil Nadu farm gave about 1,490 kg per 305 days, far below brochure figures. Indian policy favours crosses of up to about half Jersey." },
+      { title: "Not reliably A2", body: "None of the Jersey crossbred cows tested in one Tamil Nadu study were A2A2. If your market pays for A2 milk, ask for genotyped A2A2 semen or embryos, or choose an indigenous breed." },
+      { title: "Choose it for richness, not litres", body: "Jerseys cope with heat better than Holsteins but give less milk by volume. The case for them is a smaller animal and richer milk." },
+    ],
+    sources: [
+      { label: "TNAU Agritech: exotic cattle breeds", url: "https://agritech.tnau.ac.in/animal_husbandry/animhus_cattle%20_breed_exotic.html" },
+      { label: "American Jersey Cattle Association", url: "https://usjersey.com/about-us/" },
+      { label: "Frontiers in Genetics 2020: the Island Jersey", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7181675/" },
+      { label: "Thiruvenkadan: purebred Jersey on the Tamil Nadu plains", url: "https://agris.fao.org/search/en/records/6851787553e52c13fc76fd52" },
+      { label: "Kasiviswanathan et al. 2024, Animals: Jersey crossbreds in Tamil Nadu", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11544852/" },
+      A1A2,
+      { label: "Kathiravan et al. 2023, Indian Journal of Animal Research: A1/A2 in cattle and buffalo", url: "https://arccjournals.com/journal/indian-journal-of-animal-research/B-4344" },
+      { label: "Smith et al. 2013, Journal of Dairy Science: Jersey and Holstein under heat stress", url: "https://pubmed.ncbi.nlm.nih.gov/23498016/" },
+      { label: "FAO: the Sunandini breed of Kerala", url: "https://www.fao.org/4/t4650t/t4650T0v.htm" },
+      { label: "Krishi Jagran: breed-wise report, 20th Livestock Census", url: "https://krishijagran.com/animal-husbandry/government-releases-breed-wise-report-of-livestock-poultry-based-on-20th-livestock-census/" },
     ],
   },
 ];

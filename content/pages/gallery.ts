@@ -4,7 +4,7 @@ import type { PhotoKey } from "../media";
 export const galleryPage = {
   meta: {
     title: "Gallery: Life at Reynadu Farm",
-    description: "Photographs from Hebbevu Genetics: the indigenous herd, the seven breeds, the lab and the people who run it.",
+    description: "Photographs from Hebbevu Genetics: the indigenous herd, the breeds, the lab and the people who run it.",
   },
   title: "Gallery",
   lede: "The herd, the breeds, the lab and the people behind them, photographed at the farm.",
@@ -28,6 +28,8 @@ export const galleryPage = {
     ["breeds/kankrej", "Breeds"],
     ["breeds/rathi", "Breeds"],
     ["breeds/jaffarabadi", "Breeds"],
+    ["breeds/murrah", "Breeds"],
+    ["farm/buffalo-group", "The herd"],
     ["breeds/holstein-friesian", "Breeds"],
     ["people/two-with-bull", "People"],
     ["people/team-at-fence", "People"],

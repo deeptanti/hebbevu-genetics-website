@@ -47,19 +47,13 @@ export default async function BreedPage({ params }: Props) {
   const related = (breed.articles ?? []).map(getArticle).filter((a) => a !== undefined);
   const topicLabel = (id: string) => topics.find((t) => t.id === id)?.question;
   const photo = getPhoto(`breeds/${breed.slug}`);
-  const isHF = breed.slug === "holstein-friesian";
 
   // Alternate white/mist after the white hero, whatever optional sections render.
   let n = 0;
   const tone = (): SectionTone => (n++ % 2 === 0 ? "white" : "mist");
 
-  const milkTypeText = profile.isBuffalo
-    ? copy.milkType.buffalo
-    : breed.milkType === "A2"
-      ? copy.milkType.a2
-      : isHF
-        ? copy.milkType.notA2
-        : copy.milkType.unknown;
+  const milkTypeText =
+    profile.milkTypeText ?? (profile.isBuffalo ? copy.milkType.buffalo : breed.milkType === "A2" ? copy.milkType.a2 : copy.milkType.unknown);
 
   const tableRows = [
     { id: "species", attribute: "Species", value: profile.species },
@@ -68,7 +62,7 @@ export default async function BreedPage({ params }: Props) {
     { id: "daily", attribute: "Typical daily yield, good management", value: breed.milkYield },
     {
       id: "lactation",
-      attribute: isHF ? "Average per 305-day lactation (recorded herds abroad)" : "National average per lactation",
+      attribute: profile.dairy.lactationLabel ?? "National average per lactation",
       value: profile.dairy.lactationRange ? `${profile.dairy.lactation} (range ${profile.dairy.lactationRange})` : profile.dairy.lactation,
     },
     { id: "fat", attribute: "Milk fat", value: profile.dairy.fat },
@@ -107,7 +101,7 @@ export default async function BreedPage({ params }: Props) {
   return (
     <>
       <PageHero
-        photo={photo ?? photos["banners/herd-road"]}
+        photo={photo ?? photos["farm/aerial"]}
         kicker={breed.epithet}
         title={breed.name}
         lede={profile.intro}
@@ -124,8 +118,8 @@ export default async function BreedPage({ params }: Props) {
           <Stat value={breed.milkYield.replace(" litres/day", "")} label="Litres a day, good management" note="Hebbevu’s typical range" />
           <Stat
             value={profile.dairy.lactation}
-            label={isHF ? "Per lactation, abroad" : "Per lactation, national average"}
-            note={isHF ? "Recorded herds, 305 days" : "ICAR-NBAGR breed average"}
+            label={profile.dairy.lactationLabel ?? "Per lactation, national average"}
+            note={profile.dairy.lactationSource ?? "ICAR-NBAGR breed average"}
           />
           <Stat value={profile.dairy.fat} label="Milk fat" />
           {profile.size.cow && <Stat value={profile.size.cow} label={profile.isBuffalo ? "Female body weight" : "Cow body weight"} />}
@@ -345,7 +339,7 @@ export default async function BreedPage({ params }: Props) {
             ← {prev.name}
           </Link>
           <Link href="/breeds/compare" className="transition-ui type-small inline-flex min-h-7 items-center text-brown underline underline-offset-4 hover:text-brown-dark">
-            Compare all seven
+            Compare all breeds
           </Link>
           <Link href={`/breeds/${next.slug}`} className="transition-ui type-subheading inline-flex min-h-7 items-center text-brown hover:text-brown-dark">
             {next.name} →

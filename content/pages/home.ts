@@ -12,7 +12,7 @@ export const homeCopy = {
   },
   heroBreeds: ["Gir", "Sahiwal", "Ongole", "Kankrej"],
   /** Marquee strip: the technical register (§13) - breeds, protocols, record points. */
-  ticker: ["Gir", "Sahiwal", "Ongole", "Kankrej", "Rathi", "Jaffarabadi", "Holstein Friesian", "IVF", "Embryo transfer", "Sex-sorted embryos", "Checks at day 35 & 60", "Fresh or frozen", "A2 milk"],
+  ticker: ["Gir", "Sahiwal", "Ongole", "Kankrej", "Rathi", "Jaffarabadi", "Murrah", "Holstein Friesian", "Jersey", "IVF", "Embryo transfer", "Sex-sorted embryos", "Checks at day 35 & 60", "Fresh or frozen", "A2 milk"],
   pillarsHeading: "Why Choose Hebbevu Genetics",
   statsHeading: "Our Impact in Cattle Genetics",
   services: {
@@ -26,10 +26,10 @@ export const homeCopy = {
   },
   breeds: {
     kicker: "Native Breeds of Pride",
-    heading: "Seven breeds on one scale",
+    heading: "Every breed on one scale",
     chartCaption: "Typical daily milk yield under good management. Ranges, not guarantees: feed, climate, health and handling all move the number. Select a breed to read more.",
     featured: ["gir", "sahiwal", "ongole", "kankrej"],
-    allLabel: "See all seven breeds",
+    allLabel: "See all our breeds",
   },
   lab: {
     kicker: "The Lab",

@@ -1,7 +1,7 @@
 import type { Breed } from "./types";
 
 /**
- * The seven breeds (client doc "Our Breeds" + brief §8).
+ * The breeds (client doc "Our Breeds" + brief §8; Jersey and Murrah added at the client's request, researched).
  * Yields are typical ranges under good management - NOT guarantees. Every page that
  * shows a yield must also show `yieldDisclaimer`.
  */
@@ -92,6 +92,17 @@ export const breeds: Breed[] = [
     strength: "Rare and premium breed with high value",
   },
   {
+    slug: "murrah",
+    name: "Murrah",
+    epithet: "Black Gold of Haryana",
+    origin: "Haryana",
+    // Researched (not from the client doc): typical in-milk yield for a well-managed animal.
+    milkYield: "8–12 litres/day",
+    milkType: "A2",
+    traits: ["Jet-black coat", "Tightly curled horns", "High-fat milk"],
+    strength: "India’s most widely used dairy buffalo, for milk rich in fat",
+  },
+  {
     slug: "holstein-friesian",
     name: "Holstein Friesian",
     epithet: "World’s Dairy Giant",
@@ -107,6 +118,17 @@ export const breeds: Breed[] = [
         "Many farms that switch find that input cost and veterinary load erase the yield advantage. If your constraint is heat, water or feed consistency, a Gir or Sahiwal will make more money. That is arithmetic, not patriotism.",
       ],
     },
+  },
+  {
+    slug: "jersey",
+    name: "Jersey",
+    epithet: "Small Frame, Rich Milk",
+    origin: "Jersey, Channel Islands",
+    // Researched (not from the client doc): well-managed Jersey crossbreds in India.
+    milkYield: "8–12 litres/day",
+    milkType: null,
+    traits: ["Rich milk", "Small, compact frame", "More heat-tolerant than Holstein"],
+    strength: "The exotic breed most used in Indian crossbreeding",
   },
 ];
 

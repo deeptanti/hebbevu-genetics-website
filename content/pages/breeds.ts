@@ -3,18 +3,18 @@ export const breedsPage = {
   metaTitle: "Indigenous Cattle Breeds in India | Hebbevu Genetics",
   metaDescription:
     "Explore indigenous cattle breeds like Ongole, Gir, Sahiwal, and more at Hebbevu Genetics, focused on improving dairy productivity through advanced genetics.",
-  gridHeading: "Seven breeds",
-  gridIntro: "Five indigenous cattle breeds, one indigenous buffalo and one global dairy breed. Each has its own page, and one table compares them all.",
+  gridHeading: "Our breeds",
+  gridIntro: "Five indigenous cattle breeds, two Indian buffalo breeds and two global dairy breeds. Each has its own page, and one table compares them all.",
   questionsHeading: "Four questions before you choose",
   questionsIntro: "The right breed depends on your land, your feed and your market more than on any single number.",
-  compareLink: "Compare all seven breeds",
+  compareLink: "Compare all breeds",
   heroActions: [
     { label: "Compare the breeds", href: "/breeds/compare" },
     { label: "Explore our services", href: "/services" },
   ],
   chartKicker: "On one scale",
   chartHeading: "How much milk each breed gives",
-  chartIntro: "Typical daily yield under good management, for all seven breeds. Select a breed to read its full profile.",
+  chartIntro: "Typical daily yield under good management, for every breed. Select a breed to read its full profile.",
   criteria: [
     { title: "Climate adaptability", body: "How the breed copes with heat, humidity and dry seasons on your land.", icon: "thermometer" },
     { title: "Milk productivity", body: "Daily yield and fat, measured against what your market pays for.", icon: "droplet" },
@@ -30,12 +30,12 @@ export const breedsPage = {
 };
 
 export const comparePage = {
-  title: "Compare the seven breeds",
-  description: "Species, origin, daily and per-lactation milk yield, fat, milk type and body weight for all seven breeds in one table.",
-  lede: "All seven breeds side by side. Use it to narrow the field, then talk to us about your land, feed and market.",
+  title: "Compare the breeds",
+  description: "Species, origin, daily and per-lactation milk yield, fat, milk type and body weight for every breed in one table.",
+  lede: "Every breed side by side. Use it to narrow the field, then talk to us about your land, feed and market.",
   caption: "Breed comparison. Daily yield: Hebbevu’s typical range under good management. Per lactation, fat and weight: ICAR-NBAGR national breed averages (Holstein: recorded herds abroad).",
   notStated: "Not stated",
-  tableHeading: "All seven, side by side",
+  tableHeading: "All breeds, side by side",
   tableIntro: "Daily yield is Hebbevu’s typical range under good management. Per-lactation yield, fat and weight are national breed averages.",
   chartHeading: "Daily yield on one scale",
   heroActions: [
@@ -47,12 +47,12 @@ export const comparePage = {
 export const breedDetailCopy = {
   heroActions: [
     { label: "Book a Consultation", href: "/book" },
-    { label: "Compare all seven", href: "/breeds/compare" },
+    { label: "Compare all breeds", href: "/breeds/compare" },
   ],
   factsHeading: "At a glance",
   glanceIntro:
     "Two kinds of number, side by side: what this breed typically gives under good management, and the national breed average recorded by ICAR-NBAGR across every kind of farm.",
-  chartHeading: "Typical daily yield, all seven breeds",
+  chartHeading: "Typical daily yield, every breed",
   profileHeading: "Getting to know the",
   sizeNote: "Average adult size, ICAR-NBAGR.",
   strengthsHeading: "Strengths in the field",
