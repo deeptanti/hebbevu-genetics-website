@@ -37,9 +37,9 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
     <li className="group relative">
       <Link href={item.href} className={linkCls} aria-current={active ? "page" : undefined}>
         {item.label}
-        <ChevronDown aria-hidden="true" strokeWidth={ICON_STROKE} className="size-4" />
+        <ChevronDown aria-hidden="true" strokeWidth={ICON_STROKE} className="transition-move size-4 group-hover:rotate-180" />
       </Link>
-      <div className="invisible absolute top-full left-0 z-50 pt-2 group-focus-within:visible group-hover:visible">
+      <div className="transition-move invisible absolute top-full left-0 z-50 translate-y-2 pt-2 opacity-0 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
         <ul className="flex w-max flex-col rounded-lg border border-stone bg-white p-2 shadow-md">
           {item.children.map((c) => (
             <li key={c.href}>

@@ -2,7 +2,8 @@ import { BulletList } from "@/components/blocks/BulletList";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { BreedCard, Button, ButtonGroup, CTABand, SectionHeader } from "@/components/ui";
-import { breedSelection, breeds, breedsIntro, yieldDisclaimer } from "@/content/breeds";
+import { breedSelection, breeds, breedsIntro, parseYield, yieldDisclaimer } from "@/content/breeds";
+import { YieldChart } from "@/components/visuals/YieldChart";
 import { breedsPage } from "@/content/pages/breeds";
 import { pageMeta } from "@/lib/metadata";
 
@@ -43,6 +44,15 @@ export default function BreedsPage() {
             </Button>
           }
         />
+        <div className="mb-8 rounded-lg border border-stone bg-white p-4 md:p-6">
+          <YieldChart
+            rows={breeds.map((b) => {
+              const [min, max] = parseYield(b.milkYield);
+              return { slug: b.slug, name: b.name, epithet: b.epithet, min, max, a2: b.milkType === "A2" };
+            })}
+            caption={yieldDisclaimer}
+          />
+        </div>
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {breeds.map((b) => (
             <li key={b.slug}>
@@ -55,6 +65,7 @@ export default function BreedsPage() {
                   { label: "Milk yield", value: b.milkYield },
                 ]}
                 tags={b.milkType ? [`${b.milkType} milk`] : undefined}
+                specimen={{ origin: b.origin, min: parseYield(b.milkYield)[0], max: parseYield(b.milkYield)[1] }}
               />
             </li>
           ))}

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Heading } from "../typography/Heading";
+import { Reveal } from "../motion/Reveal";
 
 /**
  * SectionHeader — kicker (`subheading`), H2, optional intro. Caps at 720px.
@@ -37,10 +38,10 @@ export function SectionHeader({
   const paras = intro === undefined ? [] : Array.isArray(intro) ? intro : [intro];
   const dark = ground === "dark";
   return (
+    <Reveal className={cn(!flush && "mb-6", align === "center" && "mx-auto")}>
     <header
       className={cn(
         "flex max-w-prose flex-col gap-4",
-        !flush && "mb-6",
         align === "center" && "mx-auto items-center text-center",
         className,
       )}
@@ -56,5 +57,6 @@ export function SectionHeader({
       ))}
       {actions && <div className="pt-2">{actions}</div>}
     </header>
+    </Reveal>
   );
 }

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { cn } from "@/lib/cn";
-import { ICON_STROKE } from "./Icon";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
 export type Ground = "light" | "dark";
@@ -26,7 +25,7 @@ const styles: Record<Ground, Record<ButtonVariant, string>> = {
 };
 
 const base =
-  "transition-ui type-body inline-flex min-h-7 items-center justify-center gap-2 rounded-md border font-semibold";
+  "transition-move group type-body inline-flex min-h-7 items-center justify-center gap-2 rounded-md border font-semibold";
 
 interface CommonProps {
   variant?: ButtonVariant;
@@ -56,7 +55,7 @@ export function Button(props: ButtonProps) {
     <>
       {icon}
       <span>{children}</span>
-      {arrow && <ArrowRight aria-hidden="true" strokeWidth={ICON_STROKE} className="size-5" />}
+      {arrow && <ArrowRight aria-hidden="true" weight="bold" className="transition-move size-4 group-hover:translate-x-1" />}
     </>
   );
 

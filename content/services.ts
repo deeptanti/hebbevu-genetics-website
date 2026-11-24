@@ -215,3 +215,35 @@ export const qualifier = {
     },
   ],
 };
+
+/** Two-path chooser (home + services): the farmer picks the sentence that is true for them. */
+export const pathOptions = [
+  {
+    id: "own-donors",
+    prompt: "I already own good cows",
+    kicker: ivfYourDonors.kicker,
+    title: ivfYourDonors.title,
+    summary: ivfYourDonors.summary,
+    pointsLabel: "What’s included, in order",
+    points: ivfYourDonors.includes!,
+    ordered: true,
+    href: ivfYourDonors.href,
+    cta: "How IVF with your donors works",
+  },
+  {
+    id: "buy-embryos",
+    prompt: "I want better genetics than I own",
+    kicker: buyEmbryos.kicker,
+    title: buyEmbryos.title,
+    summary: buyEmbryos.summary,
+    pointsLabel: "Two kinds of embryo",
+    points: [
+      `${sexSorted.title}: ${sexSorted.benefits![0].toLowerCase()}`,
+      `${conventional.title}: ${conventional.benefits![0].toLowerCase()}`,
+      "Minimum order: 10 embryos",
+    ],
+    ordered: false,
+    href: buyEmbryos.href,
+    cta: "Compare the embryos",
+  },
+];

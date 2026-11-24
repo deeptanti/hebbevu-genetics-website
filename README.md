@@ -59,7 +59,9 @@ Legacy redirects from the content doc: /blogs, /blog/:slug, /about-us, /our-serv
 - **One primary `Button` per section. One `CTABand` (deep) per page, placed last.**
 - **Don't override component classes with conflicting utilities** (`className="mb-0"`). `cn()` doesn't merge classes, so use the props (`flush`, `framed`).
 - Type: `display` = Playfair 700, `clamp(44px, 5.6vw, 84px)`, line-height 1.06, tracking −0.02em. Below 768px, h1/h2/h3/stat drop one step.
-- Icons: **Lucide**, stroke 1.5, 24px, `currentColor`.
+- Icons: **Phosphor duotone**, 24px, `currentColor` (brown on light, mist on dark), usually inside an `IconTile`. Lucide remains only for small UI glyphs (chevrons, menu).
+- **Motion** (added at client request — overrides the brief's "nothing moves"): one soft easing (`--ease-out-soft`), reveals once per element on first view, and everything stops under `prefers-reduced-motion`. Interactive pieces live in `components/visuals`: `EmbryoScope` (hero), `PathChooser`, `IvfTimeline`, `YieldChart`, `BreedSpecimen`, `Ticker`.
+- Two derived tints were added: `clay` and `sand` (brown on white). They're used for decorative fills only, never text.
 
 ## Waiting on the client
 

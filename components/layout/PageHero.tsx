@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Heading } from "../typography/Heading";
 import { Breadcrumbs } from "./Breadcrumbs";
+import { Reveal, RevealItem } from "../motion/Reveal";
 import { Section, type SectionTone } from "./Section";
 
 /**
@@ -27,20 +28,30 @@ export function PageHero({ title, kicker, lede, display, breadcrumbs, actions, a
     <Section tone={tone} size={display ? "hero" : "default"}>
       {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
       <div className={cn("grid gap-7", aside && "lg:grid-cols-2 lg:items-center")}>
-        <div className="flex max-w-prose flex-col gap-5">
-          {kicker && <p className="type-subheading text-brown">{kicker}</p>}
-          <Heading level={1} variant={display ? "display" : "h1"}>
-            {title}
-          </Heading>
+        <Reveal stagger={0.09} className="flex max-w-prose flex-col gap-5">
+          {kicker && (
+            <RevealItem>
+              <p className="type-subheading text-brown">{kicker}</p>
+            </RevealItem>
+          )}
+          <RevealItem>
+            <Heading level={1} variant={display ? "display" : "h1"}>
+              {title}
+            </Heading>
+          </RevealItem>
           {ledes.map((l) => (
-            <p key={l} className="type-lede text-ink">
-              {l}
-            </p>
+            <RevealItem key={l}>
+              <p className="type-lede text-ink">{l}</p>
+            </RevealItem>
           ))}
-          {actions && <div className="pt-2">{actions}</div>}
-          {children}
-        </div>
-        {aside && <div>{aside}</div>}
+          {actions && <RevealItem className="pt-2">{actions}</RevealItem>}
+          {children && <RevealItem>{children}</RevealItem>}
+        </Reveal>
+        {aside && (
+          <Reveal delay={0.25}>
+            {aside}
+          </Reveal>
+        )}
       </div>
     </Section>
   );

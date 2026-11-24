@@ -50,7 +50,12 @@ export type IconName =
   | "sparkles"
   | "trending"
   | "heart"
-  | "scale";
+  | "scale"
+  | "cow"
+  | "syringe"
+  | "testtube"
+  | "plant"
+  | "eyedropper";
 
 export interface Feature {
   title: string;

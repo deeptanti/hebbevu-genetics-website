@@ -1,4 +1,5 @@
 import { cn } from "@/lib/cn";
+import { CountUp } from "../motion/CountUp";
 
 /**
  * Stat — figure in `stat`, label in `label` (brief §13: never bury figures in prose).
@@ -17,7 +18,9 @@ export function Stat({ value, label, note, ground = "light", className }: StatPr
   return (
     <div className={cn("flex flex-col gap-2", className)}>
       <dt className={cn("type-label order-2", dark ? "text-mist" : "text-graphite")}>{label}</dt>
-      <dd className={cn("type-stat order-1", dark ? "text-mist" : "text-deep")}>{value}</dd>
+      <dd className={cn("type-stat order-1", dark ? "text-mist" : "text-deep")}>
+        <CountUp value={value} />
+      </dd>
       {note && <dd className={cn("type-small order-3", dark ? "text-mist" : "text-graphite")}>{note}</dd>}
     </div>
   );

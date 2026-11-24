@@ -4,8 +4,9 @@ import { notFound } from "next/navigation";
 import { BulletList } from "@/components/blocks/BulletList";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { ArticleCard, CTABand, ChipList, MediaPlaceholder, SectionHeader, Stat } from "@/components/ui";
-import { breedSelection, breeds, getBreed, yieldDisclaimer } from "@/content/breeds";
+import { ArticleCard, CTABand, ChipList, SectionHeader, Stat } from "@/components/ui";
+import { BreedSpecimen } from "@/components/visuals/BreedSpecimen";
+import { breedSelection, breeds, getBreed, yieldDisclaimer, parseYield } from "@/content/breeds";
 import { getArticle, readingMinutes, topics } from "@/content/knowledge";
 import { breedDetailCopy } from "@/content/pages/breeds";
 import { pageMeta } from "@/lib/metadata";
@@ -58,7 +59,15 @@ export default async function BreedPage({ params }: Props) {
         title={breed.name}
         lede={breed.strength}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Breeds", href: "/breeds" }, { label: breed.name }]}
-        aside={<MediaPlaceholder subject={`${breed.name} — this breed’s own animal, side profile`} />}
+        aside={
+          <BreedSpecimen
+            name={breed.name}
+            origin={breed.origin}
+            min={parseYield(breed.milkYield)[0]}
+            max={parseYield(breed.milkYield)[1]}
+            className="rounded-lg border border-stone"
+          />
+        }
       >
         <ChipList items={breed.traits} />
       </PageHero>

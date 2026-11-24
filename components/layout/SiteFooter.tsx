@@ -41,12 +41,21 @@ export function SiteFooter() {
                 <ul className="flex flex-col">
                   {col.items.map((it) => (
                     <li key={it.href}>
-                      <Link
-                        href={it.href}
-                        className="transition-ui type-small inline-flex min-h-7 items-center text-mist underline-offset-4 hover:text-white hover:underline"
-                      >
-                        {it.label}
-                      </Link>
+                      {it.href === "/careers" ? (
+                        <a
+                          href={site.careersUrl}
+                          className="transition-ui type-small inline-flex min-h-7 items-center text-mist underline-offset-4 hover:text-white hover:underline"
+                        >
+                          {it.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={it.href}
+                          className="transition-ui type-small inline-flex min-h-7 items-center text-mist underline-offset-4 hover:text-white hover:underline"
+                        >
+                          {it.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

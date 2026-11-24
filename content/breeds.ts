@@ -112,6 +112,12 @@ export const breeds: Breed[] = [
 
 export const getBreed = (slug: string) => breeds.find((b) => b.slug === slug);
 
+/** "12–15 litres/day" → [12, 15]. For charts and specimen plates. */
+export function parseYield(s: string): [number, number] {
+  const [a, b] = s.match(/\d+/g)!.map(Number);
+  return [a, b ?? a];
+}
+
 /** "Native Breeds of Pride" (client doc, Breeds page). */
 export const breedsIntro = {
   heading: "Our Breeds – Indigenous Excellence in Cattle Genetics",

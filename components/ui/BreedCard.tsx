@@ -1,6 +1,7 @@
 import { CardLink, CardMore } from "./Card";
 import { Chip } from "./Chip";
 import { MediaPlaceholder } from "./MediaPlaceholder";
+import { BreedSpecimen } from "../visuals/BreedSpecimen";
 
 export interface BreedCardProps {
   href: string;
@@ -12,14 +13,20 @@ export interface BreedCardProps {
   tags?: string[];
   /** Each breed needs ITS OWN photograph (brief §15.5). Until supplied, a placeholder names the shot. */
   photoSubject?: string;
+  /** Specimen plate data. When given, replaces the grey placeholder. */
+  specimen?: { origin: string; min: number; max: number };
   level?: 2 | 3;
 }
 
-export function BreedCard({ href, name, epithet, facts, tags, photoSubject, level = 3 }: BreedCardProps) {
+export function BreedCard({ href, name, epithet, facts, tags, photoSubject, specimen, level = 3 }: BreedCardProps) {
   const H = `h${level}` as const;
   return (
     <CardLink href={href} flush>
-      <MediaPlaceholder subject={photoSubject ?? `${name} — individual animal, side profile`} framed={false} />
+      {specimen ? (
+        <BreedSpecimen name={name} origin={specimen.origin} min={specimen.min} max={specimen.max} />
+      ) : (
+        <MediaPlaceholder subject={photoSubject ?? `${name} — individual animal, side profile`} framed={false} />
+      )}
       <div className="border-t border-stone" />
       <div className="flex flex-1 flex-col p-4 md:p-5">
         <p className="type-label mb-2 text-graphite">{epithet}</p>

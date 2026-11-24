@@ -1,6 +1,6 @@
 import type { IconName } from "@/content/types";
 import { CardLink, CardMore } from "./Card";
-import { Icon } from "./Icon";
+import { Icon, IconTile } from "./Icon";
 
 export interface ServiceCardProps {
   href: string;
@@ -19,9 +19,9 @@ export function ServiceCard({ href, title, summary, kicker, icon, points, more =
   const H = `h${level}` as const;
   return (
     <CardLink href={href}>
-      <div className="mb-4 flex items-center justify-between gap-4">
+      <div className="mb-5 flex items-center justify-between gap-4">
+        {icon && <IconTile name={icon} />}
         {kicker && <span className="type-label text-graphite">{kicker}</span>}
-        {icon && <Icon name={icon} className="text-brown" />}
       </div>
       <H className="type-h3 mb-3 text-ink">{title}</H>
       <p className="type-body text-ink">{summary}</p>

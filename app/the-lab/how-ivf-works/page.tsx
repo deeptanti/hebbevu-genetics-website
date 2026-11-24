@@ -6,6 +6,7 @@ import { Heading, Pending } from "@/components/typography";
 import { Chip, CTABand, DataTable, SectionHeader } from "@/components/ui";
 import { gradingRules, ivfCycle, pipeline, syncProtocols } from "@/content/lab";
 import { labPages } from "@/content/pages/lab";
+import { IvfTimeline } from "@/components/visuals/IvfTimeline";
 import { pageMeta } from "@/lib/metadata";
 
 const copy = labPages.howIvfWorks;
@@ -28,6 +29,8 @@ export default function HowIvfWorksPage() {
 
       <Section>
         <SectionHeader title={copy.cycleHeading} intro={copy.cycleIntro} />
+        <IvfTimeline days={ivfCycle} />
+        <h3 className="type-h3 mt-8 mb-5 text-ink">The full record, day by day</h3>
         <DataTable
           caption="The seven-day IVF cycle and what is recorded at each stage"
           columns={[

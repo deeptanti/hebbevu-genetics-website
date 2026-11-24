@@ -11,6 +11,9 @@
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
+/* Yield chart: a 0–30 l/day scale laid out as a 30-column grid (no inline styles). */
+@source inline("col-start-{1..31} col-end-{1..31}");
+
 @theme {
   /* ---- Colour (§6) ---------------------------------------------------- */
   /* Grounds */
@@ -25,6 +28,10 @@
   --color-brown-dark: #613825; /* hover / pressed */
   --color-bark: #38271d; /* stat bands, inset panels */
   --color-deep: #241a14; /* darkest ground; h1/h2 */
+  /* Derived tints (added in the visual pass — flagged): brown mixed into white.
+     Decorative fills only: icon tiles, chart tracks, specimen grounds. Never text. */
+  --color-clay: #f4ebe6; /* ≈10% brown on white */
+  --color-sand: #e9d7cd; /* ≈22% brown on white */
   /* Signal */
   --color-danger: #a33a26; /* form validation only */
 
@@ -77,9 +84,23 @@
   --aspect-portrait: 4 / 5;
   --aspect-wide: 16 / 9;
 
-  /* Motion: 120ms on colour and border only. Nothing moves. */
+  /* Motion. Colour/border stay at 120ms. Movement (added at client request,
+     overriding the brief's "nothing moves") uses one easing, and is switched
+     off entirely under prefers-reduced-motion. */
   --default-transition-duration: 120ms;
   --default-transition-timing-function: ease-out;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-pulse-soft: pulse-soft 3s var(--ease-out-soft) infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
 }
 
 /* next/font variables → font tokens (runtime vars, so `inline`) */
@@ -195,11 +216,23 @@
 
 /* Colour is applied by <Heading>/<Text> (deep for display/h1/h2, ink for h3, mist on dark). */
 
-/* Colour + border transitions only, 120ms. */
+/* Colour + border transitions, 120ms. */
 @utility transition-ui {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-duration: var(--default-transition-duration);
   transition-timing-function: var(--default-transition-timing-function);
+}
+/* Movement transitions (arrows nudging, cards settling): 320ms, soft ease. */
+@utility transition-move {
+  transition-property: color, background-color, border-color, transform, opacity, box-shadow;
+  transition-duration: 320ms;
+  transition-timing-function: var(--ease-out-soft);
+}
+
+/* Faint lab-paper dot grid for feature grounds. */
+@utility bg-dots {
+  background-image: radial-gradient(var(--color-sand) 1px, transparent 1px);
+  background-size: var(--spacing-5) var(--spacing-5);
 }
 
 /* ===================================================================== *
@@ -235,6 +268,18 @@
   summary::-webkit-details-marker {
     display: none;
   }
+  /* Smooth accordion open/close where supported (progressive enhancement). */
+  :root {
+    interpolate-size: allow-keywords;
+  }
+  details::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size 320ms var(--ease-out-soft), content-visibility 320ms allow-discrete;
+  }
+  details[open]::details-content {
+    block-size: auto;
+  }
 
   ::selection {
     background: var(--color-brown);
@@ -246,6 +291,11 @@
     *::before,
     *::after {
       transition-duration: 0ms !important;
+      animation: none !important;
     }
   }
+}
+
+@utility paused {
+  animation-play-state: paused;
 }

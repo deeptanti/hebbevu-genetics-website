@@ -3,8 +3,9 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { Button, ButtonGroup, MediaPlaceholder, SectionHeader, ServiceCard } from "@/components/ui";
 import { servicesPage as page } from "@/content/pages/services";
-import { buyEmbryos, differentiators, embryoProducts, embryoTransfer, ivfYourDonors, servicesIntro } from "@/content/services";
+import { differentiators, embryoTransfer, pathOptions, servicesIntro } from "@/content/services";
 import { primaryCta } from "@/content/site";
+import { PathChooser } from "@/components/visuals/PathChooser";
 import { pageMeta } from "@/lib/metadata";
 import { GuidelinesList, ServicesCTA, homeCrumb } from "./_components/shared";
 
@@ -30,26 +31,7 @@ export default function ServicesPage() {
 
       <Section tone="mist" labelledBy="paths">
         <SectionHeader id="paths" {...page.pathsHeader} />
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          <ServiceCard
-            href={ivfYourDonors.href}
-            kicker={ivfYourDonors.kicker}
-            title={ivfYourDonors.title}
-            summary={ivfYourDonors.summary}
-            icon={ivfYourDonors.icon}
-            points={ivfYourDonors.includes}
-            more="See how it works"
-          />
-          <ServiceCard
-            href={buyEmbryos.href}
-            kicker={buyEmbryos.kicker}
-            title={buyEmbryos.title}
-            summary={buyEmbryos.summary}
-            icon={buyEmbryos.icon}
-            points={embryoProducts.map((p) => `${p.title} — ${p.summary}`)}
-            more="Compare embryo types"
-          />
-        </div>
+        <PathChooser paths={pathOptions} />
       </Section>
 
       <Section labelledBy="support">
