@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CTABand, DataTable } from "@/components/ui";
+import { getBreedProfile } from "@/content/breed-profiles";
 import { breeds, yieldDisclaimer } from "@/content/breeds";
 import { breedsPage, comparePage } from "@/content/pages/breeds";
 import { pageMeta } from "@/lib/metadata";
@@ -21,10 +22,13 @@ export default function ComparePage() {
           caption={comparePage.caption}
           columns={[
             { key: "breed", header: "Breed", rowHeader: true },
+            { key: "species", header: "Species" },
             { key: "origin", header: "Origin" },
-            { key: "yield", header: "Milk yield" },
+            { key: "yield", header: "Daily yield" },
+            { key: "lactation", header: "Per lactation" },
+            { key: "fat", header: "Fat" },
             { key: "milk", header: "Milk" },
-            { key: "traits", header: "Key traits" },
+            { key: "weight", header: "Cow weight" },
             { key: "strength", header: "Strength" },
           ]}
           rows={breeds.map((b) => ({
@@ -34,10 +38,13 @@ export default function ComparePage() {
                 {b.name}
               </Link>
             ),
+            species: getBreedProfile(b.slug)?.isBuffalo ? "Buffalo" : "Cattle",
             origin: b.origin,
             yield: b.milkYield,
+            lactation: getBreedProfile(b.slug)?.dairy.lactation ?? comparePage.notStated,
+            fat: getBreedProfile(b.slug)?.dairy.fat ?? comparePage.notStated,
             milk: b.milkType ?? comparePage.notStated,
-            traits: b.traits.join(", "),
+            weight: getBreedProfile(b.slug)?.size.cow ?? comparePage.notStated,
             strength: b.strength,
           }))}
         />

@@ -27,9 +27,9 @@ const TICKS = [0, 10, 20, 30];
 const colStart = (n: number) => `col-start-${n + 1}`;
 const colEnd = (n: number) => `col-end-${n + 1}`;
 
-export function YieldChart({ rows, caption }: { rows: YieldRow[]; caption: string }) {
+export function YieldChart({ rows, caption, highlight }: { rows: YieldRow[]; caption: string; /** Slug highlighted at rest (e.g. on a breed's own page). */ highlight?: string }) {
   const reduce = useReducedMotion();
-  const [active, setActive] = useState<string | null>(null);
+  const [active, setActive] = useState<string | null>(highlight ?? null);
 
   return (
     <figure className="flex flex-col gap-4">
@@ -55,7 +55,7 @@ export function YieldChart({ rows, caption }: { rows: YieldRow[]; caption: strin
         whileInView="show"
         viewport={{ once: true, margin: "0px 0px -15% 0px" }}
         variants={{ show: { transition: { staggerChildren: reduce ? 0 : 0.08 } } }}
-        onMouseLeave={() => setActive(null)}
+        onMouseLeave={() => setActive(highlight ?? null)}
       >
         {rows.map((r) => {
           const on = active === r.slug;
@@ -66,7 +66,7 @@ export function YieldChart({ rows, caption }: { rows: YieldRow[]; caption: strin
                 href={`/breeds/${r.slug}`}
                 onMouseEnter={() => setActive(r.slug)}
                 onFocus={() => setActive(r.slug)}
-                onBlur={() => setActive(null)}
+                onBlur={() => setActive(highlight ?? null)}
                 className={cn(
                   "transition-move grid grid-cols-1 items-center gap-3 border-b border-stone py-4 md:grid-cols-3 md:gap-6",
                   dim && "opacity-50",

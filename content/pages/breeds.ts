@@ -4,7 +4,7 @@ export const breedsPage = {
   metaDescription:
     "Explore indigenous cattle breeds like Ongole, Gir, Sahiwal, and more at Hebbevu Genetics, focused on improving dairy productivity through advanced genetics.",
   gridHeading: "Seven breeds",
-  gridIntro: "Six indigenous breeds and one global dairy breed. Each has its own page, and one table compares them all.",
+  gridIntro: "Five indigenous cattle breeds, one indigenous buffalo and one global dairy breed. Each has its own page, and one table compares them all.",
   questionsHeading: "Four questions before you choose",
   questionsIntro: "The right breed depends on your land, your feed and your market more than on any single number.",
   compareLink: "Compare all seven breeds",
@@ -18,14 +18,35 @@ export const breedsPage = {
 
 export const comparePage = {
   title: "Compare the seven breeds",
-  description: "Origin, milk yield, milk type, key traits and strength for all seven breeds in one table.",
+  description: "Species, origin, daily and per-lactation milk yield, fat, milk type and body weight for all seven breeds in one table.",
   lede: "All seven breeds side by side. Use it to narrow the field — then talk to us about your land, feed and market.",
-  caption: "Breed comparison — typical ranges under good management",
+  caption: "Breed comparison. Daily yield: Hebbevu’s typical range under good management. Per lactation, fat and weight: ICAR-NBAGR national breed averages (Holstein: recorded herds abroad).",
   notStated: "Not stated",
 };
 
 export const breedDetailCopy = {
   factsHeading: "At a glance",
+  glanceIntro:
+    "Two kinds of number, side by side: what this breed typically gives under good management, and the national breed average recorded by ICAR-NBAGR across every kind of farm.",
+  chartHeading: "Typical daily yield, all seven breeds",
+  profileHeading: "Getting to know the",
+  sizeNote: "Average adult size, ICAR-NBAGR.",
+  strengthsHeading: "Strengths in the field",
+  adaptationHeading: "Built for",
+  usesHeading: "Used for",
+  worldKicker: "Around the world",
+  recordsHeading: "Breed records",
+  recordsIntro: "The published facts in one place. Averages, not guarantees — individual animals and well-run herds can do far better.",
+  notesHeading: "What to know before you choose",
+  sourcesHeading: "Sources",
+  sourcesNote: "National averages come from the ICAR-NBAGR breed registry and the NDDB Dairy Knowledge Portal.",
+  buffaloNote: "Jaffarabadi is a buffalo breed, not cattle.",
+  milkType: {
+    a2: "A2 — indigenous zebu breeds are predominantly A2A2",
+    notA2: "Mixed — not reliably A2",
+    buffalo: "Buffalo milk",
+    unknown: "Not stated",
+  },
   traitsHeading: "Key traits",
   strengthLabel: "Strength",
   questionsHeading: "Is this the right breed for you?",
