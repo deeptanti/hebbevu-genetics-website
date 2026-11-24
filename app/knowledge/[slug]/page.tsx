@@ -8,6 +8,7 @@ import { articles } from "@/content/articles";
 import { articlesByTopic, getArticle, readingMinutes, topics } from "@/content/knowledge";
 import { articlePageCopy, knowledgePage } from "@/content/pages/knowledge";
 import { Photo } from "@/components/ui/Photo";
+import { ReadingHelix } from "@/components/visuals/ReadingHelix";
 import { getPhoto } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
@@ -37,6 +38,7 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
+      <ReadingHelix />
       <PageHero
         kicker={topic?.question}
         title={article.title}

@@ -12,7 +12,7 @@ export const homeCopy = {
   },
   heroBreeds: ["Gir", "Sahiwal", "Ongole", "Kankrej"],
   /** Marquee strip: the technical register (§13) — breeds, protocols, record points. */
-  ticker: ["Gir", "Sahiwal", "Ongole", "Kankrej", "Rathi", "Jaffarabadi", "Holstein Friesian", "OPU", "Egg grades A–D", "Embryo grades 1–3", "Checks at day 35 & 60", "Fresh or frozen", "CIDR · GPG · Double PG · Single PG"],
+  ticker: ["Gir", "Sahiwal", "Ongole", "Kankrej", "Rathi", "Jaffarabadi", "Holstein Friesian", "IVF", "Embryo transfer", "Sex-sorted embryos", "Checks at day 35 & 60", "Fresh or frozen", "A2 milk"],
   pillarsHeading: "Why Choose Hebbevu Genetics",
   statsHeading: "Our Impact in Cattle Genetics",
   services: {
@@ -33,7 +33,7 @@ export const homeCopy = {
   },
   lab: {
     kicker: "The Lab",
-    heading: "Seven days in the lab, every step on record",
+    heading: "Seven days from egg to embryo",
     traceHeading: "Every embryo traceable, both directions",
     allLabel: "Inside the lab",
   },

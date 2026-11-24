@@ -28,7 +28,7 @@ export const aboutPages = {
     meta: {
       title: "Our Story — Founders Brief",
       description:
-        "The founders’ vision behind Hebbevu Genetics: “Har ghar mein achhe gai” — high-quality cattle as a standard for every home, not a privilege for a few.",
+        "The founders’ vision behind Hebbevu Genetics: “Har ghar mein acchi gai” — high-quality cattle as a standard for every home, not a privilege for a few.",
     },
     heading: "From vision to reality",
     articleSlug: "story-behind-hebbevu-genetics",

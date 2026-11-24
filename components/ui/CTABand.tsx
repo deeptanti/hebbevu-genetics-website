@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Button, ButtonGroup } from "./Button";
 import { Section } from "../layout/Section";
+import { DnaHelix } from "../visuals/DnaHelix";
 
 /**
  * CTABand — THE dark conversion block. Exactly ONE per page (brief §6), on `deep`.
@@ -18,8 +19,9 @@ export interface CTABandProps {
 
 export function CTABand({ heading, body, kicker, primary, secondary, footnote }: CTABandProps) {
   return (
-    <Section tone="deep" labelledBy="cta-band-heading">
-      <div className="flex max-w-prose flex-col gap-5">
+    <Section tone="deep" labelledBy="cta-band-heading" className="relative overflow-hidden">
+      <DnaHelix ground="dark" turns={2.5} rungs={30} className="absolute top-1/2 -right-10 hidden w-1/2 -translate-y-1/2 opacity-40 lg:block" />
+      <div className="relative flex max-w-prose flex-col gap-5">
         {kicker && <p className="type-subheading text-mist">{kicker}</p>}
         <h2 id="cta-band-heading" className="type-h2 text-mist">
           {heading}

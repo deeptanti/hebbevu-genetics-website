@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
       { source: "/our-breeds", destination: "/breeds", permanent: true },
       { source: "/contact-us", destination: "/contact", permanent: true },
       { source: "/founders-brief", destination: "/about/story", permanent: true },
+      // Research page removed: internal programme, not public.
+      { source: "/the-lab/research", destination: "/the-lab", permanent: false },
     ];
   },
 };

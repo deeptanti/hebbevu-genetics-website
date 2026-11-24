@@ -1,45 +1,39 @@
 import type { Feature } from "./types";
 
-/** The lab (brief §9). Technical register — neutral, precise. */
+/**
+ * The lab — PUBLIC, farmer-level information only.
+ * Internal operations (record-keeping fields, grading rules, synchronisation protocol
+ * names, facility workflows, internal performance metrics and the research programme)
+ * were removed at the client's request: they are not public knowledge.
+ */
 
 export const labIntro = {
   heading: "South India’s first private cattle IVF lab",
-  lede: "The laboratory sits on the same land as the herd, at Reynadu Farm in Sri Sathya Sai district. Every embryo is graded, labelled and traceable back to its donor, sire and session.",
+  lede: "The laboratory sits on the same land as the herd, at Reynadu Farm in Sri Sathya Sai district. Every embryo can be traced back to its donor and sire.",
 };
 
-/** The seven-day IVF cycle. */
-export const ivfCycle: { day: string; stage: string; recorded: string }[] = [
+/** The seven-day journey, in plain words: what happens, not how the lab runs. */
+export const ivfCycle: { day: string; stage: string; description: string }[] = [
   {
     day: "Day 0",
-    stage: "OPU & maturation",
-    recorded:
-      "Follicles left/right by size, CL, cysts, tube received time, egg grades A–D, time into maturation",
+    stage: "Egg collection",
+    description: "Eggs are collected from the donor cow by OPU — a non-invasive procedure that can be repeated — and taken into the lab.",
   },
-  { day: "Day 1", stage: "Fertilisation", recorded: "Sire, straws used, run reference" },
-  { day: "Day 2", stage: "Culture", recorded: "Cleavage" },
-  { day: "Day 7", stage: "Embryos", recorded: "Stage, grade 1–3, photograph, fresh or frozen, straw label" },
+  { day: "Day 1", stage: "Fertilisation", description: "Each egg is fertilised with semen from the sire chosen for your breeding goals." },
+  { day: "Day 2", stage: "First divisions", description: "The fertilised eggs begin to divide — the first sign that the process is working." },
+  { day: "Day 7", stage: "Embryos ready", description: "After seven days of growth, the embryos are checked and the best are selected." },
   {
     day: "Day 7+",
     stage: "Transfer or freeze",
-    recorded: "Recipient, CL side and grade — or tank / canister / cane",
+    description: "Each embryo is transferred fresh into a recipient cow, or frozen and stored to be transferred later.",
   },
 ];
 
-export const gradingRules = [
-  "Oocytes are graded A to D before entering maturation. No ungraded egg goes into an IVF run.",
-  "Embryos are graded 1 to 3 at day 7. Grade 2 embryos are used only where spare recipients are available.",
+/** When pregnancies are checked after embryo transfer — what the farmer will see. */
+export const pregnancyChecks = [
+  { method: "Embryo transfer", checks: "35 and 60 days" },
+  { method: "AI and natural service", checks: "45 and 60 days" },
 ];
-
-export const syncProtocols = {
-  confirmed: ["CIDR", "GPG", "Double PG", "Single PG"],
-  /** GPC is not yet confirmed by the client — do not list as offered. */
-  pending: ["GPC"],
-  pregnancyChecks: [
-    { method: "Embryo transfer (ET)", checks: "35 and 60 days" },
-    { method: "Cloning", checks: "35 and 60 days" },
-    { method: "AI and natural service", checks: "45 and 60 days" },
-  ],
-};
 
 /** The Hebbevu Genetic Pipeline — seven stages (client article 6). */
 export const pipeline: { step: number; title: string; body: string }[] = [
@@ -80,53 +74,36 @@ export const pipeline: { step: number; title: string; body: string }[] = [
   },
 ];
 
-/** Facility — four working areas. */
+/** The facility, at the level a visiting farmer would see it. */
 export const facilityAreas: (Feature & { id: string; number: string })[] = [
   {
     id: "collection",
     number: "01",
-    title: "Collection — the crush",
-    body: "Donors are held and aspirated. Follicle counts are recorded left and right by size, with CL and cysts, on the donor card.",
-    icon: "clipboard",
+    title: "Collection",
+    body: "Eggs are collected from donor cows on the same land as the lab, so they never travel far.",
+    icon: "cow",
   },
   {
-    id: "grading",
+    id: "lab",
     number: "02",
-    title: "Grading & maturation",
-    body: "Oocytes are searched, graded A–D and placed into maturation. Crush-to-maturation time is recorded per session and reviewed by aspirator.",
+    title: "Embryology lab",
+    body: "Eggs are fertilised and the embryos grown for seven days under controlled, hygienic conditions.",
     icon: "microscope",
   },
   {
-    id: "culture",
+    id: "storage",
     number: "03",
-    title: "Fertilisation & culture",
-    body: "IVF on day 1, culture through day 7. Media and consumables are tracked against a stock register.",
-    icon: "lab",
-  },
-  {
-    id: "cryo",
-    number: "04",
-    title: "Cryopreservation",
-    body: "Storage by tank, canister and cane. Each straw is labelled back to donor, sire and session.",
+    title: "Embryo storage",
+    body: "Embryos that aren’t transferred fresh are frozen and stored safely until they’re needed.",
     icon: "snowflake",
   },
 ];
 
-/** Traceability chain. */
-export const traceChain = [
-  "Donor",
-  "Sire",
-  "Session",
-  "Egg grade",
-  "Embryo grade",
-  "Recipient",
-  "Day 35",
-  "Day 60",
-  "Calving",
-];
+/** Traceability — the public claim, without internal record fields. */
+export const traceChain = ["Donor", "Sire", "Embryo", "Recipient", "Day 35 check", "Day 60 check", "Calf"];
 
 export const traceExplainer =
-  "An embryo leaving the lab can be traced in both directions. This chain is why we can explain why a programme worked or didn’t — and it is what makes our published numbers checkable rather than decorative.";
+  "Every embryo that leaves the lab can be traced back to its donor and sire, and forward to the calf. That is why we can explain why a programme worked or didn’t — and why our published numbers are checkable rather than decorative.";
 
 /** The 60-day nuance (brief §2). */
 export const conceptionMethod = {
@@ -136,23 +113,3 @@ export const conceptionMethod = {
     "Some pregnancies confirmed at day 35 are lost before day 60. Checking at 60 days is the harder test and gives a lower number than many labs quote — but it is closer to the calves you will actually see.",
   ],
 };
-
-/** Research — real, not for sale. */
-export const research: Feature[] = [
-  {
-    title: "Cloning programme",
-    body: "Cell lines and reconstruct trials.",
-    icon: "dna",
-  },
-  {
-    title: "Pregnancy loss between day 35 and day 60",
-    body: "Why some confirmed pregnancies are lost between the two checks — and what changes that.",
-    icon: "calendar",
-  },
-  {
-    title: "Donor × sire outcomes in Indian conditions",
-    body: "Which pairings perform, measured on Indian farms rather than borrowed from abroad.",
-    icon: "trending",
-  },
-];
-

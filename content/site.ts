@@ -5,7 +5,7 @@ export const site = {
   url: "https://hebbevugenetics.com",
   tagline: "South India’s first private cattle IVF lab",
   vision: {
-    hindi: "Har ghar mein achhe gai",
+    hindi: "Har ghar mein acchi gai",
     english: "A good cow in every home.",
     statement:
       "To revolutionize Indian dairy by unlocking the true genetic strength of native breeds through world-class reproductive science.",
@@ -52,7 +52,6 @@ export const primaryNav: NavItem[] = [
       { label: "How IVF works", href: "/the-lab/how-ivf-works" },
       { label: "The facility", href: "/the-lab/facility" },
       { label: "Results & methodology", href: "/the-lab/results" },
-      { label: "Research", href: "/the-lab/research" },
     ],
   },
   {
@@ -159,7 +158,7 @@ export const about = {
   access: {
     heading: "Making Quality Genetics Accessible to Every Farmer",
     paragraphs: [
-      "At Hebbevu Genetics, our vision is built on a simple yet powerful belief — “Har ghar mein achhe gai”.",
+      "At Hebbevu Genetics, our vision is built on a simple yet powerful belief — “Har ghar mein acchi gai”.",
       "For years, access to superior cattle genetics has been limited to a small group of breeders. This has created a gap between what is possible and what is accessible to most farmers.",
       "We aim to bridge this gap by making high-quality indigenous cattle genetics available to every Indian dairy farmer.",
       "By combining scientific advancements with practical farming solutions, we are working to make quality genetics accessible, affordable, and scalable.",
@@ -172,7 +171,7 @@ export const about = {
   foundersBrief: {
     heading: "Founders Brief",
     paragraphs: [
-      "Our vision is clear — “Har ghar mein acche gai.”",
+      "Our vision is clear — “Har ghar mein acchi gai.”",
       "India’s indigenous cattle deserve global recognition, and Indian farmers deserve access to world-class genetics.",
       "We are building a bridge between heritage breeds and modern scientific excellence. Through disciplined artificial insemination (AI) and advanced IVF technology, we are creating a future where high-quality cattle are accessible, affordable, and sustainable for every farming family.",
       "We believe in strengthening superior bloodlines and ensuring that every dairy farmer in India has access to them.",

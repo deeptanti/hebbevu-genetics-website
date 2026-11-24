@@ -43,14 +43,14 @@ export function readingMinutes(a: Article): number {
  */
 export const glossary: GlossaryTerm[] = [
   { term: "OPU", expansion: "Ovum pick-up", definition: "Collecting eggs (oocytes) from a live donor cow’s ovaries using an ultrasound-guided needle. The cow is not harmed and the session can be repeated." },
-  { term: "Oocyte", definition: "An egg cell collected from the donor cow. Oocytes are graded A to D before they go into the lab’s IVF run." },
+  { term: "Oocyte", definition: "An egg cell collected from the donor cow. Only good-quality eggs go on to be fertilised." },
   { term: "IVF", expansion: "In vitro fertilisation", definition: "Fertilising eggs with semen in the laboratory instead of inside the cow, then growing the embryos for seven days." },
-  { term: "Embryo", definition: "The fertilised egg after it has developed in the lab. At day 7 it is graded 1 to 3 and either transferred or frozen." },
+  { term: "Embryo", definition: "The fertilised egg after it has developed in the lab. After seven days it is either transferred or frozen." },
   { term: "ET", expansion: "Embryo transfer", definition: "Placing an embryo into a recipient cow, who carries the pregnancy to term." },
   { term: "Donor", definition: "The genetically valuable cow whose eggs are collected. Her genetics are what IVF multiplies." },
   { term: "Recipient (surrogate)", definition: "A healthy cow that carries an embryo from another cow. She can be your own animal or one managed by Hebbevu." },
-  { term: "CL", expansion: "Corpus luteum", definition: "A temporary structure on the ovary after a cow ovulates. Its side and grade are checked to judge whether a recipient is ready for transfer." },
-  { term: "Synchronisation", definition: "Using a protocol (such as CIDR, GPG, Double PG or Single PG) to bring a cow’s cycle to the right stage on the right day for collection or transfer." },
+  { term: "CL", expansion: "Corpus luteum", definition: "A temporary structure on the ovary after a cow ovulates. A vet checks it to judge whether a recipient cow is ready for transfer." },
+  { term: "Synchronisation", definition: "Bringing a cow’s cycle to the right stage on the right day for egg collection or embryo transfer, under a vet’s supervision." },
   { term: "Sex-sorted", definition: "Embryos produced with semen sorted to give, in most cases, a calf of the chosen sex — usually female for dairy." },
   { term: "Vitrification", definition: "Ultra-fast freezing of embryos so they can be stored in liquid nitrogen and transferred later." },
   { term: "Cleavage", definition: "The first divisions of a fertilised egg, checked on day 2 as an early sign that fertilisation worked." },

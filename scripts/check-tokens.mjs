@@ -2,7 +2,8 @@
 /**
  * Design-system guard. Fails if:
  *  1. Any arbitrary Tailwind value appears (e.g. p-[13px], text-[#fff], [&>x]:...).
- *  2. Inline style props are used in components/pages.
+ *  2. Inline style props are used in components/pages. Exception: components/motion and
+ *     components/visuals, where `style` carries runtime motion values (e.g. scroll progress).
  *  3. `stone` is used as a control boundary or focus ring (brief §6 contrast trap):
  *     ring-stone / outline-stone anywhere, or border-stone on input/select/textarea/button.
  *  4. Raw hex colours appear outside globals.css.
@@ -35,7 +36,8 @@ function check(file) {
       if (/\b(ring|outline)-stone\b/.test(str)) problems.push(`${at}  stone used as focus/ring/outline: "${str.trim()}"`);
     }
     // 2. inline style
-    if (/\bstyle=\{\{/.test(line)) problems.push(`${at}  inline style prop`);
+    const motionDir = /components\/(motion|visuals)\//.test(file);
+    if (/\bstyle=\{\{/.test(line) && !motionDir) problems.push(`${at}  inline style prop`);
     // 4. raw hex outside the theme (allow viewport themeColor white)
     if (/#[0-9a-fA-F]{6}\b/.test(line) && !/themeColor/.test(line)) problems.push(`${at}  raw hex colour`);
   });
