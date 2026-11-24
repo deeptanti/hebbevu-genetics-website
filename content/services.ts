@@ -220,7 +220,7 @@ export const qualifier = {
 export const pathOptions = [
   {
     id: "own-donors",
-    prompt: "I already own good cows",
+    prompt: "I already own cows",
     kicker: ivfYourDonors.kicker,
     title: ivfYourDonors.title,
     summary: ivfYourDonors.summary,
