@@ -1,15 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import type { Photo } from "@/content/media";
 import { cn } from "@/lib/cn";
+import { Container } from "../layout/Container";
 
 /**
  * HeroSlideshow - full-bleed photos that crossfade every few seconds. While a photo is on
  * screen it slowly zooms and drifts (a different direction per slide), so the hero feels
- * live. Progress bars show the current slide and jump to one when clicked.
+ * live. On desktop a quiet caption (counter + what's in the photo + progress) sits bottom-right,
+ * with no box; on phones only the progress shows. Bars jump to a slide when clicked.
  * Under prefers-reduced-motion it shows the first photo, still.
  */
 const INTERVAL = 4500;
@@ -40,6 +42,30 @@ export function HeroSlideshow({ photos }: { photos: Photo[] }) {
     const t = setTimeout(() => go((i + 1) % photos.length), INTERVAL);
     return () => clearTimeout(t);
   }, [i, stamps, reduce, photos.length]);
+
+  const bars = photos.map((p, k) => (
+    <button
+      key={p.src}
+      type="button"
+      onClick={() => go(k)}
+      aria-label={`Show photo ${k + 1} of ${photos.length}`}
+      aria-current={k === i}
+      className="group flex h-7 items-center"
+    >
+      <span className="relative block h-1 w-7 overflow-hidden rounded-full bg-mist/30">
+        {k === i && (
+          <motion.span
+            key={stamps[k]}
+            className="absolute inset-y-0 left-0 bg-white"
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: INTERVAL / 1000, ease: "linear" }}
+          />
+        )}
+        {k < i && <span className="absolute inset-0 bg-mist/70" />}
+      </span>
+    </button>
+  ));
 
   return (
     <>
@@ -79,31 +105,37 @@ export function HeroSlideshow({ photos }: { photos: Photo[] }) {
       </div>
 
       {!reduce && photos.length > 1 && (
-        <div className="absolute top-5 right-4 z-10 flex gap-2 md:right-6">
-          {photos.map((p, k) => (
-            <button
-              key={p.src}
-              type="button"
-              onClick={() => go(k)}
-              aria-label={`Show photo ${k + 1} of ${photos.length}`}
-              aria-current={k === i}
-              className="group flex h-7 items-center"
-            >
-              <span className="relative block h-1 w-7 overflow-hidden rounded-full bg-mist/30">
-                {k === i && (
-                  <motion.span
-                    key={stamps[k]}
-                    className="absolute inset-y-0 left-0 bg-white"
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: INTERVAL / 1000, ease: "linear" }}
-                  />
-                )}
-                {k < i && <span className="absolute inset-0 bg-mist/70" />}
-              </span>
-            </button>
-          ))}
-        </div>
+        <>
+          {/* soft shade so the caption reads on bright photos */}
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 hidden h-1/2 bg-linear-to-t from-deep/70 to-transparent lg:block" />
+
+          {/* phones: progress only, top-right */}
+          <div className="absolute top-5 right-4 z-10 flex gap-2 md:right-6 lg:hidden">{bars}</div>
+
+          {/* desktop: counter, what's in the photo, progress - bottom-right of the content column */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden lg:block">
+            <Container className="flex justify-end pb-9">
+              <div className="pointer-events-auto flex max-w-card flex-col items-end gap-3 text-right">
+                <span className="type-label text-sand">
+                  {String(i + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}
+                </span>
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.p
+                    key={photos[i].src}
+                    className="type-small text-mist"
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    {photos[i].alt}
+                  </motion.p>
+                </AnimatePresence>
+                <div className="flex gap-2">{bars}</div>
+              </div>
+            </Container>
+          </div>
+        </>
       )}
     </>
   );

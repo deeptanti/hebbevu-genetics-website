@@ -1,7 +1,7 @@
 import { FeatureGrid } from "@/components/blocks/FeatureGrid";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { DataTable, SectionHeader } from "@/components/ui";
+import { DataTable, SectionHeader, Stat } from "@/components/ui";
 import { Photo } from "@/components/ui/Photo";
 import { pregnancyChecks } from "@/content/lab";
 import { photos } from "@/content/media";
@@ -26,7 +26,6 @@ export default function EmbryoTransferPage() {
           { label: "Book a Consultation", href: "/book?service=embryo-transfer" },
           { label: "Our conception rate", href: "/the-lab/results" },
         ]}
-        stats={[stats.conception]}
       />
 
       <Section labelledBy="includes">
@@ -46,7 +45,10 @@ export default function EmbryoTransferPage() {
 
       <Section labelledBy="checks">
         <SectionHeader id="checks" {...page.checksHeader} />
-        <div className="max-w-prose">
+        <div className="grid items-start gap-7 lg:grid-cols-2">
+          <dl className="rounded-lg bg-clay p-6 md:p-7">
+            <Stat value={stats.conception.value} label={stats.conception.label} note={stats.conception.note} brandIcon={stats.conception.brandIcon} />
+          </dl>
           <DataTable
             caption="Pregnancy check schedule by breeding method"
             hideCaption

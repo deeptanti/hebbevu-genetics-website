@@ -5,6 +5,7 @@ import { FeatureGrid } from "@/components/blocks/FeatureGrid";
 import { TraceChain } from "@/components/blocks/TraceChain";
 import { Section } from "@/components/layout/Section";
 import { Button, ButtonGroup, CTABand, SectionHeader } from "@/components/ui";
+import { StatsBand } from "@/components/blocks/StatsBand";
 import { PageHero } from "@/components/layout/PageHero";
 import { PhotoStrip } from "@/components/visuals/PhotoStrip";
 import { Photo } from "@/components/ui/Photo";
@@ -54,7 +55,6 @@ export default function HomePage() {
           photos["farm/aerial"],
         ]}
         actions={[homeCopy.heroActions.primary, homeCopy.heroActions.secondary]}
-        stats={impactStats}
       />
       <Ticker items={homeCopy.ticker} />
 
@@ -80,6 +80,8 @@ export default function HomePage() {
           </div>
         </div>
       </Section>
+
+      <StatsBand title={homeCopy.statsHeading} stats={impactStats} />
 
 
       <Section labelledBy="services">

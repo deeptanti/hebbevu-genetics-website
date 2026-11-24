@@ -2,7 +2,7 @@ import { TraceChain } from "@/components/blocks/TraceChain";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { Heading } from "@/components/typography";
-import { CTABand, SectionHeader } from "@/components/ui";
+import { CTABand, SectionHeader, Stat } from "@/components/ui";
 import { Photo } from "@/components/ui/Photo";
 import { DnaHelix } from "@/components/visuals/DnaHelix";
 import { conceptionMethod, traceChain, traceExplainer } from "@/content/lab";
@@ -27,7 +27,6 @@ export default function ResultsPage() {
           { label: "Book a Consultation", href: "/book" },
           { label: "Is IVF right for you?", href: "/services/is-ivf-right-for-you" },
         ]}
-        stats={[stats.conception]}
       />
 
       <Section labelledBy="method">
@@ -41,7 +40,12 @@ export default function ResultsPage() {
               <p className="type-body text-ink">{copy.probability.body}</p>
             </div>
           </div>
-          <DnaHelix turns={2} rungs={22} className="w-full" />
+          <div className="flex flex-col gap-6">
+            <dl className="rounded-lg bg-clay p-6 md:p-7">
+              <Stat value={stats.conception.value} label={stats.conception.label} note={stats.conception.note} brandIcon={stats.conception.brandIcon} />
+            </dl>
+            <DnaHelix turns={2} rungs={22} className="w-full" />
+          </div>
         </div>
       </Section>
 
