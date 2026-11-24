@@ -40,6 +40,7 @@ export default function BuyEmbryosPage() {
               title={p.title}
               summary={p.summary}
               icon={p.icon}
+              brandIcon={p.slug === "sex-sorted" ? "embryo-sexed" : "embryo-normal"}
               points={p.benefits}
               more={`About ${p.title.toLowerCase()}`}
             />

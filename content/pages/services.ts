@@ -53,7 +53,7 @@ export const ivfYourDonorsPage = {
     "You aim to upgrade herd quality quickly",
     "You are planning long-term dairy growth",
   ],
-  photo: "farm/handler-with-calf" as PhotoKey,
+  photo: "lab/microscope" as PhotoKey,
 };
 
 export const buyEmbryosPage = {
@@ -83,7 +83,7 @@ export const sexSortedPage = {
     title: "How you can buy them",
     intro: "Choose the level of service that fits your farm.",
   },
-  photo: "farm/young-calves" as PhotoKey,
+  photo: "farm/calves-resting" as PhotoKey,
 };
 
 export const conventionalPage = {
@@ -98,7 +98,7 @@ export const conventionalPage = {
     title: "How you can buy them",
     intro: "Choose the level of service that fits your farm.",
   },
-  photo: "farm/gir-bull" as PhotoKey,
+  photo: "farm/gir-bull-fence" as PhotoKey,
 };
 
 export const embryoTransferPage = {
@@ -134,7 +134,7 @@ export const embryoTransferPage = {
     intro:
       "Embryo transfer pregnancies are checked at 35 and 60 days. Our published conception rate is the 60-day figure — the harder test.",
   },
-  photo: "farm/cow-and-calf" as PhotoKey,
+  photo: "farm/vet-checking" as PhotoKey,
 };
 
 export const qualifierPage = {

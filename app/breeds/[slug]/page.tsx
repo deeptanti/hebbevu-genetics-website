@@ -7,6 +7,7 @@ import { Section, type SectionTone } from "@/components/layout/Section";
 import { Reveal, RevealItem } from "@/components/motion/Reveal";
 import { Accordion, ArticleCard, Card, Chip, ChipList, CTABand, DataTable, IconTile, SectionHeader, Stat, StatGrid } from "@/components/ui";
 import { Photo } from "@/components/ui/Photo";
+import { BreedVideo } from "@/components/visuals/BreedVideo";
 import { DnaHelix } from "@/components/visuals/DnaHelix";
 import { YieldChart } from "@/components/visuals/YieldChart";
 import { getBreedProfile } from "@/content/breed-profiles";
@@ -49,6 +50,8 @@ export default async function BreedPage({ params }: Props) {
   const topicLabel = (id: string) => topics.find((t) => t.id === id)?.question;
   const photo = getPhoto(`breeds/${breed.slug}`);
   const isHF = breed.slug === "holstein-friesian";
+  const hasVideo = ["gir", "kankrej", "ongole", "jaffarabadi"].includes(breed.slug);
+  const video = hasVideo ? { src: `/video/breed-${breed.slug}.mp4`, poster: `/video/breed-${breed.slug}.jpg` } : null;
 
   // Alternate white/mist after the white hero, whatever optional sections render.
   let n = 0;
@@ -112,7 +115,13 @@ export default async function BreedPage({ params }: Props) {
         title={breed.name}
         lede={profile.intro}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Breeds", href: "/breeds" }, { label: breed.name }]}
-        aside={photo ? <Photo photo={photo} aspect="square" priority /> : undefined}
+        aside={
+          video ? (
+            <BreedVideo src={video.src} poster={video.poster} label={`${breed.name} at the farm, short looping clip`} />
+          ) : photo ? (
+            <Photo photo={photo} aspect="square" priority />
+          ) : undefined
+        }
       >
         <div className="flex flex-col gap-4">
           <p className="type-small text-graphite">
@@ -146,6 +155,11 @@ export default async function BreedPage({ params }: Props) {
       {/* Profile */}
       <Section tone={profileTone} labelledBy="profile">
         <SectionHeader id="profile" title={`${copy.profileHeading} ${breed.name}`} />
+        {video && photo && (
+          <div className="mb-6 max-w-prose">
+            <Photo photo={photo} aspect="photo" caption={photo.alt} />
+          </div>
+        )}
         <Reveal stagger={0.1} as="ul" className="grid gap-5 md:grid-cols-3">
           <RevealItem as="li">
             <Card>

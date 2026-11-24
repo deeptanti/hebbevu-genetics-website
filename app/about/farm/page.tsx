@@ -32,8 +32,20 @@ export default function FarmPage() {
 
       <Section>
         <SectionHeader title={copy.housingHeading} intro={copy.housing} />
-        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {(["farm/herd-walking", "farm/calves-at-barn", "farm/handler-with-bulls", "farm/young-calves"] as const).map((k) => (
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {(
+            [
+              "farm/barn-row",
+              "farm/herd-walking",
+              "farm/calves-resting",
+              "people/handler-long-horns",
+              "farm/calves-at-barn",
+              "people/handler-white-bull",
+              "farm/gir-bull-fence",
+              "farm/handler-with-bulls",
+              "farm/young-calves",
+            ] as const
+          ).map((k) => (
             <li key={k}>
               <Photo photo={photos[k]} caption={photos[k].alt} />
             </li>

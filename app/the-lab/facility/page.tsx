@@ -19,7 +19,7 @@ export default function FacilityPage() {
         title="The facility"
         lede={copy.lede}
         breadcrumbs={[{ label: "The Lab", href: "/the-lab" }, { label: "Facility" }]}
-        aside={<Photo photo={photos["farm/aerial"]} aspect="photo" priority />}
+        aside={<Photo photo={photos["lab/microscope"]} aspect="photo" priority />}
       />
 
       <Section tone="mist">
@@ -45,6 +45,13 @@ export default function FacilityPage() {
           <SectionHeader title={labIntro.heading} intro={labIntro.lede} flush />
           <DnaHelix turns={2} rungs={24} className="w-full" />
         </div>
+        <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {(["lab/bench", "lab/egg-cell", "farm/vet-checking", "farm/aerial"] as const).map((k) => (
+            <li key={k}>
+              <Photo photo={photos[k]} aspect="square" caption={photos[k].alt} sizes="(min-width: 1024px) 25vw, 50vw" />
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <CTABand

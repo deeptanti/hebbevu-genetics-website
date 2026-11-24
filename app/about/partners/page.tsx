@@ -15,7 +15,7 @@ export default function PartnersPage() {
   return (
     <>
       <PageHero
-        aside={<Photo photo={photos["farm/gir-bull"]} aspect="portrait" priority />}
+        aside={<Photo photo={photos["farm/gir-bull-fence"]} aspect="portrait" priority />}
         kicker="Global Collaboration"
         title={copy.heading}
         lede={copy.lede}

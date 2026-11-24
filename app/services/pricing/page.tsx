@@ -3,6 +3,7 @@ import { Section } from "@/components/layout/Section";
 import { Button, ButtonGroup, DataTable, SectionHeader } from "@/components/ui";
 import { pricingPage as page } from "@/content/pages/services";
 import { pricing } from "@/content/services";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 import { GuidelinesList, OptionMatrix, ServicesCTA, homeCrumb, servicesCrumb } from "../_components/shared";
 
@@ -12,6 +13,7 @@ export default function PricingPage() {
   return (
     <>
       <PageHero
+        banner={photos["banners/herd-yard"]}
         breadcrumbs={[homeCrumb, servicesCrumb, { label: pricing.heading }]}
         kicker="Pricing"
         title={pricing.heading}

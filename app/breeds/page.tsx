@@ -5,7 +5,7 @@ import { BreedCard, Button, ButtonGroup, CTABand, SectionHeader } from "@/compon
 import { breedSelection, breeds, breedsIntro, parseYield, yieldDisclaimer } from "@/content/breeds";
 import { YieldChart } from "@/components/visuals/YieldChart";
 import { breedsPage } from "@/content/pages/breeds";
-import { getPhoto } from "@/content/media";
+import { getPhoto, photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
@@ -19,6 +19,7 @@ export default function BreedsPage() {
   return (
     <>
       <PageHero
+        banner={photos["banners/herd-road"]}
         kicker={breedsIntro.kicker}
         title={breedsIntro.heading}
         lede={breedsIntro.paragraphs}

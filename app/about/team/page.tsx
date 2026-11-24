@@ -19,7 +19,7 @@ export default function TeamPage() {
   return (
     <>
       <PageHero
-        aside={<Photo photo={photos["people/team-at-fence"]} aspect="photo" priority />}
+        banner={photos["banners/team-fence"]}
         title={copy.heading}
         lede={site.teamLine}
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Our team" }]}

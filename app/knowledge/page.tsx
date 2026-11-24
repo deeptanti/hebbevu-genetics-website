@@ -3,7 +3,7 @@ import { Section } from "@/components/layout/Section";
 import { ArticleCard, CardLink, CardMore, CTABand, SectionHeader } from "@/components/ui";
 import { articlesByTopic, readingMinutes, topics } from "@/content/knowledge";
 import { knowledgePage } from "@/content/pages/knowledge";
-import { getPhoto } from "@/content/media";
+import { getPhoto, photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({ title: knowledgePage.title, description: knowledgePage.metaDescription, path: "/knowledge" });
@@ -12,7 +12,7 @@ export default function KnowledgePage() {
   const groups = topics.map((t) => ({ ...t, articles: articlesByTopic(t.id) })).filter((g) => g.articles.length > 0);
   return (
     <>
-      <PageHero title={knowledgePage.title} lede={knowledgePage.lede} breadcrumbs={[{ label: "Home", href: "/" }, { label: "Knowledge" }]}>
+      <PageHero banner={photos["banners/herd-yard"]} title={knowledgePage.title} lede={knowledgePage.lede} breadcrumbs={[{ label: "Home", href: "/" }, { label: "Knowledge" }]}>
         <nav aria-label="Questions">
           <ul className="flex flex-col">
             {groups.map((g) => (

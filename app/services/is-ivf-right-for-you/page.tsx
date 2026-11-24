@@ -5,6 +5,7 @@ import { Button, ButtonGroup, Card, SectionHeader } from "@/components/ui";
 import { breedSelection } from "@/content/breeds";
 import { qualifierPage as page } from "@/content/pages/services";
 import { qualifier } from "@/content/services";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 import { ServicesCTA, homeCrumb, servicesCrumb } from "../_components/shared";
 
@@ -14,6 +15,7 @@ export default function QualifierPage() {
   return (
     <>
       <PageHero
+        banner={photos["farm/cow-and-calf"]}
         breadcrumbs={[homeCrumb, servicesCrumb, { label: qualifier.heading }]}
         kicker="The honest qualifier"
         title={qualifier.heading}

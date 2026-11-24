@@ -63,9 +63,15 @@ Legacy redirects from the content doc: /blogs, /blog/:slug, /about-us, /our-serv
 - **Motion** (added at client request — overrides the brief's "nothing moves"): one soft easing (`--ease-out-soft`), reveals once per element on first view, and everything stops under `prefers-reduced-motion`. Interactive pieces live in `components/visuals`: `PathChooser`, `IvfTimeline`, `YieldChart`, `PhotoStrip`, `Ticker`.
 - Two derived tints were added: `clay` and `sand` (brown on white). They're used for decorative fills only, never text.
 
-## Photography
+## Photography & media
 
-`public/photos` + `content/media.ts`: 29 photos taken from the earlier Hebbevu Genetics site (psquaresolutions.in/genetics7), resized to ≤1600px with metadata stripped. Always render through `<Photo>`. Lab-looking images from that site that may be stock are used only as article covers, never presented as our lab.
+- `public/photos` + `content/media.ts` — ~45 photos, always rendered through `<Photo>` (or `PageHero banner`). Sources:
+  1. The earlier site build (psquaresolutions.in/genetics7).
+  2. The client's Drive folder "HG Website creatives" — 1920px banners, page banners, high-res founders/calves, lab shots.
+  Resized to ≤1920px, metadata stripped. Alt text describes only what is visible; only the founders and doctors are named.
+- `public/video/breed-*.mp4` — Gir, Kankrej, Ongole and Jaffarabadi loops converted from the client's GIFs (40–66 MB → 1–3 MB), with poster frames.
+- `public/brand/icons` — the client's own line-art icons, made transparent in brown and mist variants (`<BrandIcon>`).
+- `/about/gallery` — filterable grid + lightbox of every photo, plus the breed clips.
 
 ## Waiting on the client
 

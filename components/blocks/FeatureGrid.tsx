@@ -1,6 +1,7 @@
 import type { Feature } from "@/content/types";
 import { cn } from "@/lib/cn";
 import { Reveal, RevealItem } from "../motion/Reveal";
+import { BrandIcon, type BrandIconName } from "../ui/BrandIcon";
 import { IconTile } from "../ui/Icon";
 
 /** Icon-led claim grid ("Why Hebbevu", differentiators, research). Not cards — no borders needed. */
@@ -29,7 +30,11 @@ export function FeatureGrid({
     >
       {items.map((f) => (
         <RevealItem as="li" key={f.title} className={cn("flex flex-col gap-3 border-t pt-5", dark ? "border-graphite" : "border-stone")}>
-          {f.icon && <IconTile name={f.icon} ground={ground} className="mb-2" />}
+          {f.brandIcon ? (
+            <BrandIcon name={f.brandIcon as BrandIconName} ground={ground} size="md" className="mb-2" />
+          ) : (
+            f.icon && <IconTile name={f.icon} ground={ground} className="mb-2" />
+          )}
           <H className={cn("type-subheading", dark ? "text-mist" : "text-ink")}>{f.title}</H>
           <p className={cn("type-small", dark ? "text-mist" : "text-graphite")}>{f.body}</p>
         </RevealItem>

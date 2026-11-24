@@ -19,6 +19,8 @@ export interface NavItem extends LinkItem {
 
 export interface StatItem {
   id: string;
+  /** Hebbevu brand line-art icon (see components/ui/BrandIcon). */
+  brandIcon?: string;
   value: string;
   label: string;
   /** Qualifier shown under the label, e.g. "measured at the 60-day check". */
@@ -61,6 +63,8 @@ export interface Feature {
   title: string;
   body: string;
   icon?: IconName;
+  /** Hebbevu brand line-art icon; preferred over `icon` when set. */
+  brandIcon?: string;
 }
 
 export interface Breed {

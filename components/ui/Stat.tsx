@@ -1,5 +1,6 @@
 import { cn } from "@/lib/cn";
 import { CountUp } from "../motion/CountUp";
+import { BrandIcon, type BrandIconName } from "./BrandIcon";
 
 /**
  * Stat — figure in `stat`, label in `label` (brief §13: never bury figures in prose).
@@ -9,14 +10,21 @@ export interface StatProps {
   value: string;
   label: string;
   note?: string;
+  /** Brand line-art icon shown above the figure. */
+  brandIcon?: string;
   ground?: "light" | "dark";
   className?: string;
 }
 
-export function Stat({ value, label, note, ground = "light", className }: StatProps) {
+export function Stat({ value, label, note, brandIcon, ground = "light", className }: StatProps) {
   const dark = ground === "dark";
   return (
     <div className={cn("flex flex-col gap-2", className)}>
+      {brandIcon && (
+        <dd aria-hidden="true" className="order-0 mb-2">
+          <BrandIcon name={brandIcon as BrandIconName} ground={ground} size="md" />
+        </dd>
+      )}
       <dt className={cn("type-label order-2", dark ? "text-mist" : "text-graphite")}>{label}</dt>
       <dd className={cn("type-stat order-1", dark ? "text-mist" : "text-deep")}>
         <CountUp value={value} />

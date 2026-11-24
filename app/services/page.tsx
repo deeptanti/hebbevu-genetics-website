@@ -17,6 +17,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
+        banner={photos["banners/herd-close"]}
         breadcrumbs={[homeCrumb, { label: "Services" }]}
         kicker={servicesIntro.kicker}
         title={servicesIntro.heading}

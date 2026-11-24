@@ -4,6 +4,7 @@ import { Section } from "@/components/layout/Section";
 import { CTABand } from "@/components/ui";
 import { faqs } from "@/content/faq";
 import { faqPage } from "@/content/pages/knowledge";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({ title: faqPage.title, description: faqPage.metaDescription, path: "/knowledge/faqs" });
@@ -12,6 +13,7 @@ export default function FaqPage() {
   return (
     <>
       <PageHero
+        banner={photos["farm/calves-resting"]}
         title={faqPage.title}
         lede={faqPage.lede}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Knowledge", href: "/knowledge" }, { label: "FAQs" }]}

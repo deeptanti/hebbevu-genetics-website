@@ -7,6 +7,7 @@ import { DnaHelix } from "@/components/visuals/DnaHelix";
 import { conceptionMethod, traceChain, traceExplainer } from "@/content/lab";
 import { labPages } from "@/content/pages/lab";
 import { stats } from "@/content/stats";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 const copy = labPages.results;
@@ -17,6 +18,7 @@ export default function ResultsPage() {
   return (
     <>
       <PageHero
+        banner={photos["farm/vet-checking"]}
         title="Results & methodology"
         lede={copy.lede}
         breadcrumbs={[{ label: "The Lab", href: "/the-lab" }, { label: "Results" }]}

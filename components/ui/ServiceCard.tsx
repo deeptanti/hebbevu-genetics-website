@@ -1,6 +1,7 @@
 import type { IconName } from "@/content/types";
 import { CardLink, CardMore } from "./Card";
 import { Icon, IconTile } from "./Icon";
+import { BrandIcon, type BrandIconName } from "./BrandIcon";
 
 export interface ServiceCardProps {
   href: string;
@@ -8,6 +9,8 @@ export interface ServiceCardProps {
   summary: string;
   kicker?: string;
   icon?: IconName;
+  /** Brand line-art icon; replaces `icon` when set. */
+  brandIcon?: string;
   /** Short bullet list (benefits or inclusions). */
   points?: string[];
   more?: string;
@@ -15,12 +18,12 @@ export interface ServiceCardProps {
   level?: 2 | 3;
 }
 
-export function ServiceCard({ href, title, summary, kicker, icon, points, more = "Learn more", level = 3 }: ServiceCardProps) {
+export function ServiceCard({ href, title, summary, kicker, icon, brandIcon, points, more = "Learn more", level = 3 }: ServiceCardProps) {
   const H = `h${level}` as const;
   return (
     <CardLink href={href}>
       <div className="mb-5 flex items-center justify-between gap-4">
-        {icon && <IconTile name={icon} />}
+        {brandIcon ? <BrandIcon name={brandIcon as BrandIconName} size="md" /> : icon && <IconTile name={icon} />}
         {kicker && <span className="type-label text-graphite">{kicker}</span>}
       </div>
       <H className="type-h3 mb-3 text-ink">{title}</H>

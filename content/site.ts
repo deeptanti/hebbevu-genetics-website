@@ -68,6 +68,7 @@ export const primaryNav: NavItem[] = [
       { label: "Our team", href: "/about/team" },
       { label: "Partners", href: "/about/partners" },
       { label: "Reynadu Farm", href: "/about/farm" },
+      { label: "Gallery", href: "/about/gallery" },
     ],
   },
   {
@@ -104,21 +105,25 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
 export const pillars: Feature[] = [
   {
     title: "South India’s First Private IVF Lab",
+    brandIcon: "lab",
     body: "Pioneering accessible, high-precision IVF breeding technology.",
     icon: "lab",
   },
   {
     title: "Elite Indigenous Bloodlines",
+    brandIcon: "dna",
     body: "Advancing indigenous genetics using globally proven donor lines.",
     icon: "dna",
   },
   {
     title: "Global Collaboration",
+    brandIcon: "global",
     body: "Integrating Brazilian expertise to strengthen Indian cattle genetics.",
     icon: "globe",
   },
   {
     title: "Ethical & Hygienic Housing",
+    brandIcon: "care",
     body: "World-class infrastructure designed for optimal animal health and performance.",
     icon: "shield",
   },

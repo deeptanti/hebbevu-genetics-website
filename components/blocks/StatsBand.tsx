@@ -13,7 +13,7 @@ export function StatsBand({ title, kicker, stats, footnote }: { title: string; k
       <SectionHeader kicker={kicker} title={title} ground="dark" />
       <StatGrid>
         {stats.map((s) => (
-          <Stat key={s.id} value={s.value} label={s.label} note={s.note} ground="dark" />
+          <Stat key={s.id} value={s.value} label={s.label} note={s.note} brandIcon={s.brandIcon} ground="dark" />
         ))}
       </StatGrid>
       {footnote && <p className="type-small mt-6 max-w-prose text-mist">{footnote}</p>}

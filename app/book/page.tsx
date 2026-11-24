@@ -6,6 +6,7 @@ import { Section } from "@/components/layout/Section";
 import { CTABand, SectionHeader } from "@/components/ui";
 import { serviceInterests } from "@/content/enquiry";
 import { bookCta, bookPage as page } from "@/content/pages/services";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({ ...page.meta, path: "/book" });
@@ -17,7 +18,7 @@ export default async function BookPage({ searchParams }: { searchParams: Promise
 
   return (
     <>
-      <PageHero breadcrumbs={[{ label: "Home", href: "/" }, { label: "Book a consultation" }]} kicker={page.kicker} title={page.title} lede={page.lede} />
+      <PageHero banner={photos["farm/barn-row"]} breadcrumbs={[{ label: "Home", href: "/" }, { label: "Book a consultation" }]} kicker={page.kicker} title={page.title} lede={page.lede} />
 
       <Section tone="mist" labelledBy="form-heading">
         <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">

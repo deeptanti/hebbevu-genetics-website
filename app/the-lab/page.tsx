@@ -5,6 +5,7 @@ import { Button, ButtonGroup, CTABand, SectionHeader, ServiceCard, Stat } from "
 import { labIntro, traceChain, traceExplainer } from "@/content/lab";
 import { labPages } from "@/content/pages/lab";
 import { stats } from "@/content/stats";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 const copy = labPages.index;
@@ -15,6 +16,7 @@ export default function LabPage() {
   return (
     <>
       <PageHero
+        banner={photos["lab/bench"]}
         kicker={copy.kicker}
         title={labIntro.heading}
         lede={labIntro.lede}

@@ -13,3 +13,4 @@ export * from "./SectionHeader";
 export * from "./ServiceCard";
 export * from "./Stat";
 export * from "./Photo";
+export * from "./BrandIcon";

@@ -43,14 +43,14 @@ export default function HomePage() {
         kicker={homeCopy.heroKicker}
         title={homeHero.heading}
         lede={homeHero.lede}
-        photo={photos["farm/cow-and-calf"]}
+        photo={photos["farm/barn-row"]}
         stat={stats.calves}
         actions={
           <ButtonGroup>
-            <Button href={homeCopy.heroActions.primary.href} arrow>
+            <Button href={homeCopy.heroActions.primary.href} ground="dark" arrow>
               {homeCopy.heroActions.primary.label}
             </Button>
-            <Button href={homeCopy.heroActions.secondary.href} variant="secondary">
+            <Button href={homeCopy.heroActions.secondary.href} variant="secondary" ground="dark">
               {homeCopy.heroActions.secondary.label}
             </Button>
           </ButtonGroup>
@@ -68,12 +68,16 @@ export default function HomePage() {
         <PhotoStrip
           label={homeCopy.farm.stripLabel}
           photos={[
-            photos["farm/herd-walking"],
+            photos["farm/cow-and-calf"],
+            photos["people/handler-long-horns"],
             photos["farm/calves-at-barn"],
             photos["farm/handler-with-calf"],
             photos["farm/gir-bull"],
+            photos["people/handler-white-bull"],
             photos["farm/young-calves"],
+            photos["people/handler-red-calf"],
             photos["farm/handler-with-bulls"],
+            photos["farm/herd-walking"],
             photos["people/team-at-fence"],
           ]}
         />
@@ -118,7 +122,10 @@ export default function HomePage() {
       </Section>
 
       <Section labelledBy="lab">
-        <SectionHeader id="lab" kicker={homeCopy.lab.kicker} title={homeCopy.lab.heading} intro={labIntro.lede} />
+        <div className="mb-6 grid items-end gap-7 lg:grid-cols-2">
+          <SectionHeader id="lab" kicker={homeCopy.lab.kicker} title={homeCopy.lab.heading} intro={labIntro.lede} flush />
+          <Photo photo={photos["lab/microscope"]} aspect="wide" />
+        </div>
         <IvfTimeline days={ivfCycle} />
         <div className="mt-8 grid gap-6 lg:grid-cols-3">
           <div className="flex flex-col gap-3">

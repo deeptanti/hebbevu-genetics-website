@@ -14,8 +14,8 @@ export const photos = {
   "farm/aerial": {
     "src": "/photos/farm/aerial.jpg",
     "alt": "Aerial view of the farm, its sheds and surrounding fodder land",
-    "width": 1500,
-    "height": 1000
+    "width": 1920,
+    "height": 1080
   },
   "farm/cow-and-calf": {
     "src": "/photos/farm/cow-and-calf.jpg",
@@ -44,8 +44,8 @@ export const photos = {
   "farm/young-calves": {
     "src": "/photos/farm/young-calves.jpg",
     "alt": "Young calves standing close together in the yard",
-    "width": 1080,
-    "height": 1350
+    "width": 1536,
+    "height": 1920
   },
   "farm/handler-with-calf": {
     "src": "/photos/farm/handler-with-calf.jpg",
@@ -86,8 +86,8 @@ export const photos = {
   "people/two-with-bull": {
     "src": "/photos/people/two-with-bull.jpg",
     "alt": "Founder Mr. Amith Kishan (left) and co-founder Mr. Ashrith Kishan at the farm",
-    "width": 800,
-    "height": 800
+    "width": 1920,
+    "height": 1920
   },
   "people/dr-neha": {
     "src": "/photos/people/dr-neha.jpg",
@@ -184,6 +184,102 @@ export const photos = {
     "alt": "An embryo in a lab dish beside the herd it becomes",
     "width": 1500,
     "height": 1000
+  },
+  "farm/barn-row": {
+    "src": "/photos/farm/barn-row.jpg",
+    "alt": "Indigenous cows lined up in front of the thatched barn at the farm",
+    "width": 1920,
+    "height": 1080
+  },
+  "farm/gir-bull-fence": {
+    "src": "/photos/farm/gir-bull-fence.jpg",
+    "alt": "A speckled Gir bull standing by the paddock fence",
+    "width": 1920,
+    "height": 1080
+  },
+  "farm/calves-resting": {
+    "src": "/photos/farm/calves-resting.jpg",
+    "alt": "Young calves resting and standing together in the yard",
+    "width": 1920,
+    "height": 1080
+  },
+  "lab/microscope": {
+    "src": "/photos/lab/microscope.jpg",
+    "alt": "Embryology work at the microscope, with the view on screen",
+    "width": 1920,
+    "height": 1080
+  },
+  "lab/egg-cell": {
+    "src": "/photos/lab/egg-cell.jpg",
+    "alt": "An egg cell under the microscope",
+    "width": 1920,
+    "height": 1080
+  },
+  "lab/bench": {
+    "src": "/photos/lab/bench.jpg",
+    "alt": "Laboratory work at the bench",
+    "width": 1920,
+    "height": 500
+  },
+  "farm/vet-checking": {
+    "src": "/photos/farm/vet-checking.jpg",
+    "alt": "A vet checking on a cow and her calf in the shed",
+    "width": 1500,
+    "height": 1000
+  },
+  "banners/herd-road": {
+    "src": "/photos/banners/herd-road.jpg",
+    "alt": "A herd of indigenous cattle walking down a tree-lined track",
+    "width": 1920,
+    "height": 500
+  },
+  "banners/field-herd": {
+    "src": "/photos/banners/field-herd.jpg",
+    "alt": "Two members of the team in a fodder field with the herd",
+    "width": 1920,
+    "height": 500
+  },
+  "banners/team-fence": {
+    "src": "/photos/banners/team-fence.jpg",
+    "alt": "The Hebbevu team at the paddock fence",
+    "width": 1920,
+    "height": 500
+  },
+  "banners/calves-barn": {
+    "src": "/photos/banners/calves-barn.jpg",
+    "alt": "Calves in the wooden barn",
+    "width": 1920,
+    "height": 500
+  },
+  "banners/herd-yard": {
+    "src": "/photos/banners/herd-yard.jpg",
+    "alt": "The herd in the yard by the thatched shelters",
+    "width": 1920,
+    "height": 500
+  },
+  "banners/herd-close": {
+    "src": "/photos/banners/herd-close.jpg",
+    "alt": "Indigenous cattle gathered in the yard",
+    "width": 1920,
+    "height": 500
+  },
+  "people/handler-white-bull": {
+    "src": "/photos/people/handler-white-bull.jpg",
+    "alt": "A team member with a white bull",
+    "width": 1080,
+    "height": 1350
+  },
+  "people/handler-red-calf": {
+    "src": "/photos/people/handler-red-calf.jpg",
+    "alt": "A team member crouching with a red calf",
+    "width": 1080,
+    "height": 1350
+  },
+  "people/handler-long-horns": {
+    "src": "/photos/people/handler-long-horns.jpg",
+    "alt": "A team member with a black bull with long, sweeping horns",
+    "width": 1080,
+    "height": 1350
   }
 } as const satisfies Record<string, Photo>;
 

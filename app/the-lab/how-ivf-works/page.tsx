@@ -6,6 +6,7 @@ import { DnaHelix } from "@/components/visuals/DnaHelix";
 import { IvfTimeline } from "@/components/visuals/IvfTimeline";
 import { ivfCycle, pipeline, pregnancyChecks } from "@/content/lab";
 import { labPages } from "@/content/pages/lab";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 const copy = labPages.howIvfWorks;
@@ -16,6 +17,7 @@ export default function HowIvfWorksPage() {
   return (
     <>
       <PageHero
+        banner={photos["lab/egg-cell"]}
         title="How IVF works"
         lede={copy.lede}
         breadcrumbs={[{ label: "The Lab", href: "/the-lab" }, { label: "How IVF works" }]}
