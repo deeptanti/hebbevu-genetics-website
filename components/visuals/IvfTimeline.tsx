@@ -1,13 +1,15 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useId, useState } from "react";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
-import { EmbryoArt } from "./EmbryoArt";
+import { EmbryoMicroscope } from "./EmbryoMicroscope";
 
 /**
- * IvfTimeline - the seven days an embryo spends in the lab, as a clickable track.
- * Each day shows a plain-language description and an illustration. Arrow keys move between days.
+ * IvfTimeline - the seven days an embryo spends in the lab.
+ * Left: a darkfield microscope view of the embryo at the current stage.
+ * Right: a vertical stepper; the active day expands its description and fills a progress
+ * rule while it plays. It auto-advances while on screen; choosing a day takes over.
  */
 export interface TimelineDay {
   day: string;
@@ -15,89 +17,96 @@ export interface TimelineDay {
   description: string;
 }
 
-export function IvfTimeline({ days, ground = "light" }: { days: TimelineDay[]; ground?: "light" | "dark" }) {
-  const [i, setI] = useState(0);
+const STAGE_MS = 5600;
+
+export function IvfTimeline({ days }: { days: TimelineDay[]; ground?: "light" | "dark" }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { margin: "0px 0px -20% 0px" });
   const reduce = useReducedMotion();
-  const id = useId();
-  const dark = ground === "dark";
+  const [i, setI] = useState(0);
+  const [auto, setAuto] = useState(true);
+  const playing = auto && inView && !reduce;
+
+  useEffect(() => {
+    if (!playing) return;
+    const t = setTimeout(() => setI((v) => (v + 1) % days.length), STAGE_MS);
+    return () => clearTimeout(t);
+  }, [playing, i, days.length]);
+
+  const choose = (k: number) => {
+    setI(k);
+    setAuto(false);
+  };
 
   const onKey = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowRight") setI((v) => Math.min(days.length - 1, v + 1));
-    if (e.key === "ArrowLeft") setI((v) => Math.max(0, v - 1));
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") choose(Math.min(days.length - 1, i + 1));
+    if (e.key === "ArrowUp" || e.key === "ArrowLeft") choose(Math.max(0, i - 1));
   };
 
   return (
-    <div className="flex flex-col gap-6">
-      <div role="tablist" aria-label="IVF cycle day" onKeyDown={onKey} className="relative grid grid-cols-5">
-        {/* track */}
-        <span className={cn("absolute inset-x-0 top-4 h-px", dark ? "bg-graphite" : "bg-stone")} aria-hidden="true" />
-        <motion.span
-          aria-hidden="true"
-          className={cn("absolute top-4 left-0 h-px origin-left", dark ? "bg-mist" : "bg-brown")}
-          initial={false}
-          animate={{ width: `${(i / (days.length - 1)) * 100}%` }}
-          transition={{ duration: reduce ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
-        />
-        {days.map((d, k) => {
-          const on = k === i;
-          const past = k <= i;
-          return (
-            <button
-              key={d.day}
-              role="tab"
-              type="button"
-              id={`${id}-tab-${k}`}
-              aria-selected={on}
-              aria-controls={`${id}-panel`}
-              tabIndex={on ? 0 : -1}
-              onClick={() => setI(k)}
-              className="group relative flex min-h-7 flex-col items-center gap-2 text-center"
-            >
-              <span
-                className={cn(
-                  "transition-move relative z-10 flex size-6 items-center justify-center rounded-full border-2",
-                  past
-                    ? dark
-                      ? "border-mist bg-mist"
-                      : "border-brown bg-brown"
-                    : dark
-                      ? "border-graphite bg-bark group-hover:border-mist"
-                      : "border-graphite bg-white group-hover:border-brown",
-                  on && "scale-110",
-                )}
-              >
-                {on && <span className={cn("size-2 rounded-full", dark ? "bg-bark" : "bg-white")} />}
-              </span>
-              <span className={cn("type-label", on ? (dark ? "text-mist" : "text-brown") : dark ? "text-mist" : "text-graphite")}>{d.day}</span>
-              <span className={cn("type-small hidden sm:block", dark ? "text-mist" : "text-ink")}>{d.stage}</span>
-            </button>
-          );
-        })}
+    <div ref={ref} className="grid items-center gap-7 lg:grid-cols-12">
+      <div className="lg:col-span-7">
+        <EmbryoMicroscope stage={i} className="mx-auto max-w-prose shadow-md" />
       </div>
 
-      <div
-        id={`${id}-panel`}
-        role="tabpanel"
-        aria-labelledby={`${id}-tab-${i}`}
-        className={cn("grid items-center gap-6 rounded-lg border p-5 sm:grid-cols-3 md:p-6", dark ? "border-graphite bg-bark" : "border-stone bg-white")}
-      >
-        <EmbryoArt stage={i} ground={ground} className="mx-auto max-w-card" />
-        <div className="sm:col-span-2">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={i}
-            initial={reduce ? false : { opacity: 0, x: 12 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={reduce ? undefined : { opacity: 0, x: -12 }}
-            transition={{ duration: 0.25 }}
-            className="flex flex-col gap-2"
-          >
-            <span className={cn("type-label", dark ? "text-mist" : "text-brown")}>{days[i].day}</span>
-            <p className={cn("type-h3", dark ? "text-mist" : "text-ink")}>{days[i].stage}</p>
-            <p className={cn("type-body max-w-prose", dark ? "text-mist" : "text-ink")}>{days[i].description}</p>
-          </motion.div>
-        </AnimatePresence>
-        </div>
+      <div className="lg:col-span-5">
+        <ol role="tablist" aria-label="Seven days in the lab" aria-orientation="vertical" onKeyDown={onKey} className="flex flex-col">
+          {days.map((d, k) => {
+            const on = k === i;
+            const done = k < i;
+            return (
+              <li key={d.day} className="relative border-b border-stone last:border-b-0">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={on}
+                  tabIndex={on ? 0 : -1}
+                  onClick={() => choose(k)}
+                  className="group flex w-full gap-5 py-5 text-left"
+                >
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "transition-move mt-1 flex size-6 shrink-0 items-center justify-center rounded-full border-2",
+                      on ? "border-brown bg-brown" : done ? "border-brown bg-white" : "border-stone bg-white group-hover:border-brown",
+                    )}
+                  >
+                    <span className={cn("size-2 rounded-full", on ? "bg-white" : done ? "bg-brown" : "bg-transparent")} />
+                  </span>
+                  <span className="flex min-w-0 flex-1 flex-col gap-1">
+                    <span className={cn("type-label", on ? "text-brown" : "text-graphite")}>{d.day}</span>
+                    <span className={cn("transition-ui", on ? "type-h3 text-ink" : "type-subheading text-ink group-hover:text-brown")}>
+                      {d.stage}
+                    </span>
+                    <AnimatePresence initial={false}>
+                      {on && (
+                        <motion.span
+                          key="desc"
+                          initial={reduce ? false : { height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={reduce ? undefined : { height: 0, opacity: 0 }}
+                          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                          className="block overflow-hidden"
+                        >
+                          <span className="type-body block pt-2 text-ink">{d.description}</span>
+                          <span aria-hidden="true" className="mt-4 block h-px w-full bg-stone">
+                            <motion.span
+                              key={`${k}-${playing}`}
+                              className="block h-px bg-brown"
+                              initial={{ width: playing ? "0%" : "100%" }}
+                              animate={{ width: "100%" }}
+                              transition={{ duration: playing ? STAGE_MS / 1000 : 0, ease: "linear" }}
+                            />
+                          </span>
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </div>
   );
