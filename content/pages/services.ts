@@ -1,3 +1,4 @@
+import type { PhotoKey } from "../media";
 /**
  * Page-level copy for /services/*, /book and /contact.
  * Product facts live in content/services.ts — this file only holds framing copy.
@@ -52,7 +53,7 @@ export const ivfYourDonorsPage = {
     "You aim to upgrade herd quality quickly",
     "You are planning long-term dairy growth",
   ],
-  photo: "OPU session in progress at the crush, donor cow and aspirator",
+  photo: "farm/handler-with-calf" as PhotoKey,
 };
 
 export const buyEmbryosPage = {
@@ -67,7 +68,7 @@ export const buyEmbryosPage = {
     intro: "Both are produced in our lab from our own herd. The difference is what you want from the calf crop.",
   },
   compareHeader: { kicker: "Side by side", title: "Which options each embryo type comes with" },
-  photo: "Donor cows from the Reynadu Farm indigenous herd",
+  photo: "farm/herd-walking" as PhotoKey,
 };
 
 export const sexSortedPage = {
@@ -82,7 +83,7 @@ export const sexSortedPage = {
     title: "How you can buy them",
     intro: "Choose the level of service that fits your farm.",
   },
-  photo: "Female calf born from a sex-sorted embryo",
+  photo: "farm/young-calves" as PhotoKey,
 };
 
 export const conventionalPage = {
@@ -97,7 +98,7 @@ export const conventionalPage = {
     title: "How you can buy them",
     intro: "Choose the level of service that fits your farm.",
   },
-  photo: "Proven sire from the Hebbevu breeding programme",
+  photo: "farm/gir-bull" as PhotoKey,
 };
 
 export const embryoTransferPage = {
@@ -133,7 +134,7 @@ export const embryoTransferPage = {
     intro:
       "Embryo transfer pregnancies are checked at 35 and 60 days. Our published conception rate is the 60-day figure — the harder test.",
   },
-  photo: "Embryo transfer into a recipient cow",
+  photo: "farm/cow-and-calf" as PhotoKey,
 };
 
 export const qualifierPage = {
@@ -204,7 +205,7 @@ export const contactPage = {
     title: "Reynadu Farm, Sri Sathya Sai",
     intro: "The lab sits on the same land as the herd.",
   },
-  photo: "Reynadu Farm entrance and lab building",
+  photo: "farm/aerial" as PhotoKey,
 };
 
 /** CTA bands for the conversion pages (one per page). */

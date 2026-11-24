@@ -1,9 +1,11 @@
 import { BulletList } from "@/components/blocks/BulletList";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { Button, ButtonGroup, MediaPlaceholder, SectionHeader } from "@/components/ui";
+import { Button, ButtonGroup, SectionHeader } from "@/components/ui";
 import { ivfYourDonorsPage as page } from "@/content/pages/services";
 import { ivfYourDonors as svc } from "@/content/services";
+import { Photo } from "@/components/ui/Photo";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 import { GuidelinesList, NumberedTiles, ServicesCTA, homeCrumb, servicesCrumb } from "../_components/shared";
 
@@ -25,7 +27,7 @@ export default function IvfYourDonorsPage() {
             </Button>
           </ButtonGroup>
         }
-        aside={<MediaPlaceholder subject={page.photo} />}
+        aside={<Photo photo={photos[page.photo]} aspect="portrait" priority />}
       />
 
       <Section tone="mist" labelledBy="includes">

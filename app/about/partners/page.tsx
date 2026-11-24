@@ -3,6 +3,8 @@ import { Section } from "@/components/layout/Section";
 import { Heading, Pending } from "@/components/typography";
 import { Button, ChipList, CTABand, SectionHeader } from "@/components/ui";
 import { aboutPages } from "@/content/pages/about";
+import { Photo } from "@/components/ui/Photo";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 const copy = aboutPages.partners;
@@ -13,6 +15,7 @@ export default function PartnersPage() {
   return (
     <>
       <PageHero
+        aside={<Photo photo={photos["farm/gir-bull"]} aspect="portrait" priority />}
         kicker="Global Collaboration"
         title={copy.heading}
         lede={copy.lede}

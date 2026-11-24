@@ -1,8 +1,10 @@
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { Button, ButtonGroup, MediaPlaceholder, SectionHeader, ServiceCard } from "@/components/ui";
+import { Button, ButtonGroup, SectionHeader, ServiceCard } from "@/components/ui";
 import { buyEmbryosPage as page } from "@/content/pages/services";
 import { buyEmbryos as svc, embryoProducts } from "@/content/services";
+import { Photo } from "@/components/ui/Photo";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 import { GuidelinesList, OptionMatrix, ServicesCTA, homeCrumb, servicesCrumb } from "../_components/shared";
 
@@ -24,7 +26,7 @@ export default function BuyEmbryosPage() {
             </Button>
           </ButtonGroup>
         }
-        aside={<MediaPlaceholder subject={page.photo} />}
+        aside={<Photo photo={photos[page.photo]} aspect="portrait" priority />}
       />
 
       <Section tone="mist" labelledBy="products">

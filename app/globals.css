@@ -52,6 +52,7 @@
   /* ---- Layout widths -------------------------------------------------- */
   --container-content: 1200px; /* content column cap */
   --container-prose: 720px; /* body text and section headers */
+  --container-card: 320px; /* floating cards over photography */
 
   /* ---- Radius (§6) ---------------------------------------------------- */
   --radius-sm: 2px; /* chips, inputs, tables */
@@ -92,10 +93,15 @@
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --animate-marquee: marquee 40s linear infinite;
   --animate-pulse-soft: pulse-soft 3s var(--ease-out-soft) infinite;
+  --animate-settle: settle 2.4s var(--ease-out-soft) both;
 
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+  @keyframes settle {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
   }
   @keyframes pulse-soft {
     0%, 100% { opacity: 0.55; }

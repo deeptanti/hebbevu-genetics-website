@@ -93,13 +93,6 @@ export const aboutPages = {
     housingHeading: "Ethical & hygienic housing",
     housing:
       "World-class infrastructure designed for optimal animal health and performance. Every animal is cared for by a named veterinary team that manages treatment, medication schedules, feed and milking records.",
-    photosHeading: "Around the farm",
-    photos: [
-      "The herd — indigenous cattle at Reynadu Farm",
-      "Fodder land",
-      "Cattle housing",
-      "The lab building on the farm",
-    ],
     visitHeading: "Where we are",
     cta: {
       heading: "Visit Reynadu Farm",

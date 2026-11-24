@@ -4,21 +4,23 @@ import { FaqList } from "@/components/blocks/FaqList";
 import { FeatureGrid } from "@/components/blocks/FeatureGrid";
 import { StatsBand } from "@/components/blocks/StatsBand";
 import { TraceChain } from "@/components/blocks/TraceChain";
-import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { Button, ButtonGroup, CTABand, SectionHeader } from "@/components/ui";
-import { EmbryoScope } from "@/components/visuals/EmbryoScope";
+import { HomeHero } from "@/components/blocks/HomeHero";
+import { PhotoStrip } from "@/components/visuals/PhotoStrip";
+import { Photo } from "@/components/ui/Photo";
+import { photos } from "@/content/media";
 import { IvfTimeline } from "@/components/visuals/IvfTimeline";
 import { PathChooser } from "@/components/visuals/PathChooser";
 import { Ticker } from "@/components/visuals/Ticker";
 import { YieldChart } from "@/components/visuals/YieldChart";
 import { breeds, parseYield } from "@/content/breeds";
 import { faqs } from "@/content/faq";
-import { embryoStages, ivfCycle, traceChain, traceExplainer, labIntro } from "@/content/lab";
+import { ivfCycle, traceChain, traceExplainer, labIntro } from "@/content/lab";
 import { homeCopy } from "@/content/pages/home";
 import { pathOptions, servicesCta } from "@/content/services";
 import { homeHero, pillars, revolution } from "@/content/site";
-import { impactStats } from "@/content/stats";
+import { impactStats, stats } from "@/content/stats";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
@@ -32,14 +34,17 @@ export const metadata = pageMeta({
 export default function HomePage() {
   const yieldRows = breeds.map((b) => {
     const [min, max] = parseYield(b.milkYield);
-    return { slug: b.slug, name: b.name, epithet: b.epithet, min, max, a2: b.milkType === "A2" };
+    const img = photos[`breeds/${b.slug}` as keyof typeof photos];
+    return { slug: b.slug, name: b.name, epithet: b.epithet, min, max, a2: b.milkType === "A2", image: img && { src: img.src, alt: img.alt } };
   });
   return (
     <>
-      <PageHero
-        display
+      <HomeHero
+        kicker={homeCopy.heroKicker}
         title={homeHero.heading}
         lede={homeHero.lede}
+        photo={photos["farm/cow-and-calf"]}
+        stat={stats.calves}
         actions={
           <ButtonGroup>
             <Button href={homeCopy.heroActions.primary.href} arrow>
@@ -50,13 +55,28 @@ export default function HomePage() {
             </Button>
           </ButtonGroup>
         }
-        aside={<EmbryoScope stages={embryoStages} className="mx-auto w-full max-w-prose lg:ml-auto" />}
       />
       <Ticker items={homeCopy.ticker} />
 
       <Section labelledBy="pillars">
         <SectionHeader id="pillars" title={homeCopy.pillarsHeading} />
         <FeatureGrid items={pillars} columns={4} />
+      </Section>
+
+      <Section tone="mist" labelledBy="farm">
+        <SectionHeader id="farm" kicker={homeCopy.farm.kicker} title={homeCopy.farm.heading} flush />
+        <PhotoStrip
+          label={homeCopy.farm.stripLabel}
+          photos={[
+            photos["farm/herd-walking"],
+            photos["farm/calves-at-barn"],
+            photos["farm/handler-with-calf"],
+            photos["farm/gir-bull"],
+            photos["farm/young-calves"],
+            photos["farm/handler-with-bulls"],
+            photos["people/team-at-fence"],
+          ]}
+        />
       </Section>
 
       <StatsBand title={homeCopy.statsHeading} stats={impactStats} />
@@ -80,7 +100,9 @@ export default function HomePage() {
       </Section>
 
       <Section tone="mist" labelledBy="revolution">
-        <div className="grid gap-7 lg:grid-cols-2">
+        <div className="grid items-center gap-7 lg:grid-cols-2">
+          <Photo photo={photos["people/two-with-bull"]} aspect="photo" />
+          <div className="flex flex-col gap-5">
           <SectionHeader id="revolution" kicker={revolution.kicker} title={revolution.heading} intro={revolution.paragraphs} flush />
           <div className="flex flex-col gap-5 rounded-lg border border-stone bg-white p-5 md:p-6">
             <h3 className="type-h3 text-ink">{revolution.listHeading}</h3>
@@ -90,6 +112,7 @@ export default function HomePage() {
                 Know More
               </Button>
             </div>
+          </div>
           </div>
         </div>
       </Section>

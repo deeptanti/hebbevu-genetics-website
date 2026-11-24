@@ -4,7 +4,12 @@ export const homeCopy = {
     primary: { label: "Book Appointment", href: "/book" },
     secondary: { label: "Know More", href: "/about" },
   },
-  heroPhoto: "Gir donor cow at Reynadu Farm — head and shoulders, natural light",
+  heroKicker: "South India’s first private cattle IVF lab",
+  farm: {
+    kicker: "On the farm",
+    heading: "The herd, the calves and the people who look after them",
+    stripLabel: "Photographs from the farm",
+  },
   heroBreeds: ["Gir", "Sahiwal", "Ongole", "Kankrej"],
   /** Marquee strip: the technical register (§13) — breeds, protocols, record points. */
   ticker: ["Gir", "Sahiwal", "Ongole", "Kankrej", "Rathi", "Jaffarabadi", "Holstein Friesian", "OPU", "Egg grades A–D", "Embryo grades 1–3", "Checks at day 35 & 60", "Fresh or frozen", "CIDR · GPG · Double PG · Single PG"],

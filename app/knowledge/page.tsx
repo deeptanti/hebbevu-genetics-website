@@ -3,6 +3,7 @@ import { Section } from "@/components/layout/Section";
 import { ArticleCard, CardLink, CardMore, CTABand, SectionHeader } from "@/components/ui";
 import { articlesByTopic, readingMinutes, topics } from "@/content/knowledge";
 import { knowledgePage } from "@/content/pages/knowledge";
+import { getPhoto } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({ title: knowledgePage.title, description: knowledgePage.metaDescription, path: "/knowledge" });
@@ -31,7 +32,9 @@ export default function KnowledgePage() {
           <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {g.articles.map((a) => (
               <li key={a.slug}>
-                <ArticleCard href={`/knowledge/${a.slug}`} title={a.title} description={a.description} minutes={readingMinutes(a)} />
+                <ArticleCard
+                  image={getPhoto(`articles/${a.slug}`)}
+                  href={`/knowledge/${a.slug}`} title={a.title} description={a.description} minutes={readingMinutes(a)} />
               </li>
             ))}
           </ul>

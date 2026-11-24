@@ -7,6 +7,8 @@ import { ArticleCard, CTABand, SectionHeader } from "@/components/ui";
 import { articles } from "@/content/articles";
 import { articlesByTopic, getArticle, readingMinutes, topics } from "@/content/knowledge";
 import { articlePageCopy, knowledgePage } from "@/content/pages/knowledge";
+import { Photo } from "@/components/ui/Photo";
+import { getPhoto } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 export const dynamicParams = false;
@@ -40,6 +42,7 @@ export default async function ArticlePage({ params }: Props) {
         title={article.title}
         lede={article.description}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Knowledge", href: "/knowledge" }, { label: article.title }]}
+        aside={getPhoto(`articles/${article.slug}`) ? <Photo photo={getPhoto(`articles/${article.slug}`)!} aspect="photo" priority /> : undefined}
       >
         <p className="type-label text-graphite">{readingMinutes(article)} min read</p>
       </PageHero>
@@ -54,7 +57,9 @@ export default async function ArticlePage({ params }: Props) {
           <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {related.map((a) => (
               <li key={a.slug}>
-                <ArticleCard href={`/knowledge/${a.slug}`} title={a.title} description={a.description} minutes={readingMinutes(a)} />
+                <ArticleCard
+                  image={getPhoto(`articles/${a.slug}`)}
+                  href={`/knowledge/${a.slug}`} title={a.title} description={a.description} minutes={readingMinutes(a)} />
               </li>
             ))}
           </ul>

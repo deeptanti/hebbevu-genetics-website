@@ -5,8 +5,9 @@ import { BulletList } from "@/components/blocks/BulletList";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { ArticleCard, CTABand, ChipList, SectionHeader, Stat } from "@/components/ui";
-import { BreedSpecimen } from "@/components/visuals/BreedSpecimen";
-import { breedSelection, breeds, getBreed, yieldDisclaimer, parseYield } from "@/content/breeds";
+import { Photo } from "@/components/ui/Photo";
+import { getPhoto } from "@/content/media";
+import { breedSelection, breeds, getBreed, yieldDisclaimer } from "@/content/breeds";
 import { getArticle, readingMinutes, topics } from "@/content/knowledge";
 import { breedDetailCopy } from "@/content/pages/breeds";
 import { pageMeta } from "@/lib/metadata";
@@ -60,13 +61,9 @@ export default async function BreedPage({ params }: Props) {
         lede={breed.strength}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Breeds", href: "/breeds" }, { label: breed.name }]}
         aside={
-          <BreedSpecimen
-            name={breed.name}
-            origin={breed.origin}
-            min={parseYield(breed.milkYield)[0]}
-            max={parseYield(breed.milkYield)[1]}
-            className="rounded-lg border border-stone"
-          />
+          getPhoto(`breeds/${breed.slug}`) ? (
+            <Photo photo={getPhoto(`breeds/${breed.slug}`)!} aspect="square" priority />
+          ) : undefined
         }
       >
         <ChipList items={breed.traits} />
@@ -132,6 +129,7 @@ export default async function BreedPage({ params }: Props) {
             {related.map((a) => (
               <li key={a.slug}>
                 <ArticleCard
+                  image={getPhoto(`articles/${a.slug}`)}
                   href={`/knowledge/${a.slug}`}
                   title={a.title}
                   description={a.description}

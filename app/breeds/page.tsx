@@ -5,6 +5,7 @@ import { BreedCard, Button, ButtonGroup, CTABand, SectionHeader } from "@/compon
 import { breedSelection, breeds, breedsIntro, parseYield, yieldDisclaimer } from "@/content/breeds";
 import { YieldChart } from "@/components/visuals/YieldChart";
 import { breedsPage } from "@/content/pages/breeds";
+import { getPhoto } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
@@ -48,7 +49,8 @@ export default function BreedsPage() {
           <YieldChart
             rows={breeds.map((b) => {
               const [min, max] = parseYield(b.milkYield);
-              return { slug: b.slug, name: b.name, epithet: b.epithet, min, max, a2: b.milkType === "A2" };
+              const img = getPhoto(`breeds/${b.slug}`);
+              return { slug: b.slug, name: b.name, epithet: b.epithet, min, max, a2: b.milkType === "A2", image: img && { src: img.src, alt: img.alt } };
             })}
             caption={yieldDisclaimer}
           />
@@ -65,7 +67,7 @@ export default function BreedsPage() {
                   { label: "Milk yield", value: b.milkYield },
                 ]}
                 tags={b.milkType ? [`${b.milkType} milk`] : undefined}
-                specimen={{ origin: b.origin, min: parseYield(b.milkYield)[0], max: parseYield(b.milkYield)[1] }}
+                photo={getPhoto(`breeds/${b.slug}`)}
               />
             </li>
           ))}

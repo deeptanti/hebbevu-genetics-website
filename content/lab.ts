@@ -156,10 +156,3 @@ export const research: Feature[] = [
   },
 ];
 
-/** Hero microscope stages — the lab's own record days (§9), in plain words. */
-export const embryoStages = [
-  { day: "Day 0", title: "Egg collected", body: "Oocytes are collected from the donor by OPU and graded A to D before maturation." },
-  { day: "Day 1", title: "Fertilisation", body: "Each egg is fertilised in the lab with semen from the chosen sire." },
-  { day: "Day 2", title: "First divisions", body: "Cleavage is checked — the first sign that fertilisation worked." },
-  { day: "Day 7", title: "Embryo ready", body: "Embryos are graded 1 to 3, then transferred fresh or frozen for later." },
-];

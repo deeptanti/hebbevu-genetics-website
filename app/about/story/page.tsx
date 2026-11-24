@@ -5,6 +5,8 @@ import { ArticleCard, CTABand, SectionHeader } from "@/components/ui";
 import { getArticle, readingMinutes } from "@/content/knowledge";
 import { aboutPages } from "@/content/pages/about";
 import { about, site } from "@/content/site";
+import { getPhoto, photos } from "@/content/media";
+import { Photo } from "@/components/ui/Photo";
 import { pageMeta } from "@/lib/metadata";
 
 const copy = aboutPages.story;
@@ -17,6 +19,7 @@ export default function StoryPage() {
   return (
     <>
       <PageHero
+        aside={<Photo photo={photos["people/two-at-fence"]} aspect="portrait" priority />}
         title={copy.heading}
         lede={site.vision.statement}
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Our story" }]}
@@ -41,7 +44,8 @@ export default function StoryPage() {
               {copy.articleHeading}
             </Heading>
             <ArticleCard
-              href={`/knowledge/${article.slug}`}
+                  image={getPhoto(`articles/${article.slug}`)}
+                  href={`/knowledge/${article.slug}`}
               title={article.title}
               description={article.description}
               minutes={readingMinutes(article)}

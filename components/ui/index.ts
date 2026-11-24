@@ -12,3 +12,4 @@ export * from "./MediaPlaceholder";
 export * from "./SectionHeader";
 export * from "./ServiceCard";
 export * from "./Stat";
+export * from "./Photo";

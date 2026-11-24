@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { useState } from "react";
@@ -18,6 +19,8 @@ export interface YieldRow {
   min: number;
   max: number;
   a2: boolean;
+  /** Optional breed photo, shown as a round thumbnail. */
+  image?: { src: string; alt: string };
 }
 
 const TICKS = [0, 10, 20, 30];
@@ -69,8 +72,15 @@ export function YieldChart({ rows, caption }: { rows: YieldRow[]; caption: strin
                   dim && "opacity-50",
                 )}
               >
-                <span className="flex items-baseline justify-between gap-4">
-                  <span className={cn("type-subheading transition-ui", on ? "text-brown" : "text-ink")}>{r.name}</span>
+                <span className="flex items-center justify-between gap-4">
+                  <span className="flex items-center gap-3">
+                    {r.image && (
+                      <span className={cn("transition-move relative size-7 shrink-0 overflow-hidden rounded-full bg-clay ring-2", on ? "ring-brown" : "ring-transparent")}>
+                        <Image src={r.image.src} alt="" fill sizes="48px" className="object-cover" />
+                      </span>
+                    )}
+                    <span className={cn("type-subheading transition-ui", on ? "text-brown" : "text-ink")}>{r.name}</span>
+                  </span>
                   <span className="type-small whitespace-nowrap text-graphite">
                     {r.min}–{r.max} l/day{r.a2 ? " · A2" : ""}
                   </span>

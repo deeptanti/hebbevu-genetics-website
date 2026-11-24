@@ -60,9 +60,13 @@ Legacy redirects from the content doc: /blogs, /blog/:slug, /about-us, /our-serv
 - **Don't override component classes with conflicting utilities** (`className="mb-0"`). `cn()` doesn't merge classes, so use the props (`flush`, `framed`).
 - Type: `display` = Playfair 700, `clamp(44px, 5.6vw, 84px)`, line-height 1.06, tracking −0.02em. Below 768px, h1/h2/h3/stat drop one step.
 - Icons: **Phosphor duotone**, 24px, `currentColor` (brown on light, mist on dark), usually inside an `IconTile`. Lucide remains only for small UI glyphs (chevrons, menu).
-- **Motion** (added at client request — overrides the brief's "nothing moves"): one soft easing (`--ease-out-soft`), reveals once per element on first view, and everything stops under `prefers-reduced-motion`. Interactive pieces live in `components/visuals`: `EmbryoScope` (hero), `PathChooser`, `IvfTimeline`, `YieldChart`, `BreedSpecimen`, `Ticker`.
+- **Motion** (added at client request — overrides the brief's "nothing moves"): one soft easing (`--ease-out-soft`), reveals once per element on first view, and everything stops under `prefers-reduced-motion`. Interactive pieces live in `components/visuals`: `PathChooser`, `IvfTimeline`, `YieldChart`, `PhotoStrip`, `Ticker`.
 - Two derived tints were added: `clay` and `sand` (brown on white). They're used for decorative fills only, never text.
+
+## Photography
+
+`public/photos` + `content/media.ts`: 29 photos taken from the earlier Hebbevu Genetics site (psquaresolutions.in/genetics7), resized to ≤1600px with metadata stripped. Always render through `<Photo>`. Lab-looking images from that site that may be stock are used only as article covers, never presented as our lab.
 
 ## Waiting on the client
 
-Lab figures + sample sizes · photography (one animal per breed) · horizontal & reversed logo, vectors · Hindi copy · privacy/terms · lead destination for the enquiry form · GTM / Meta Pixel IDs (`NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_META_PIXEL_ID`) · confirmation that +91 80505 39391 is on WhatsApp.
+Lab figures + sample sizes · photography still missing: the lab/facility, OPU and transfer in progress, and portraits for Anupama, Dr. Raju, Dr. Narendra and Susha · horizontal & reversed logo, vectors · Hindi copy · privacy/terms · lead destination for the enquiry form · GTM / Meta Pixel IDs (`NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_META_PIXEL_ID`) · confirmation that +91 80505 39391 is on WhatsApp.

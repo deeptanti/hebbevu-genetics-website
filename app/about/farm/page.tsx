@@ -1,9 +1,11 @@
 import { ContactPanel } from "@/components/blocks/ContactPanel";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { CTABand, MediaPlaceholder, SectionHeader, Stat, StatGrid } from "@/components/ui";
+import { CTABand, SectionHeader, Stat, StatGrid } from "@/components/ui";
 import { aboutPages } from "@/content/pages/about";
 import { stats } from "@/content/stats";
+import { Photo } from "@/components/ui/Photo";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 const copy = aboutPages.farm;
@@ -17,7 +19,7 @@ export default function FarmPage() {
         title={copy.heading}
         lede={copy.lede}
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Reynadu Farm" }]}
-        aside={<MediaPlaceholder subject="Reynadu Farm — wide view of the herd and fodder land" />}
+        aside={<Photo photo={photos["farm/aerial"]} aspect="photo" priority />}
       />
 
       <Section tone="mist">
@@ -31,9 +33,9 @@ export default function FarmPage() {
       <Section>
         <SectionHeader title={copy.housingHeading} intro={copy.housing} />
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {copy.photos.map((p) => (
-            <li key={p}>
-              <MediaPlaceholder subject={p} />
+          {(["farm/herd-walking", "farm/calves-at-barn", "farm/handler-with-bulls", "farm/young-calves"] as const).map((k) => (
+            <li key={k}>
+              <Photo photo={photos[k]} caption={photos[k].alt} />
             </li>
           ))}
         </ul>

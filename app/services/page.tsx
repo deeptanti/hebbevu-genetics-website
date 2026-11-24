@@ -1,11 +1,13 @@
 import { FeatureGrid } from "@/components/blocks/FeatureGrid";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { Button, ButtonGroup, MediaPlaceholder, SectionHeader, ServiceCard } from "@/components/ui";
+import { Button, ButtonGroup, SectionHeader, ServiceCard } from "@/components/ui";
 import { servicesPage as page } from "@/content/pages/services";
 import { differentiators, embryoTransfer, pathOptions, servicesIntro } from "@/content/services";
 import { primaryCta } from "@/content/site";
 import { PathChooser } from "@/components/visuals/PathChooser";
+import { Photo } from "@/components/ui/Photo";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 import { GuidelinesList, ServicesCTA, homeCrumb } from "./_components/shared";
 
@@ -47,7 +49,7 @@ export default function ServicesPage() {
               points={embryoTransfer.includes}
             />
           </div>
-          <MediaPlaceholder subject="Embryo transfer into a recipient cow" aspect="portrait" />
+          <Photo photo={photos["farm/calves-at-barn"]} aspect="portrait" />
         </div>
       </Section>
 

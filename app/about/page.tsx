@@ -8,6 +8,8 @@ import { Button, ButtonGroup, CTABand, SectionHeader, ServiceCard } from "@/comp
 import { aboutPages } from "@/content/pages/about";
 import { about, pillars, site } from "@/content/site";
 import { impactStats } from "@/content/stats";
+import { Photo } from "@/components/ui/Photo";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 const copy = aboutPages.index;
@@ -18,6 +20,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
+        aside={<Photo photo={photos["people/team-at-fence"]} aspect="photo" priority />}
         kicker="About Hebbevu Genetics"
         title={about.heading}
         lede={about.overview[0]}

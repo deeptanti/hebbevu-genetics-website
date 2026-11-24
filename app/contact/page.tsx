@@ -1,9 +1,11 @@
 import { ContactPanel } from "@/components/blocks/ContactPanel";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { CTABand, MediaPlaceholder, SectionHeader } from "@/components/ui";
+import { CTABand, SectionHeader } from "@/components/ui";
 import { contactCta, contactPage as page } from "@/content/pages/services";
 import { contact } from "@/content/site";
+import { Photo } from "@/components/ui/Photo";
+import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({ ...page.meta, path: "/contact", absoluteTitle: true });
@@ -30,7 +32,7 @@ export default function ContactPage() {
               ))}
             </address>
           </div>
-          <MediaPlaceholder subject={page.photo} />
+          <Photo photo={photos[page.photo]} aspect="photo" />
         </div>
       </Section>
 
