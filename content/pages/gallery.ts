@@ -3,11 +3,13 @@ import type { PhotoKey } from "../media";
 /** Gallery page: every usable photograph, grouped by what it shows. */
 export const galleryPage = {
   meta: {
-    title: "Gallery — Life at Reynadu Farm",
+    title: "Gallery: Life at Reynadu Farm",
     description: "Photographs from Hebbevu Genetics: the indigenous herd, the seven breeds, the lab and the people who run it.",
   },
   title: "Gallery",
-  lede: "The herd, the breeds, the lab and the people behind them — photographed at the farm.",
+  lede: "The herd, the breeds, the lab and the people behind them, photographed at the farm.",
+  photosHeading: "Photographs from the farm",
+  photosIntro: "Filter by what you want to see, and select any photo to view it full size.",
   videosHeading: "The breeds, in motion",
   groups: ["The herd", "Breeds", "People", "Lab", "The farm"],
   items: [

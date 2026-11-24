@@ -1,4 +1,4 @@
-/** Shared content types. Pages read typed data from /content — never hardcode copy in JSX. */
+/** Shared content types. Pages read typed data from /content - never hardcode copy in JSX. */
 
 /** Literal placeholder for any figure the client has not supplied (brief §2). Never estimate. */
 export const TBS = "[ TO BE SUPPLIED ]" as const;
@@ -72,7 +72,7 @@ export interface Breed {
   name: string;
   epithet: string;
   origin: string;
-  /** Milk yield as written by the client — a typical range, not a guarantee. */
+  /** Milk yield as written by the client - a typical range, not a guarantee. */
   milkYield: string;
   /** "A2" or null where the client did not state it. */
   milkType: "A2" | null;

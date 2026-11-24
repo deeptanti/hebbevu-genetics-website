@@ -1,6 +1,6 @@
 /**
  * The seven articles, parsed verbatim from src-docs/Genetics website content.docx.
- * GENERATED — regenerate rather than hand-edit large sections.
+ * GENERATED - regenerate rather than hand-edit large sections.
  * Two links in the source point to articles that do not exist
  * (/blog/economics-of-genetics, /blog/genetic-planning-dairy-farming); they are
  * listed in MISSING_ARTICLE_LINKS and NOT rendered.
@@ -232,7 +232,7 @@ export const articles: Article[] = [
       },
       {
         "type": "p",
-        "text": "Renowned for their resilience, productivity, and adaptability, Gir cows are not just another breed—they are a genetic foundation for elite dairy operations across India and beyond."
+        "text": "Renowned for their resilience, productivity, and adaptability, Gir cows are not just another breed; they are a genetic foundation for elite dairy operations across India and beyond."
       },
       {
         "type": "h2",

@@ -14,15 +14,21 @@ export default function GalleryPage() {
   return (
     <>
       <PageHero
-        banner={photos["banners/herd-road"]}
+        photo={photos["people/team-at-fence"]}
+        caption="The Hebbevu team, with founder Mr. Amith Kishan fourth from left"
         title={copy.title}
         lede={copy.lede}
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Gallery" }]}
+        actions={[
+          { label: "Book a visit", href: "/book" },
+          { label: "About the farm", href: "/about/farm" },
+        ]}
       />
-      <Section tone="mist">
+      <Section labelledBy="photos">
+        <SectionHeader id="photos" title={copy.photosHeading} intro={copy.photosIntro} />
         <Gallery items={copy.items.map(([k, group]) => ({ photo: photos[k], group }))} groups={copy.groups} />
       </Section>
-      <Section labelledBy="videos">
+      <Section tone="mist" labelledBy="videos">
         <SectionHeader id="videos" title={copy.videosHeading} />
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {copy.videos.map((v) => (

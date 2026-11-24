@@ -1,8 +1,9 @@
 import { ContactPanel } from "@/components/blocks/ContactPanel";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { Button, CTABand } from "@/components/ui";
-import { Pending } from "@/components/typography";
+import { CTABand, SectionHeader } from "@/components/ui";
+import { Photo } from "@/components/ui/Photo";
+import { photos } from "@/content/media";
 import { hiCopy, hiPending } from "@/content/pages/hi";
 
 /**
@@ -14,30 +15,24 @@ export function HiPending({ title, english }: { title: string; english: { label:
   return (
     <div lang="hi" data-translation="pending">
       <div lang="en-IN">
-      <PageHero
-        title={title}
-        lede={hiCopy.explainer}
-        breadcrumbs={[{ label: "Home", href: "/" }, { label: "हिंदी" }]}
-        actions={
-          <Button href={english.href} variant="secondary" arrow>
-            {english.label}
-          </Button>
-        }
-      >
-        <p>
-          <Pending>{hiPending}</Pending>
-        </p>
-      </PageHero>
-      <Section tone="mist" labelledBy="hi-contact">
-        <h2 id="hi-contact" className="type-h2 mb-4 text-deep">
-          {hiCopy.contactHeading}
-        </h2>
-        <p className="type-body mb-6 max-w-prose text-ink">
-          {hiCopy.callLine} {hiCopy.scope}
-        </p>
-        <ContactPanel showAddress={false} />
-      </Section>
-      <CTABand heading={hiCopy.cta.heading} primary={hiCopy.cta.primary} secondary={hiCopy.cta.secondary} />
+        <PageHero
+          photo={photos["farm/aerial"]}
+          title={title}
+          lede={hiCopy.explainer}
+          note={hiPending}
+          breadcrumbs={[{ label: "Home", href: "/" }, { label: "हिंदी" }]}
+          actions={[english]}
+        />
+        <Section labelledBy="hi-contact">
+          <div className="grid items-center gap-7 lg:grid-cols-2">
+            <div>
+              <SectionHeader id="hi-contact" title={hiCopy.contactHeading} intro={[hiCopy.callLine, hiCopy.scope]} />
+              <ContactPanel showAddress={false} />
+            </div>
+            <Photo photo={photos["people/team-at-fence"]} aspect="photo" />
+          </div>
+        </Section>
+        <CTABand heading={hiCopy.cta.heading} primary={hiCopy.cta.primary} secondary={hiCopy.cta.secondary} photo={photos["farm/barn-row"]} />
       </div>
     </div>
   );

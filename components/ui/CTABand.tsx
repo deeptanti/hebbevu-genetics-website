@@ -6,7 +6,7 @@ import { Container } from "../layout/Container";
 import { DnaHelix } from "../visuals/DnaHelix";
 
 /**
- * CTABand — THE conversion block. Exactly ONE per page, placed last.
+ * CTABand - THE conversion block. Exactly ONE per page, placed last.
  * A contained brand-brown card on a light ground, so it never merges with the deep footer
  * below it. Copy + one primary action on the left; a farm photograph on the right; a slow
  * DNA helix behind the copy.

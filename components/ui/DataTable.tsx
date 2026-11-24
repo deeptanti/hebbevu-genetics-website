@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 /**
- * DataTable — headers in `label`, cells in `small`. Rules are decorative (stone).
+ * DataTable - headers in `label`, cells in `small`. Rules are decorative (stone).
  * Scrolls horizontally inside its own frame on narrow screens; the page never does.
  */
 export interface DataTableColumn<K extends string = string> {

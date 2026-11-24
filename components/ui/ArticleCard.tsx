@@ -8,7 +8,7 @@ export interface ArticleCardProps {
   /** The reader problem this article answers, shown as a label. */
   topic?: string;
   minutes?: number;
-  /** Cover image (decorative here — the title carries the meaning). */
+  /** Cover image (decorative here - the title carries the meaning). */
   image?: { src: string };
   level?: 2 | 3;
 }

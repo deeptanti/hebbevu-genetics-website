@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 import { EmbryoArt } from "./EmbryoArt";
 
 /**
- * IvfTimeline — the seven days an embryo spends in the lab, as a clickable track.
+ * IvfTimeline - the seven days an embryo spends in the lab, as a clickable track.
  * Each day shows a plain-language description and an illustration. Arrow keys move between days.
  */
 export interface TimelineDay {

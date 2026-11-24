@@ -2,7 +2,7 @@ import type { Breed } from "./types";
 
 /**
  * The seven breeds (client doc "Our Breeds" + brief §8).
- * Yields are typical ranges under good management — NOT guarantees. Every page that
+ * Yields are typical ranges under good management - NOT guarantees. Every page that
  * shows a yield must also show `yieldDisclaimer`.
  */
 export const yieldDisclaimer =
@@ -35,7 +35,7 @@ export const breeds: Breed[] = [
       {
         heading: "The Brazil connection",
         paragraphs: [
-          "Gir cattle exported from India generations ago became the foundation of Brazil’s dairy Zebu industry — now the largest bovine IVF market in the world. That is the direct link to our Brazilian collaboration: the expertise built on Indian Gir is coming home to Indian Gir.",
+          "Gir cattle exported from India generations ago became the foundation of Brazil’s dairy Zebu industry, now the largest bovine IVF market in the world. That is the direct link to our Brazilian collaboration: the expertise built on Indian Gir is coming home to Indian Gir.",
         ],
       },
     ],
@@ -103,7 +103,7 @@ export const breeds: Breed[] = [
     tradeoff: {
       heading: "The honest trade-off",
       paragraphs: [
-        "A Holstein out-produces every indigenous breed — if you can feed it properly, cool it, and manage its health closely.",
+        "A Holstein out-produces every indigenous breed, if you can feed it properly, cool it, and manage its health closely.",
         "Many farms that switch find that input cost and veterinary load erase the yield advantage. If your constraint is heat, water or feed consistency, a Gir or Sahiwal will make more money. That is arithmetic, not patriotism.",
       ],
     },
@@ -138,7 +138,7 @@ export const breedSelection = {
   criteria: ["Climate adaptability", "Milk productivity", "Disease resistance", "Long-term herd sustainability"],
   closing:
     "By combining indigenous strengths with modern breeding technologies, we ensure better performance and profitability for farmers.",
-  /** Brief §8 — the four questions. */
+  /** Brief §8 - the four questions. */
   questions: [
     "How hot and dry does it get on your land?",
     "Can you hold feed quality through a bad season?",

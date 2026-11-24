@@ -19,14 +19,14 @@ export const site = {
 export const contact = {
   phoneDisplay: "+91 80505 39391",
   phoneHref: "tel:+918050539391",
-  /** ASSUMPTION: same number is on WhatsApp — confirm with client. */
+  /** ASSUMPTION: same number is on WhatsApp - confirm with client. */
   whatsappHref: "https://wa.me/918050539391",
   email: "info@hebbevugenetics.com",
   emailHref: "mailto:info@hebbevugenetics.com",
   addressLines: [
     "46/1C Chinnamanthur, Roddam Mandal",
     "Reynadu Farm, Cholemarri Chinnamanthur",
-    "Sri Sathya Sai, Andhra Pradesh — 515124",
+    "Sri Sathya Sai, Andhra Pradesh 515124",
   ],
 } as const;
 
@@ -101,7 +101,7 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
   },
 ];
 
-/** "Why Hebbevu" — four claims, verbatim from the client doc (Home + About). */
+/** "Why Hebbevu" - four claims, verbatim from the client doc (Home + About). */
 export const pillars: Feature[] = [
   {
     title: "South India’s First Private IVF Lab",
@@ -155,7 +155,7 @@ export const homeHero = {
 export const about = {
   heading: "Building the Future of Indian Dairy Through Genetics",
   overview: [
-    "At Hebbevu Genetics, we are not just building herds — we are building a legacy.",
+    "At Hebbevu Genetics, we are not just building herds. We are building a legacy.",
     "Rooted in India’s rich cattle heritage, our mission is to preserve and elevate indigenous breeds through ethical artificial insemination (AI) and advanced in-vitro fertilization (IVF).",
     "By combining traditional knowledge with modern reproductive science, we develop cattle that are healthier, more productive, and globally competitive.",
     "Our work represents a movement where heritage, sustainability, and innovation come together to shape the future of Indian dairy farming.",
@@ -163,7 +163,7 @@ export const about = {
   access: {
     heading: "Making Quality Genetics Accessible to Every Farmer",
     paragraphs: [
-      "At Hebbevu Genetics, our vision is built on a simple yet powerful belief — “Har ghar mein acchi gai”.",
+      "At Hebbevu Genetics, our vision is built on a simple yet powerful belief: “Har ghar mein acchi gai”.",
       "For years, access to superior cattle genetics has been limited to a small group of breeders. This has created a gap between what is possible and what is accessible to most farmers.",
       "We aim to bridge this gap by making high-quality indigenous cattle genetics available to every Indian dairy farmer.",
       "By combining scientific advancements with practical farming solutions, we are working to make quality genetics accessible, affordable, and scalable.",
@@ -176,12 +176,12 @@ export const about = {
   foundersBrief: {
     heading: "Founders Brief",
     paragraphs: [
-      "Our vision is clear — “Har ghar mein acchi gai.”",
+      "Our vision is clear: “Har ghar mein acchi gai.”",
       "India’s indigenous cattle deserve global recognition, and Indian farmers deserve access to world-class genetics.",
       "We are building a bridge between heritage breeds and modern scientific excellence. Through disciplined artificial insemination (AI) and advanced IVF technology, we are creating a future where high-quality cattle are accessible, affordable, and sustainable for every farming family.",
       "We believe in strengthening superior bloodlines and ensuring that every dairy farmer in India has access to them.",
     ],
     pullQuote: "High-quality cattle should not be a privilege for a few, but a standard for every home.",
-    closing: "This is not just a vision — it is the next revolution in Indian dairy farming.",
+    closing: "This is not just a vision. It is the next revolution in Indian dairy farming.",
   },
 };

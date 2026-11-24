@@ -1,7 +1,7 @@
 import type { Feature } from "./types";
 
 /**
- * The lab — PUBLIC, farmer-level information only.
+ * The lab - PUBLIC, farmer-level information only.
  * Internal operations (record-keeping fields, grading rules, synchronisation protocol
  * names, facility workflows, internal performance metrics and the research programme)
  * were removed at the client's request: they are not public knowledge.
@@ -17,10 +17,10 @@ export const ivfCycle: { day: string; stage: string; description: string }[] = [
   {
     day: "Day 0",
     stage: "Egg collection",
-    description: "Eggs are collected from the donor cow by OPU — a non-invasive procedure that can be repeated — and taken into the lab.",
+    description: "Eggs are collected from the donor cow by OPU, a non-invasive procedure that can be repeated, and taken into the lab.",
   },
   { day: "Day 1", stage: "Fertilisation", description: "Each egg is fertilised with semen from the sire chosen for your breeding goals." },
-  { day: "Day 2", stage: "First divisions", description: "The fertilised eggs begin to divide — the first sign that the process is working." },
+  { day: "Day 2", stage: "First divisions", description: "The fertilised eggs begin to divide. It is the first sign that the process is working." },
   { day: "Day 7", stage: "Embryos ready", description: "After seven days of growth, the embryos are checked and the best are selected." },
   {
     day: "Day 7+",
@@ -29,13 +29,13 @@ export const ivfCycle: { day: string; stage: string; description: string }[] = [
   },
 ];
 
-/** When pregnancies are checked after embryo transfer — what the farmer will see. */
+/** When pregnancies are checked after embryo transfer - what the farmer will see. */
 export const pregnancyChecks = [
   { method: "Embryo transfer", checks: "35 and 60 days" },
   { method: "AI and natural service", checks: "45 and 60 days" },
 ];
 
-/** The Hebbevu Genetic Pipeline — seven stages (client article 6). */
+/** The Hebbevu Genetic Pipeline - seven stages (client article 6). */
 export const pipeline: { step: number; title: string; body: string }[] = [
   {
     step: 1,
@@ -99,17 +99,17 @@ export const facilityAreas: (Feature & { id: string; number: string })[] = [
   },
 ];
 
-/** Traceability — the public claim, without internal record fields. */
+/** Traceability - the public claim, without internal record fields. */
 export const traceChain = ["Donor", "Sire", "Embryo", "Recipient", "Day 35 check", "Day 60 check", "Calf"];
 
 export const traceExplainer =
-  "Every embryo that leaves the lab can be traced back to its donor and sire, and forward to the calf. That is why we can explain why a programme worked or didn’t — and why our published numbers are checkable rather than decorative.";
+  "Every embryo that leaves the lab can be traced back to its donor and sire, and forward to the calf. That is why we can explain why a programme worked or didn’t, and why our published numbers are checkable rather than decorative.";
 
 /** The 60-day nuance (brief §2). */
 export const conceptionMethod = {
   heading: "Why our number is lower than you’ll see elsewhere",
   paragraphs: [
     "Our 35–40% conception rate is measured at the 60-day pregnancy check, not the 35-day check.",
-    "Some pregnancies confirmed at day 35 are lost before day 60. Checking at 60 days is the harder test and gives a lower number than many labs quote — but it is closer to the calves you will actually see.",
+    "Some pregnancies confirmed at day 35 are lost before day 60. Checking at 60 days is the harder test and gives a lower number than many labs quote, but it is closer to the calves you will actually see.",
   ],
 };

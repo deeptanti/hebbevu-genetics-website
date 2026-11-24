@@ -2,7 +2,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * Stand-in for photography that does not exist yet (brief §15.5).
- * Deliberately obvious — never swap in stock imagery. `subject` describes the shot needed.
+ * Deliberately obvious - never swap in stock imagery. `subject` describes the shot needed.
  */
 export interface MediaPlaceholderProps {
   subject: string;

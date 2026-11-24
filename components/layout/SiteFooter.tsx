@@ -13,7 +13,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-5">
             <LogoPlate className="self-start" />
             <p className="type-body text-mist">
-              <span className="font-heading italic">“{site.vision.hindi}”</span> — {site.vision.english}
+              <span className="font-heading italic">“{site.vision.hindi}”</span>: {site.vision.english}
             </p>
             <address className="type-small flex flex-col gap-3 not-italic text-mist">
               <a href={contact.phoneHref} className="transition-ui inline-flex min-h-7 items-center gap-3 hover:text-white">

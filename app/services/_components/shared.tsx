@@ -1,43 +1,58 @@
 import { Check, Minus } from "lucide-react";
-import { CTABand, DataTable, ICON_STROKE } from "@/components/ui";
+import { CTABand, DataTable, Icon, ICON_STROKE } from "@/components/ui";
 import { pricing, serviceGuidelines, servicesCta } from "@/content/services";
 import { primaryCta } from "@/content/site";
+import { photos, type PhotoKey } from "@/content/media";
 import { cn } from "@/lib/cn";
 
 /** The services CTA band (client doc: "Start Improving Your Herd Today"). One per page. */
-export function ServicesCTA({ service }: { service?: string }) {
+export function ServicesCTA({ service, photo }: { service?: string; photo?: PhotoKey }) {
   return (
     <CTABand
       heading={servicesCta.heading}
       body={servicesCta.body}
       primary={{ label: primaryCta.label, href: service ? `/book?service=${service}` : primaryCta.href }}
       secondary={{ label: "Speak with our experts", href: "/contact" }}
+      photo={photo ? photos[photo] : undefined}
     />
   );
 }
 
-/** "Important Information" as a label/value grid. */
+/** "Important Information" as fact tiles: icon, the value set large, the label small. */
+const guidelineIcons = ["package", "scale", "truck", "shield"] as const;
+
 export function GuidelinesList({ className }: { className?: string }) {
   return (
-    <dl className={cn("grid grid-cols-1 gap-5 sm:grid-cols-2", className)}>
-      {serviceGuidelines.map((g) => (
-        <div key={g.label} className="flex flex-col gap-2 border-t border-stone pt-4">
-          <dt className="type-label text-graphite">{g.label}</dt>
-          <dd className="type-subheading text-ink">{g.value}</dd>
+    <dl className={cn("grid grid-cols-1 gap-4 sm:grid-cols-2", className)}>
+      {serviceGuidelines.map((g, i) => (
+        <div key={g.label} className="flex flex-col gap-3 rounded-lg bg-clay p-5">
+          <dt className="type-label order-3 text-graphite">{g.label}</dt>
+          <dd className={cn("order-2 text-ink", g.value.length > 24 ? "type-subheading" : "type-h3")}>{g.value}</dd>
+          <dd aria-hidden="true" className="order-1">
+            <Icon name={guidelineIcons[i % guidelineIcons.length]} className="size-7 text-brown" />
+          </dd>
         </div>
       ))}
     </dl>
   );
 }
 
-/** Numbered tiles (inclusions, options). Titles are h3 under the section's h2. */
+/**
+ * Numbered steps/options, editorial rather than boxed: a large serif numeral over a brown rule.
+ * Steps (a sequence) get a connecting rule across the row.
+ */
 export function NumberedTiles({ items, prefix }: { items: string[]; prefix: string }) {
+  const sequence = prefix === "Step";
   return (
-    <ol className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <ol className={cn("grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-2", items.length > 4 ? "lg:grid-cols-4" : "lg:grid-cols-3")}>
       {items.map((label, i) => (
-        <li key={label} className="flex flex-col gap-2 rounded-lg border border-stone bg-white p-4 md:p-5">
+        <li key={label} className="group relative flex flex-col gap-3">
+          <span className="type-h1 text-sand transition-ui group-hover:text-brown" aria-hidden="true">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <span className={cn("block h-px w-full", sequence ? "bg-brown" : "bg-stone")} aria-hidden="true" />
           <span className="type-label text-brown">
-            {prefix} {String(i + 1).padStart(2, "0")}
+            {prefix} {i + 1}
           </span>
           <h3 className="type-subheading text-ink">{label}</h3>
         </li>

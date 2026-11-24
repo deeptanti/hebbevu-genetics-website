@@ -4,7 +4,7 @@ import { animate, useInView, useReducedMotion } from "motion/react";
 import { useEffect, useRef } from "react";
 
 /**
- * CountUp — counts every number inside a figure like "1700+" or "35–40%" up from 0
+ * CountUp - counts every number inside a figure like "1700+" or "35–40%" up from 0
  * when it scrolls into view. The server renders the FINAL value (no-JS and SEO safe);
  * it is only reset to zero while still off-screen, so nothing visibly jumps.
  */

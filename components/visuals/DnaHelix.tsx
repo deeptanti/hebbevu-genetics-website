@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { cn } from "@/lib/cn";
 
 /**
- * DnaHelix — a rotating double helix drawn in SVG. Two backbone strands plus base-pair
+ * DnaHelix - a rotating double helix drawn in SVG. Two backbone strands plus base-pair
  * rungs; depth is faked by fading/shrinking whatever is "behind". Geometry is updated per
  * frame via refs (no React re-render), runs only while on screen, and is a still image under
  * prefers-reduced-motion. Decorative: aria-hidden.

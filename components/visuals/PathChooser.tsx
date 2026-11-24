@@ -7,7 +7,7 @@ import { ArrowRight, Check } from "@phosphor-icons/react";
 import { cn } from "@/lib/cn";
 
 /**
- * PathChooser — the two-path model (brief §3) as one decision.
+ * PathChooser - the two-path model (brief §3) as one decision.
  * The farmer picks the sentence that's true for them; the answer swaps in.
  */
 export interface PathOption {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { FaqItem } from "@/content/types";
 import { Accordion } from "../ui/Accordion";
 
-/** FAQ accordion — first answer open (brief §6). */
+/** FAQ accordion - first answer open (brief §6). */
 export function FaqList({ items, headingLevel = 3 }: { items: FaqItem[]; headingLevel?: 2 | 3 }) {
   return (
     <Accordion

@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Reveal — a short rise-and-fade the first time content scrolls into view.
+ * Reveal - a short rise-and-fade the first time content scrolls into view.
  * `stagger` reveals direct <RevealItem> children one after another.
  * Disabled under prefers-reduced-motion (content simply renders).
  */

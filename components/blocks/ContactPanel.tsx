@@ -4,7 +4,7 @@ import { BrandIcon } from "../ui/BrandIcon";
 import { Icon } from "../ui/Icon";
 
 /** Phone-first contact block with WhatsApp (brief §14). */
-export function ContactPanel({ showAddress = true }: { showAddress?: boolean }) {
+export function ContactPanel({ showAddress = true, wide = false }: { showAddress?: boolean; /** Two-column details; only where the panel has the full content width. */ wide?: boolean }) {
   return (
     <div className="flex flex-col gap-5">
       <ButtonGroup>
@@ -15,7 +15,7 @@ export function ContactPanel({ showAddress = true }: { showAddress?: boolean }) 
           WhatsApp us
         </Button>
       </ButtonGroup>
-      <dl className="grid gap-5 sm:grid-cols-2">
+      <dl className={wide ? "grid gap-5 sm:grid-cols-2" : "grid gap-5"}>
         <div className="flex items-start gap-4">
           <BrandIcon name="mail" size="sm" />
           <div className="flex flex-col gap-1">
@@ -39,7 +39,7 @@ export function ContactPanel({ showAddress = true }: { showAddress?: boolean }) 
           </div>
         </div>
         {showAddress && (
-          <div className="flex items-start gap-4 sm:col-span-2">
+          <div className={wide ? "flex items-start gap-4 sm:col-span-2" : "flex items-start gap-4"}>
             <BrandIcon name="pin" size="sm" />
             <div className="flex flex-col gap-1">
             <dt className="type-label text-graphite">Reynadu Farm & Lab</dt>

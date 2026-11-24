@@ -4,14 +4,14 @@ import { Heading } from "../typography/Heading";
 import { Reveal } from "../motion/Reveal";
 
 /**
- * SectionHeader — kicker (`subheading`), H2, optional intro. Caps at 720px.
+ * SectionHeader - kicker (`subheading`), H2, optional intro. Caps at 720px.
  * Sits `space-6` above its content (brief §6 grid gaps).
  */
 export interface SectionHeaderProps {
   kicker?: string;
   title: ReactNode;
   intro?: string | string[];
-  /** Semantic level — 2 by default. */
+  /** Semantic level - 2 by default. */
   level?: 2 | 3;
   ground?: "light" | "dark";
   align?: "start" | "center";

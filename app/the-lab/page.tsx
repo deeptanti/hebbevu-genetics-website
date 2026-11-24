@@ -1,11 +1,12 @@
 import { TraceChain } from "@/components/blocks/TraceChain";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { Button, ButtonGroup, CTABand, SectionHeader, ServiceCard, Stat } from "@/components/ui";
+import { CTABand, SectionHeader, ServiceCard, Stat, StatGrid } from "@/components/ui";
+import { Photo } from "@/components/ui/Photo";
 import { labIntro, traceChain, traceExplainer } from "@/content/lab";
+import { photos } from "@/content/media";
 import { labPages } from "@/content/pages/lab";
 import { stats } from "@/content/stats";
-import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 const copy = labPages.index;
@@ -16,41 +17,43 @@ export default function LabPage() {
   return (
     <>
       <PageHero
-        banner={photos["lab/bench"]}
+        size="tall"
+        photo={photos["lab/bench"]}
         kicker={copy.kicker}
         title={labIntro.heading}
         lede={labIntro.lede}
-        actions={
-          <ButtonGroup>
-            <Button href="/the-lab/how-ivf-works" arrow>
-              How IVF works
-            </Button>
-            <Button href="/the-lab/results" variant="secondary">
-              See our results
-            </Button>
-          </ButtonGroup>
-        }
-        aside={
-          <dl className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {[stats.conception, stats.calves, stats.experience, stats.herd].map((s) => (
-              <Stat key={s.id} value={s.value} label={s.label} />
-            ))}
-          </dl>
-        }
+        actions={[
+          { label: "How IVF works", href: "/the-lab/how-ivf-works" },
+          { label: "See our results", href: "/the-lab/results" },
+        ]}
       />
 
-      <Section tone="mist">
-        <SectionHeader title="Inside the lab" />
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+      <Section labelledBy="lab-stats">
+        <SectionHeader id="lab-stats" title={copy.statsHeading} intro={copy.statsIntro} />
+        <StatGrid>
+          {[stats.conception, stats.calves, stats.experience, stats.herd].map((s) => (
+            <Stat key={s.id} value={s.value} label={s.label} brandIcon={s.brandIcon} />
+          ))}
+        </StatGrid>
+      </Section>
+
+      <Section tone="mist" labelledBy="inside">
+        <SectionHeader id="inside" title={copy.sectionsHeading} />
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {copy.sections.map((s) => (
             <ServiceCard key={s.href} href={s.href} title={s.title} summary={s.summary} icon={s.icon} />
           ))}
         </div>
       </Section>
 
-      <Section>
-        <SectionHeader title={copy.traceHeading} intro={traceExplainer} />
-        <TraceChain links={traceChain} />
+      <Section labelledBy="trace">
+        <div className="grid items-center gap-7 lg:grid-cols-2">
+          <div className="flex flex-col gap-6">
+            <SectionHeader id="trace" title={copy.traceHeading} intro={traceExplainer} flush />
+            <TraceChain links={traceChain} />
+          </div>
+          <Photo photo={photos["lab/microscope"]} aspect="photo" />
+        </div>
       </Section>
 
       <CTABand
@@ -58,6 +61,7 @@ export default function LabPage() {
         body={copy.cta.body}
         primary={{ label: "Book a Consultation", href: "/book" }}
         secondary={{ label: "Explore services", href: "/services" }}
+        photo={photos["farm/barn-row"]}
       />
     </>
   );

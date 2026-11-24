@@ -7,13 +7,12 @@ import { Section, type SectionTone } from "@/components/layout/Section";
 import { Reveal, RevealItem } from "@/components/motion/Reveal";
 import { Accordion, ArticleCard, Card, Chip, ChipList, CTABand, DataTable, IconTile, SectionHeader, Stat, StatGrid } from "@/components/ui";
 import { Photo } from "@/components/ui/Photo";
-import { BreedVideo } from "@/components/visuals/BreedVideo";
 import { DnaHelix } from "@/components/visuals/DnaHelix";
 import { YieldChart } from "@/components/visuals/YieldChart";
 import { getBreedProfile } from "@/content/breed-profiles";
 import { breedSelection, breeds, getBreed, parseYield, yieldDisclaimer } from "@/content/breeds";
 import { getArticle, readingMinutes, topics } from "@/content/knowledge";
-import { getPhoto } from "@/content/media";
+import { getPhoto, photos } from "@/content/media";
 import { breedDetailCopy as copy } from "@/content/pages/breeds";
 import { pageMeta } from "@/lib/metadata";
 
@@ -31,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = getBreedProfile(slug);
   if (!b) return {};
   return pageMeta({
-    title: `${b.name} — ${b.epithet}`,
+    title: `${b.name}: ${b.epithet}`,
     description: p?.intro ?? `${b.name}: origin ${b.origin}, typical milk yield ${b.milkYield}. ${b.strength}.`,
     path: `/breeds/${b.slug}`,
   });
@@ -55,7 +54,7 @@ export default async function BreedPage({ params }: Props) {
 
   // Alternate white/mist after the white hero, whatever optional sections render.
   let n = 0;
-  const tone = (): SectionTone => (n++ % 2 === 0 ? "mist" : "white");
+  const tone = (): SectionTone => (n++ % 2 === 0 ? "white" : "mist");
 
   const milkTypeText = profile.isBuffalo
     ? copy.milkType.buffalo
@@ -111,26 +110,16 @@ export default async function BreedPage({ params }: Props) {
   return (
     <>
       <PageHero
+        photo={photo ?? photos["banners/herd-road"]}
+        video={video ? { ...video, label: `${breed.name} at the farm, short looping clip` } : undefined}
         kicker={breed.epithet}
         title={breed.name}
         lede={profile.intro}
+        note={profile.isBuffalo ? `${profile.species}. ${copy.buffaloNote}` : profile.species}
+        tags={breed.traits}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Breeds", href: "/breeds" }, { label: breed.name }]}
-        aside={
-          video ? (
-            <BreedVideo src={video.src} poster={video.poster} label={`${breed.name} at the farm, short looping clip`} />
-          ) : photo ? (
-            <Photo photo={photo} aspect="square" priority />
-          ) : undefined
-        }
-      >
-        <div className="flex flex-col gap-4">
-          <p className="type-small text-graphite">
-            <span className="font-semibold text-ink">{profile.species}</span>
-            {profile.isBuffalo && <> — {copy.buffaloNote}</>}
-          </p>
-          <ChipList items={breed.traits} />
-        </div>
-      </PageHero>
+        actions={copy.heroActions}
+      />
 
       {/* At a glance */}
       <Section tone={glanceTone} labelledBy="glance">
@@ -274,7 +263,7 @@ export default async function BreedPage({ params }: Props) {
       <Section tone={recordsTone} labelledBy="records">
         <SectionHeader id="records" title={copy.recordsHeading} intro={copy.recordsIntro} />
         <DataTable
-          caption={`${breed.name} — breed records`}
+          caption={`${breed.name} breed records`}
           hideCaption
           columns={[
             { key: "attribute", header: "Record", rowHeader: true },

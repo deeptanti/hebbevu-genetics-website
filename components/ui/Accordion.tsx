@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 import { ICON_STROKE } from "./Icon";
 
 /**
- * Accordion — native <details>, no JS. The FIRST item is open by default (brief §6).
+ * Accordion - native <details>, no JS. The FIRST item is open by default (brief §6).
  * Plus/minus swap rather than a rotating chevron: nothing moves.
  * Item rules are decorative (stone); the clickable summary is ≥48px tall and gets the focus ring.
  */

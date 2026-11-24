@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import type { Photo } from "@/content/media";
 
 /**
- * PhotoStrip — a horizontal, snap-scrolling run of farm photographs.
+ * PhotoStrip - a horizontal, snap-scrolling run of farm photographs.
  * Swipe on touch, scroll with trackpad, or use the arrow buttons. Photos zoom gently on hover.
  */
 export function PhotoStrip({ photos, label }: { photos: Photo[]; label: string }) {

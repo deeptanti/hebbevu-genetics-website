@@ -3,7 +3,7 @@
 import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
 
 /**
- * ReadingHelix — article reading progress drawn as a DNA strand pinned under the header.
+ * ReadingHelix - article reading progress drawn as a DNA strand pinned under the header.
  * Two sine strands with base-pair ticks; the drawn length follows scroll position.
  */
 const W = 1200;

@@ -5,11 +5,11 @@ import { cn } from "@/lib/cn";
 /**
  * INTERIM lockup (brief §7): the supplied logo is a stacked, dark-on-transparent PNG.
  * We crop the mark and set it beside a text wordmark. Replace with the drawn horizontal
- * lockup when supplied. On dark grounds, wrap in <LogoPlate> — never put the PNG straight on deep/bark.
+ * lockup when supplied. On dark grounds, wrap in <LogoPlate> - never put the PNG straight on deep/bark.
  */
 export function Logo({ className, priority }: { className?: string; priority?: boolean }) {
   return (
-    <Link href="/" className={cn("inline-flex min-h-7 items-center gap-3", className)} aria-label="Hebbevu Genetics — home">
+    <Link href="/" className={cn("inline-flex min-h-7 items-center gap-3", className)} aria-label="Hebbevu Genetics home">
       <Image src="/brand/logo-mark.png" alt="" width={77} height={64} priority={priority} className="h-7 w-auto lg:h-8" />
       <span className="flex flex-col">
         <span className="type-wordmark text-deep">HEBBEVU</span>

@@ -1,41 +1,41 @@
 import { BulletList } from "@/components/blocks/BulletList";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { Button, ButtonGroup, Card, SectionHeader } from "@/components/ui";
+import { Button, Card, IconTile, SectionHeader } from "@/components/ui";
+import { Photo } from "@/components/ui/Photo";
 import { breedSelection } from "@/content/breeds";
+import { photos } from "@/content/media";
 import { qualifierPage as page } from "@/content/pages/services";
 import { qualifier } from "@/content/services";
-import { photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 import { ServicesCTA, homeCrumb, servicesCrumb } from "../_components/shared";
 
 export const metadata = pageMeta({ ...page.meta, path: "/services/is-ivf-right-for-you" });
 
+const honestyIcons = ["target", "users", "trending"] as const;
+
 export default function QualifierPage() {
   return (
     <>
       <PageHero
-        banner={photos["farm/cow-and-calf"]}
+        photo={photos[page.heroPhoto]}
         breadcrumbs={[homeCrumb, servicesCrumb, { label: qualifier.heading }]}
         kicker="The honest qualifier"
         title={qualifier.heading}
         lede={qualifier.lede}
-        actions={
-          <ButtonGroup>
-            <Button href="/book?service=not-sure">Book a Consultation</Button>
-            <Button href="/knowledge/natural-breeding-vs-ivf" variant="ghost" arrow>
-              Natural breeding vs IVF
-            </Button>
-          </ButtonGroup>
-        }
+        actions={[
+          { label: "Book a Consultation", href: "/book?service=not-sure" },
+          { label: "Natural breeding vs IVF", href: "/knowledge/natural-breeding-vs-ivf" },
+        ]}
       />
 
-      <Section tone="mist" labelledBy="honesty">
+      <Section labelledBy="honesty">
         <SectionHeader id="honesty" {...page.honestyHeader} />
-        <ul className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {qualifier.honesty.map((h) => (
+        <ul className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+          {qualifier.honesty.map((h, i) => (
             <li key={h.title}>
               <Card>
+                <IconTile name={honestyIcons[i % honestyIcons.length]} className="mb-5" />
                 <h3 className="type-subheading mb-3 text-ink">{h.title}</h3>
                 <p className="type-small text-ink">{h.body}</p>
               </Card>
@@ -44,25 +44,27 @@ export default function QualifierPage() {
         </ul>
       </Section>
 
-      <Section labelledBy="compare">
+      <Section tone="mist" labelledBy="compare">
         <SectionHeader id="compare" {...page.compareHeader} />
-        <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
-          <div>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+          <Card>
+            <IconTile name="check" className="mb-5" />
             <h3 className="type-h3 mb-5 text-ink">{qualifier.goodFit.heading}</h3>
             <BulletList items={qualifier.goodFit.points} />
-          </div>
-          <div>
+          </Card>
+          <Card>
+            <IconTile name="leaf" className="mb-5" />
             <h3 className="type-h3 mb-5 text-ink">{qualifier.notYet.heading}</h3>
             <BulletList items={qualifier.notYet.points} />
-          </div>
+          </Card>
         </div>
-        <div className="mt-7 max-w-prose border-t border-stone pt-6">
-          <h3 className="type-h3 mb-3 text-ink">{qualifier.combined.heading}</h3>
-          <p className="type-body text-ink">{qualifier.combined.body}</p>
+        <div className="mt-8 grid grid-cols-1 items-center gap-7 lg:grid-cols-2">
+          <Photo photo={photos[page.combinedPhoto]} aspect="photo" />
+          <SectionHeader level={3} title={qualifier.combined.heading} intro={qualifier.combined.body} flush />
         </div>
       </Section>
 
-      <Section tone="mist" labelledBy="breed-questions">
+      <Section labelledBy="breed-questions">
         <SectionHeader id="breed-questions" {...page.breedHeader} />
         <ol className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           {breedSelection.questions.map((q, i) => (
@@ -79,7 +81,7 @@ export default function QualifierPage() {
         </div>
       </Section>
 
-      <ServicesCTA service="not-sure" />
+      <ServicesCTA service="not-sure" photo={page.ctaPhoto} />
     </>
   );
 }

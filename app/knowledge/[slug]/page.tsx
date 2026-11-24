@@ -7,9 +7,8 @@ import { ArticleCard, CTABand, SectionHeader } from "@/components/ui";
 import { articles } from "@/content/articles";
 import { articlesByTopic, getArticle, readingMinutes, topics } from "@/content/knowledge";
 import { articlePageCopy, knowledgePage } from "@/content/pages/knowledge";
-import { Photo } from "@/components/ui/Photo";
 import { ReadingHelix } from "@/components/visuals/ReadingHelix";
-import { getPhoto } from "@/content/media";
+import { getPhoto, photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
 
 export const dynamicParams = false;
@@ -40,14 +39,13 @@ export default async function ArticlePage({ params }: Props) {
     <>
       <ReadingHelix />
       <PageHero
+        photo={getPhoto(`articles/${article.slug}`) ?? photos["farm/barn-row"]}
         kicker={topic?.question}
         title={article.title}
         lede={article.description}
+        note={`${readingMinutes(article)} min read`}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Knowledge", href: "/knowledge" }, { label: article.title }]}
-        aside={getPhoto(`articles/${article.slug}`) ? <Photo photo={getPhoto(`articles/${article.slug}`)!} aspect="photo" priority /> : undefined}
-      >
-        <p className="type-label text-graphite">{readingMinutes(article)} min read</p>
-      </PageHero>
+      />
 
       <Section tone="white">
         <ArticleBody blocks={article.body} />
@@ -69,9 +67,9 @@ export default async function ArticlePage({ params }: Props) {
       )}
 
       {article.cta && primary ? (
-        <CTABand heading={article.cta.prompt} primary={primary} secondary={secondary} />
+        <CTABand heading={article.cta.prompt} primary={primary} secondary={secondary} photo={photos["farm/herd-walking"]} />
       ) : (
-        <CTABand {...knowledgePage.cta} />
+        <CTABand {...knowledgePage.cta} photo={photos["farm/herd-walking"]} />
       )}
     </>
   );

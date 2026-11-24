@@ -15,8 +15,8 @@ npm run build
 ```
 /                                   Home
 ├── /services                       Path A vs Path B
-│   ├── /ivf-your-donors            Path A — your cows, our lab
-│   ├── /buy-embryos                Path B — our herd's genetics
+│   ├── /ivf-your-donors            Path A: your cows, our lab
+│   ├── /buy-embryos                Path B: our herd's genetics
 │   │   ├── /sex-sorted
 │   │   └── /conventional
 │   ├── /embryo-transfer            Transfer, surrogates, confirmation
@@ -43,7 +43,7 @@ Legacy redirects from the content doc: /blogs, /blog/:slug, /about-us, /our-serv
 
 | Path | What |
 |---|---|
-| `app/globals.css` | The design system **is** the Tailwind theme. Default theme not imported — only tokens exist. |
+| `app/globals.css` | The design system **is** the Tailwind theme. Default theme not imported: only tokens exist. |
 | `components/typography` | `Heading` (display/h1/h2/h3), `Text` (stat/subheading/body/label/small), `Pending` |
 | `components/ui` | The eleven §6 components + `Card`, `Icon`, `MediaPlaceholder` |
 | `components/layout` | `SiteHeader`, `SiteFooter`, `Logo`, `Section`, `Container`, `PageHero`, `Breadcrumbs`, `Analytics` |
@@ -53,6 +53,10 @@ Legacy redirects from the content doc: /blogs, /blog/:slug, /about-us, /our-serv
 
 ## System rules
 
+- **No em dashes, anywhere.** House style. `check:tokens` fails the build if one appears. Rewrite with a comma, colon or full stop.
+- **One hero.** Every page uses `PageHero`: full-bleed photo or video, white H1, actions passed as data. `tall` for section landing pages, `compact` for detail pages. Portrait photos auto-frame on the upper-middle; display size only for short titles.
+- **Page anatomy.** Hero, then a white section, then strictly alternating white/mist sections (bark only via `StatsBand`), then `CTABand` last. Every page has a visual beyond text; no boxed single-line tiles (use `StepList` / numerals).
+
 - **Tokens only.** `p-13`, `bg-red-500`, `rounded-xl` don't exist. `p-[13px]` fails `check:tokens`.
 - **`stone` is decorative.** Form borders, focus rings and button edges are `graphite` (or `mist` on dark). Guarded by the script.
 - **Borders before shadows.** Cards: `stone` hairline, no shadow, hover → `graphite` border. `shadow-md` only on the scrolled nav and dropdowns, and `shadow-lg` only on the mobile drawer.
@@ -60,18 +64,18 @@ Legacy redirects from the content doc: /blogs, /blog/:slug, /about-us, /our-serv
 - **Don't override component classes with conflicting utilities** (`className="mb-0"`). `cn()` doesn't merge classes, so use the props (`flush`, `framed`).
 - Type: `display` = Playfair 700, `clamp(44px, 5.6vw, 84px)`, line-height 1.06, tracking −0.02em. Below 768px, h1/h2/h3/stat drop one step.
 - Icons: **Phosphor duotone**, 24px, `currentColor` (brown on light, mist on dark), usually inside an `IconTile`. Lucide remains only for small UI glyphs (chevrons, menu).
-- **Motion** (added at client request — overrides the brief's "nothing moves"): one soft easing (`--ease-out-soft`), reveals once per element on first view, and everything stops under `prefers-reduced-motion`. Interactive pieces live in `components/visuals`: `PathChooser`, `IvfTimeline`, `YieldChart`, `PhotoStrip`, `Ticker`.
+- **Motion** (added at client request: overrides the brief's "nothing moves"): one soft easing (`--ease-out-soft`), reveals once per element on first view, and everything stops under `prefers-reduced-motion`. Interactive pieces live in `components/visuals`: `PathChooser`, `IvfTimeline`, `YieldChart`, `PhotoStrip`, `Ticker`.
 - Two derived tints were added: `clay` and `sand` (brown on white). They're used for decorative fills only, never text.
 
 ## Photography & media
 
-- `public/photos` + `content/media.ts` — ~45 photos, always rendered through `<Photo>` (or `PageHero banner`). Sources:
+- `public/photos` + `content/media.ts`: ~45 photos, always rendered through `<Photo>` (or `PageHero banner`). Sources:
   1. The earlier site build (psquaresolutions.in/genetics7).
-  2. The client's Drive folder "HG Website creatives" — 1920px banners, page banners, high-res founders/calves, lab shots.
+  2. The client's Drive folder "HG Website creatives": 1920px banners, page banners, high-res founders/calves, lab shots.
   Resized to ≤1920px, metadata stripped. Alt text describes only what is visible; only the founders and doctors are named.
-- `public/video/breed-*.mp4` — Gir, Kankrej, Ongole and Jaffarabadi loops converted from the client's GIFs (40–66 MB → 1–3 MB), with poster frames.
-- `public/brand/icons` — the client's own line-art icons, made transparent in brown and mist variants (`<BrandIcon>`).
-- `/about/gallery` — filterable grid + lightbox of every photo, plus the breed clips.
+- `public/video/breed-*.mp4`: Gir, Kankrej, Ongole and Jaffarabadi loops converted from the client's GIFs (40–66 MB → 1–3 MB), with poster frames.
+- `public/brand/icons`: the client's own line-art icons, made transparent in brown and mist variants (`<BrandIcon>`).
+- `/about/gallery`: filterable grid + lightbox of every photo, plus the breed clips.
 
 ## Waiting on the client
 

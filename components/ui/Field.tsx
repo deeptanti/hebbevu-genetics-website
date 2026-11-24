@@ -2,9 +2,9 @@ import type { InputHTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTML
 import { cn } from "@/lib/cn";
 
 /**
- * Field — label + control + hint/error.
+ * Field - label + control + hint/error.
  * CONTROL BOUNDARY IS GRAPHITE (7.3:1), NEVER STONE (brief §6 contrast trap).
- * Focus uses the global 2px brown outline. Errors use `danger` — the only place it appears.
+ * Focus uses the global 2px brown outline. Errors use `danger` - the only place it appears.
  */
 const controlBase =
   "transition-ui type-body block w-full rounded-sm border bg-white px-4 py-3 text-ink min-h-7 hover:border-ink";

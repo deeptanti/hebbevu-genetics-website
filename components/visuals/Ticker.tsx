@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 
 /**
- * Ticker — a slow marquee of technical terms (breeds, protocols, record points).
+ * Ticker - a slow marquee of technical terms (breeds, protocols, record points).
  * Pure CSS; pauses on hover; stops under reduced motion. The duplicate run is aria-hidden.
  */
 export function Ticker({ items, className }: { items: string[]; className?: string }) {

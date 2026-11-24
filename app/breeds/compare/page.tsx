@@ -1,11 +1,13 @@
+import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { CTABand, DataTable } from "@/components/ui";
+import { CTABand, DataTable, SectionHeader } from "@/components/ui";
+import { YieldChart } from "@/components/visuals/YieldChart";
 import { getBreedProfile } from "@/content/breed-profiles";
-import { breeds, yieldDisclaimer } from "@/content/breeds";
+import { breeds, parseYield, yieldDisclaimer } from "@/content/breeds";
+import { getPhoto, photos } from "@/content/media";
 import { breedsPage, comparePage } from "@/content/pages/breeds";
 import { pageMeta } from "@/lib/metadata";
-import Link from "next/link";
 
 export const metadata = pageMeta({ title: comparePage.title, description: comparePage.description, path: "/breeds/compare" });
 
@@ -13,13 +15,19 @@ export default function ComparePage() {
   return (
     <>
       <PageHero
+        photo={photos["farm/barn-row"]}
+        focus="bottom"
         title={comparePage.title}
         lede={comparePage.lede}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Breeds", href: "/breeds" }, { label: "Compare" }]}
+        actions={comparePage.heroActions}
       />
-      <Section tone="mist">
+
+      <Section labelledBy="compare-table">
+        <SectionHeader id="compare-table" title={comparePage.tableHeading} intro={comparePage.tableIntro} />
         <DataTable
           caption={comparePage.caption}
+          hideCaption
           columns={[
             { key: "breed", header: "Breed", rowHeader: true },
             { key: "species", header: "Species" },
@@ -48,9 +56,23 @@ export default function ComparePage() {
             strength: b.strength,
           }))}
         />
-        <p className="type-small mt-5 max-w-prose text-graphite">{yieldDisclaimer}</p>
       </Section>
-      <CTABand {...breedsPage.cta} />
+
+      <Section tone="mist" labelledBy="compare-chart">
+        <SectionHeader id="compare-chart" title={comparePage.chartHeading} />
+        <div className="rounded-lg border border-stone bg-white p-4 md:p-6">
+          <YieldChart
+            rows={breeds.map((b) => {
+              const [min, max] = parseYield(b.milkYield);
+              const img = getPhoto(`breeds/${b.slug}`);
+              return { slug: b.slug, name: b.name, epithet: b.epithet, min, max, a2: b.milkType === "A2", image: img && { src: img.src, alt: img.alt } };
+            })}
+            caption={yieldDisclaimer}
+          />
+        </div>
+      </Section>
+
+      <CTABand {...breedsPage.cta} photo={photos["banners/herd-road"]} />
     </>
   );
 }

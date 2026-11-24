@@ -6,7 +6,9 @@ import { StatsBand } from "@/components/blocks/StatsBand";
 import { TraceChain } from "@/components/blocks/TraceChain";
 import { Section } from "@/components/layout/Section";
 import { Button, ButtonGroup, CTABand, SectionHeader } from "@/components/ui";
-import { HomeHero } from "@/components/blocks/HomeHero";
+import { PageHero } from "@/components/layout/PageHero";
+import { CountUp } from "@/components/motion/CountUp";
+import { BrandIcon } from "@/components/ui/BrandIcon";
 import { PhotoStrip } from "@/components/visuals/PhotoStrip";
 import { Photo } from "@/components/ui/Photo";
 import { photos } from "@/content/media";
@@ -39,21 +41,24 @@ export default function HomePage() {
   });
   return (
     <>
-      <HomeHero
+      <PageHero
+        size="tall"
+        focus="bottom"
         kicker={homeCopy.heroKicker}
         title={homeHero.heading}
         lede={homeHero.lede}
         photo={photos["farm/barn-row"]}
-        stat={stats.calves}
-        actions={
-          <ButtonGroup>
-            <Button href={homeCopy.heroActions.primary.href} ground="dark" arrow>
-              {homeCopy.heroActions.primary.label}
-            </Button>
-            <Button href={homeCopy.heroActions.secondary.href} variant="secondary" ground="dark">
-              {homeCopy.heroActions.secondary.label}
-            </Button>
-          </ButtonGroup>
+        actions={[homeCopy.heroActions.primary, homeCopy.heroActions.secondary]}
+        highlight={
+          <div className="flex items-center gap-4">
+            <BrandIcon name="calves" size="md" />
+            <dl className="flex flex-col gap-1">
+              <dt className="type-label order-2 text-graphite">{stats.calves.label}</dt>
+              <dd className="type-stat order-1 text-deep">
+                <CountUp value={stats.calves.value} />
+              </dd>
+            </dl>
+          </div>
         }
       />
       <Ticker items={homeCopy.ticker} />
@@ -172,7 +177,7 @@ export default function HomePage() {
 
       <Section tone="mist" labelledBy="contact">
         <SectionHeader id="contact" title={homeCopy.contactHeading} />
-        <ContactPanel />
+        <ContactPanel wide />
       </Section>
 
       <CTABand heading={servicesCta.heading} body={servicesCta.body} primary={homeCopy.cta.primary} secondary={homeCopy.cta.secondary} />

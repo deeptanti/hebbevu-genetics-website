@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/cn";
 
 /**
- * EmbryoArt — a small illustration of the embryo at each public stage of the 7-day journey:
+ * EmbryoArt - a small illustration of the embryo at each public stage of the 7-day journey:
  * 0 egg · 1 fertilised · 2 dividing · 3 embryo (blastocyst) · 4 frozen/transfer.
  * The same cells re-lay out between stages, so moving the timeline reads as division.
  */

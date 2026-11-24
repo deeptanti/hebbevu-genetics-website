@@ -38,7 +38,7 @@ export function readingMinutes(a: Article): number {
 }
 
 /**
- * Plain-language glossary (brief §12). DRAFT definitions written for the build —
+ * Plain-language glossary (brief §12). DRAFT definitions written for the build -
  * have the lab team review before launch.
  */
 export const glossary: GlossaryTerm[] = [
@@ -51,8 +51,8 @@ export const glossary: GlossaryTerm[] = [
   { term: "Recipient (surrogate)", definition: "A healthy cow that carries an embryo from another cow. She can be your own animal or one managed by Hebbevu." },
   { term: "CL", expansion: "Corpus luteum", definition: "A temporary structure on the ovary after a cow ovulates. A vet checks it to judge whether a recipient cow is ready for transfer." },
   { term: "Synchronisation", definition: "Bringing a cow’s cycle to the right stage on the right day for egg collection or embryo transfer, under a vet’s supervision." },
-  { term: "Sex-sorted", definition: "Embryos produced with semen sorted to give, in most cases, a calf of the chosen sex — usually female for dairy." },
+  { term: "Sex-sorted", definition: "Embryos produced with semen sorted to give, in most cases, a calf of the chosen sex, usually female for dairy." },
   { term: "Vitrification", definition: "Ultra-fast freezing of embryos so they can be stored in liquid nitrogen and transferred later." },
   { term: "Cleavage", definition: "The first divisions of a fertilised egg, checked on day 2 as an early sign that fertilisation worked." },
-  { term: "A2 milk", definition: "Milk containing only the A2 type of beta-casein protein — characteristic of indigenous Indian breeds such as Gir and Sahiwal." },
+  { term: "A2 milk", definition: "Milk containing only the A2 type of beta-casein protein, characteristic of indigenous Indian breeds such as Gir and Sahiwal." },
 ];

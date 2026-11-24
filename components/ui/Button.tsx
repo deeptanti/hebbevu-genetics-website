@@ -8,7 +8,7 @@ export type Ground = "light" | "dark";
 
 /**
  * RULE (brief §6): ONE `primary` per section. Pair it with `secondary` or `ghost`.
- * Control boundaries are `graphite` (light) or `mist` (dark) — never `stone`.
+ * Control boundaries are `graphite` (light) or `mist` (dark) - never `stone`.
  * Hit target ≥ 48px (min-h-7). Hover changes colour only; nothing moves.
  */
 const styles: Record<Ground, Record<ButtonVariant, string>> = {

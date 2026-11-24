@@ -64,7 +64,7 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
 export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  // The drawer is "open for this path" — navigating anywhere closes it without an effect.
+  // The drawer is "open for this path" - navigating anywhere closes it without an effect.
   const [openPath, setOpenPath] = useState<string | null>(null);
   const open = openPath === pathname;
   const setOpen = (v: boolean) => setOpenPath(v ? pathname : null);

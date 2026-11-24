@@ -2,7 +2,7 @@ import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 /**
- * BrandIcon — Hebbevu's own line-art icons (from the client's creative folder), made transparent
+ * BrandIcon - Hebbevu's own line-art icons (from the client's creative folder), made transparent
  * and recoloured: `brown` for light grounds, `mist` for dark. Decorative unless `label` is given.
  */
 export type BrandIconName =

@@ -1,14 +1,14 @@
 import type { Feature, Service } from "./types";
 
 /**
- * Services — organised as the two-path model (brief §3).
+ * Services - organised as the two-path model (brief §3).
  * Path A: the procedure you hire us for. Path B: the thing you buy.
  * Product copy (sex-sorted / normal) is verbatim from the client doc.
  */
 
 export const servicesIntro = {
   heading: "Cattle IVF & Embryo Services for Faster Genetic Improvement",
-  kicker: "Hebbevu Genetics — Embryo Services",
+  kicker: "Hebbevu Genetics Embryo Services",
   paragraphs: [
     "We provide structured, ethical, and science-driven embryo solutions to help dairy farmers and breeders multiply elite cattle genetics with higher conception success.",
     "Our services are designed to improve herd quality, productivity, and long-term profitability through advanced IVF and embryo transfer techniques.",
@@ -22,9 +22,9 @@ export const ivfYourDonors: Service = {
   kicker: "Path A",
   title: "IVF with your own donors",
   summary:
-    "You already own good cows. We collect oocytes from them, fertilise in our lab and transfer the embryos. The genetics stay yours — IVF just multiplies them faster than natural breeding allows.",
+    "You already own good cows. We collect oocytes from them, fertilise in our lab and transfer the embryos. The genetics stay yours. IVF just multiplies them faster than natural breeding allows.",
   description: [
-    "Natural breeding gives one calf per cow per year. With IVF, a single high-value cow can contribute multiple embryos in one cycle — so the best animal in your herd can shape far more of its future.",
+    "Natural breeding gives one calf per cow per year. With IVF, a single high-value cow can contribute multiple embryos in one cycle, so the best animal in your herd can shape far more of its future.",
     "Experts handle the complexity. You receive guidance at every stage.",
   ],
   includes: [
@@ -102,7 +102,7 @@ export const embryoTransfer: Service = {
   kicker: "Transfer & surrogates",
   title: "Embryo transfer, surrogates & confirmation",
   summary:
-    "We transfer embryos into healthy, synchronised recipient cows — your own, or Hebbevu-managed surrogates — and confirm the pregnancy.",
+    "We transfer embryos into healthy, synchronised recipient cows (your own, or Hebbevu-managed surrogates) and confirm the pregnancy.",
   description: [
     "This stage bridges laboratory precision and real-world farm outcomes. We provide both farmer-owned and Hebbevu-managed surrogate options.",
   ],
@@ -148,7 +148,7 @@ export const servicesCta = {
  */
 export const pricing = {
   heading: "How pricing works",
-  lede: "Nobody in this category publishes how pricing works. We can’t publish rupee figures — every herd is different — but we can tell you exactly what goes into the number.",
+  lede: "Nobody in this category publishes how pricing works. We can’t publish rupee figures, because every herd is different, but we can tell you exactly what goes into the number.",
   factors: [
     {
       factor: "Sex-sorted or normal",
@@ -174,10 +174,10 @@ export const pricing = {
   ],
 };
 
-/** "Is IVF right for you?" — drawn only from the client's own articles. */
+/** "Is IVF right for you?" - drawn only from the client's own articles. */
 export const qualifier = {
   heading: "Is IVF right for you?",
-  lede: "IVF improves probability, not certainty. It is worth it for some farms and not for others — here is how to tell.",
+  lede: "IVF improves probability, not certainty. It is worth it for some farms and not for others. Here is how to tell.",
   goodFit: {
     heading: "IVF is the better choice if",
     points: [
@@ -211,7 +211,7 @@ export const qualifier = {
     },
     {
       title: "It is an investment",
-      body: "IVF costs more up front than natural breeding. The return comes through faster genetic improvement and higher lifetime productivity — over years, not months.",
+      body: "IVF costs more up front than natural breeding. The return comes through faster genetic improvement and higher lifetime productivity, over years rather than months.",
     },
   ],
 };

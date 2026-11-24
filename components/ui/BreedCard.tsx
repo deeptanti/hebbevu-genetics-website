@@ -26,7 +26,7 @@ export function BreedCard({ href, name, epithet, facts, tags, photoSubject, phot
       {photo ? (
         <Photo photo={photo} aspect="photo" rounded={false} zoom sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
       ) : (
-        <MediaPlaceholder subject={photoSubject ?? `${name} — individual animal, side profile`} framed={false} />
+        <MediaPlaceholder subject={photoSubject ?? `${name}, individual animal, side profile`} framed={false} />
       )}
       <div className="border-t border-stone" />
       <div className="flex flex-1 flex-col p-4 md:p-5">

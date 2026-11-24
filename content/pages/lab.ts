@@ -3,11 +3,14 @@
 export const labPages = {
   index: {
     meta: {
-      title: "The Lab — South India’s First Private Cattle IVF Lab",
+      title: "The Lab: South India’s First Private Cattle IVF Lab",
       description:
         "Inside Hebbevu Genetics’ cattle IVF lab at Reynadu Farm, Andhra Pradesh: how IVF works, the facility and our results.",
     },
     kicker: "The Lab",
+    statsHeading: "What the lab has delivered",
+    statsIntro: "Real figures from our own herd and lab. The conception rate is measured at the 60-day check.",
+    sectionsHeading: "Inside the lab",
     sections: [
       {
         href: "/the-lab/how-ivf-works",
@@ -18,7 +21,7 @@ export const labPages = {
       {
         href: "/the-lab/facility",
         title: "The facility",
-        summary: "Collection, the embryology lab and embryo storage — all on the same land as the herd.",
+        summary: "Collection, the embryology lab and embryo storage, all on the same land as the herd.",
         icon: "microscope",
       },
       {
@@ -36,7 +39,7 @@ export const labPages = {
   },
   howIvfWorks: {
     meta: {
-      title: "How Cattle IVF Works — The Pipeline and the Lab Cycle",
+      title: "How Cattle IVF Works: The Pipeline and the Lab Cycle",
       description:
         "The seven-step Hebbevu Genetic Pipeline and the seven days an embryo spends in the lab, explained in plain language.",
     },
@@ -55,7 +58,7 @@ export const labPages = {
   },
   facility: {
     meta: {
-      title: "The Facility — Inside Our Cattle IVF Lab",
+      title: "The Facility: Inside Our Cattle IVF Lab",
       description:
         "Hebbevu Genetics’ cattle IVF lab at Reynadu Farm, Andhra Pradesh: egg collection, the embryology lab and embryo storage, on the same land as the herd.",
     },
@@ -68,9 +71,9 @@ export const labPages = {
   },
   results: {
     meta: {
-      title: "Results & Methodology — Cattle IVF Conception Rates",
+      title: "Results & Methodology: Cattle IVF Conception Rates",
       description:
-        "Hebbevu Genetics’ 35–40% conception rate, measured at the 60-day check — and why we measure it the harder way.",
+        "Hebbevu Genetics’ 35–40% conception rate, measured at the 60-day check, and why we measure it the harder way.",
     },
     lede: "Numbers only mean something if you know how they were measured. Here is ours, and how we measure it.",
     traceHeading: "Why our numbers are checkable",

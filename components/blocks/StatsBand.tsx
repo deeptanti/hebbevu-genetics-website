@@ -4,7 +4,7 @@ import { SectionHeader } from "../ui/SectionHeader";
 import { Stat, StatGrid } from "../ui/Stat";
 import { DnaHelix } from "../visuals/DnaHelix";
 
-/** Stat band on `bark` (brief §6: bark = stat bands). Not the page's CTABand — that is `deep`. */
+/** Stat band on `bark` (brief §6: bark = stat bands). Not the page's CTABand - that is `deep`. */
 export function StatsBand({ title, kicker, stats, footnote }: { title: string; kicker?: string; stats: StatItem[]; footnote?: string }) {
   return (
     <Section tone="bark" className="relative overflow-hidden">

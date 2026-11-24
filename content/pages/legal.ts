@@ -9,6 +9,8 @@ export const legalPages = {
     metaDescription: "Hebbevu Genetics terms of use.",
     body: "The terms of use have not been supplied yet.",
   },
+  statusHeading: "Status",
+  contactHeading: "Questions in the meantime?",
   cta: {
     heading: "Questions about how we use your data?",
     primary: { label: "Contact us", href: "/contact" },

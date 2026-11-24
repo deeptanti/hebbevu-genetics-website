@@ -1,7 +1,7 @@
 import type { PhotoKey } from "../media";
 /**
  * Page-level copy for /services/*, /book and /contact.
- * Product facts live in content/services.ts — this file only holds framing copy.
+ * Product facts live in content/services.ts - this file only holds framing copy.
  */
 export const servicesPage = {
   meta: {
@@ -26,6 +26,9 @@ export const servicesPage = {
     title: "Not sure where to start?",
     intro: "Two short pages answer the questions most farmers ask first.",
   },
+  heroPhoto: "banners/herd-close" as PhotoKey,
+  supportPhoto: "farm/vet-checking" as PhotoKey,
+  ctaPhoto: "farm/barn-row" as PhotoKey,
   helpLinks: [
     { label: "Is IVF right for you?", href: "/services/is-ivf-right-for-you" },
     { label: "How pricing works", href: "/services/pricing" },
@@ -36,7 +39,7 @@ export const ivfYourDonorsPage = {
   meta: {
     title: "IVF With Your Own Donor Cows",
     description:
-      "Multiply your best cows with OPU-IVF. Hebbevu Genetics collects oocytes from your donors, fertilises them in our lab and transfers the embryos — the genetics stay yours.",
+      "Multiply your best cows with OPU-IVF. Hebbevu Genetics collects oocytes from your donors, fertilises them in our lab and transfers the embryos. The genetics stay yours.",
   },
   includesHeader: {
     kicker: "What’s included",
@@ -53,7 +56,11 @@ export const ivfYourDonorsPage = {
     "You aim to upgrade herd quality quickly",
     "You are planning long-term dairy growth",
   ],
+  heroPhoto: "farm/handler-with-calf" as PhotoKey,
+  heroCaption: "Founder Mr. Amith Kishan with a calf at the farm",
+  /** Body visual (not the hero). */
   photo: "lab/microscope" as PhotoKey,
+  ctaPhoto: "people/handler-long-horns" as PhotoKey,
 };
 
 export const buyEmbryosPage = {
@@ -68,14 +75,16 @@ export const buyEmbryosPage = {
     intro: "Both are produced in our lab from our own herd. The difference is what you want from the calf crop.",
   },
   compareHeader: { kicker: "Side by side", title: "Which options each embryo type comes with" },
+  heroPhoto: "farm/calves-at-barn" as PhotoKey,
   photo: "farm/herd-walking" as PhotoKey,
+  ctaPhoto: "people/team-at-fence" as PhotoKey,
 };
 
 export const sexSortedPage = {
   meta: {
     title: "Sex-Sorted Cattle Embryos",
     description:
-      "Sex-sorted embryos from elite indigenous donor cattle — ideal for producing female calves and faster herd expansion. Embryo production, transfer, and transfer with confirmation.",
+      "Sex-sorted embryos from elite indigenous donor cattle, ideal for producing female calves and faster herd expansion. Embryo production, transfer, and transfer with confirmation.",
   },
   benefitsHeader: { kicker: "Why sex-sorted", title: "Built for herd growth" },
   optionsHeader: {
@@ -83,14 +92,16 @@ export const sexSortedPage = {
     title: "How you can buy them",
     intro: "Choose the level of service that fits your farm.",
   },
+  heroPhoto: "farm/young-calves" as PhotoKey,
   photo: "farm/calves-resting" as PhotoKey,
+  ctaPhoto: "farm/cow-and-calf" as PhotoKey,
 };
 
 export const conventionalPage = {
   meta: {
     title: "Normal (Conventional) Cattle Embryos",
     description:
-      "Normal embryos produced using selected bulls and proven breeding methods — a cost-effective route to reliable, consistent herd improvement.",
+      "Normal embryos produced using selected bulls and proven breeding methods: a cost-effective route to reliable, consistent herd improvement.",
   },
   benefitsHeader: { kicker: "Why normal embryos", title: "Steady, cost-effective progress" },
   optionsHeader: {
@@ -98,7 +109,9 @@ export const conventionalPage = {
     title: "How you can buy them",
     intro: "Choose the level of service that fits your farm.",
   },
+  heroPhoto: "farm/gir-bull" as PhotoKey,
   photo: "farm/gir-bull-fence" as PhotoKey,
+  ctaPhoto: "farm/herd-walking" as PhotoKey,
 };
 
 export const embryoTransferPage = {
@@ -132,9 +145,11 @@ export const embryoTransferPage = {
     kicker: "Confirmation",
     title: "Two pregnancy checks, not one",
     intro:
-      "Embryo transfer pregnancies are checked at 35 and 60 days. Our published conception rate is the 60-day figure — the harder test.",
+      "Embryo transfer pregnancies are checked at 35 and 60 days. Our published conception rate is the 60-day figure, the harder test.",
   },
-  photo: "farm/vet-checking" as PhotoKey,
+  heroPhoto: "farm/vet-checking" as PhotoKey,
+  photo: "farm/cow-and-calf" as PhotoKey,
+  ctaPhoto: "farm/calves-at-barn" as PhotoKey,
 };
 
 export const qualifierPage = {
@@ -145,6 +160,9 @@ export const qualifierPage = {
   },
   honestyHeader: { kicker: "Straight answers", title: "What IVF can and can’t do" },
   compareHeader: { kicker: "Decide for your farm", title: "IVF or natural breeding?" },
+  heroPhoto: "farm/cow-and-calf" as PhotoKey,
+  combinedPhoto: "people/handler-red-calf" as PhotoKey,
+  ctaPhoto: "farm/young-calves" as PhotoKey,
   breedHeader: {
     kicker: "Before you choose genetics",
     title: "Four questions about your land",
@@ -158,7 +176,14 @@ export const pricingPage = {
     description:
       "What goes into the price of cattle IVF and embryos at Hebbevu Genetics: sex-sorted vs normal, fresh vs frozen, recipients, confirmation, the 10-embryo minimum and logistics.",
   },
-  factorsHeader: { kicker: "What moves the price", title: "Six things that change your quote" },
+  heroPhoto: "farm/handler-with-bulls" as PhotoKey,
+  ctaPhoto: "farm/aerial" as PhotoKey,
+  factorsHeader: {
+    kicker: "What moves the price",
+    title: "Six things that change your quote",
+    intro: "We can’t publish rupee figures, but we can show you exactly what goes into the number.",
+  },
+  factorIcons: ["target", "snowflake", "users", "check", "package", "truck"] as const,
   matrixHeader: {
     kicker: "What you can buy",
     title: "Options by embryo type",
@@ -167,7 +192,7 @@ export const pricingPage = {
   quoteHeader: {
     title: "Getting a quote",
     intro:
-      "Pricing is shared on request. Tell us your district, how many embryos you want, which type, and whose recipient cows — and we’ll give you a figure.",
+      "Pricing is shared on request. Tell us your district, how many embryos you want, which type, and whose recipient cows, and we’ll give you a figure.",
   },
 };
 
@@ -178,6 +203,9 @@ export const bookPage = {
       "Book a consultation with Hebbevu Genetics. Leave your name, mobile number and district and our cattle genetics team will call you back.",
   },
   kicker: "Book a consultation",
+  heroPhoto: "people/two-at-fence" as PhotoKey,
+  heroCaption: "Founder Mr. Amith Kishan (right) at the paddock fence",
+  formIntro: "Four fields, no email needed. We’ll call you back on your mobile.",
   title: "Talk to our cattle genetics team",
   lede: "Tell us four things and we’ll call you back. No email needed.",
   formHeading: "Request a call back",
@@ -186,7 +214,7 @@ export const bookPage = {
   nextHeader: { kicker: "What happens next", title: "After you send this" },
   nextSteps: [
     { step: 1, title: "We call you", body: "A member of our team calls you on the number you gave us." },
-    { step: 2, title: "We talk about your herd", body: "Your herd goals, your animals, and which path fits — your own donors or our embryos." },
+    { step: 2, title: "We talk about your herd", body: "Your herd goals, your animals, and which path fits: your own donors or our embryos." },
     { step: 3, title: "You get a plan and a price", body: "Pricing is shared on request, once we know what your farm needs." },
   ],
 };
@@ -198,18 +226,21 @@ export const contactPage = {
       "Contact Hebbevu Genetics at Reynadu Farm, Sri Sathya Sai, Andhra Pradesh. Call +91 80505 39391 or email info@hebbevugenetics.com.",
   },
   title: "Contact Hebbevu Genetics",
-  lede: "Call, WhatsApp, email or visit us at Reynadu Farm — the lab is on the same land as the herd.",
+  lede: "Call, WhatsApp, email or visit us at Reynadu Farm. The lab is on the same land as the herd.",
   detailsHeader: { kicker: "Reach us", title: "Contact details" },
   visitHeader: {
     kicker: "Visit",
     title: "Reynadu Farm, Sri Sathya Sai",
     intro: "The lab sits on the same land as the herd.",
   },
+  heroPhoto: "banners/calves-barn" as PhotoKey,
+  /** Body visual: where we are. */
   photo: "farm/aerial" as PhotoKey,
 };
 
 /** CTA bands for the conversion pages (one per page). */
 export const bookCta = {
+  photo: "farm/gir-bull" as PhotoKey,
   heading: "Still weighing it up?",
   body: "Read the questions other farmers ask first, or check whether IVF fits your farm.",
   primary: { label: "Read the FAQs", href: "/knowledge/faqs" },
@@ -217,8 +248,20 @@ export const bookCta = {
 };
 
 export const contactCta = {
+  photo: "farm/barn-row" as PhotoKey,
   heading: "Ready to talk about your herd?",
   body: "Leave your name, number and district, and our team will call you back.",
   primary: { label: "Book a Consultation", href: "/book" },
   secondary: { label: "Explore our services", href: "/services" },
+};
+
+/** 404 page. */
+export const notFoundPage = {
+  heroPhoto: "farm/herd-walking" as PhotoKey,
+  title: "We couldn’t find that page",
+  lede: "It may have moved when we reorganised the site.",
+  actions: [
+    { label: "Go to the home page", href: "/" },
+    { label: "Contact us", href: "/contact" },
+  ],
 };

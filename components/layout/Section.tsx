@@ -14,7 +14,7 @@ const toneClass: Record<SectionTone, string> = {
 export const isDarkTone = (t: SectionTone) => t === "bark" || t === "deep";
 
 /**
- * Section — uniform rhythm (brief §6): space-9 top/bottom desktop, space-8 mobile.
+ * Section - uniform rhythm (brief §6): space-9 top/bottom desktop, space-8 mobile.
  * `hero` gets space-10 (desktop). Don't vary padding to "balance" a page.
  * Dark tones set data-ground="dark" so focus rings switch to mist.
  */

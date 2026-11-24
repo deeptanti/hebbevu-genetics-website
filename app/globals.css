@@ -1,5 +1,5 @@
 /*
- * Hebbevu Genetics — design system as the Tailwind theme.
+ * Hebbevu Genetics - design system as the Tailwind theme.
  * Source of truth: HEBBEVU-GENETICS-BRIEF.md §6.
  *
  * Tailwind's default theme is deliberately NOT imported. Only the tokens below
@@ -19,7 +19,7 @@
   /* Grounds */
   --color-white: #ffffff;
   --color-mist: #f7f6f4; /* alt sections, card fills; ALSO text on dark grounds */
-  --color-stone: #e4e1dc; /* DECORATIVE ONLY — never a control boundary or focus ring */
+  --color-stone: #e4e1dc; /* DECORATIVE ONLY - never a control boundary or focus ring */
   /* Working neutrals */
   --color-graphite: #5a564f; /* meta text AND every control border */
   --color-ink: #23211e; /* body copy, h3 */
@@ -28,14 +28,14 @@
   --color-brown-dark: #613825; /* hover / pressed */
   --color-bark: #38271d; /* stat bands, inset panels */
   --color-deep: #241a14; /* darkest ground; h1/h2 */
-  /* Derived tints (added in the visual pass — flagged): brown mixed into white.
+  /* Derived tints (added in the visual pass - flagged): brown mixed into white.
      Decorative fills only: icon tiles, chart tracks, specimen grounds. Never text. */
   --color-clay: #f4ebe6; /* ≈10% brown on white */
   --color-sand: #e9d7cd; /* ≈22% brown on white */
   /* Signal */
   --color-danger: #a33a26; /* form validation only */
 
-  /* ---- Spacing — 8px base (§6) ---------------------------------------- */
+  /* ---- Spacing - 8px base (§6) ---------------------------------------- */
   --spacing-0: 0px;
   --spacing-px: 1px;
   --spacing-1: 4px;
@@ -60,7 +60,7 @@
   --radius-lg: 8px; /* cards, media */
   --radius-full: 9999px; /* circular only */
 
-  /* ---- Elevation (§6) — borders before shadows ------------------------ */
+  /* ---- Elevation (§6) - borders before shadows ------------------------ */
   --shadow-sm: 0 1px 2px rgba(35, 33, 30, 0.06);
   --shadow-md: 0 2px 8px rgba(35, 33, 30, 0.08); /* sticky nav once scrolled, dropdowns */
   --shadow-lg: 0 8px 24px rgba(35, 33, 30, 0.12); /* modals, mobile drawer ONLY */
@@ -120,10 +120,10 @@
  * Typography layer (§6 type scale + `display` tier)
  *
  * Desktop sizes are exactly the brief's. Below `md`, h1/h2/h3/stat step
- * down one notch (assumption — the brief gives no mobile scale).
+ * down one notch (assumption - the brief gives no mobile scale).
  * ===================================================================== */
 
-/* display — added above h1 for heroes (brief §6 "Known gap"). */
+/* display - added above h1 for heroes (brief §6 "Known gap"). */
 @utility type-display {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -204,7 +204,7 @@
 
 /*
  * Two small additions outside the brief's table (flagged in README):
- * - lede: hero/intro paragraph — subheading's 18/28 at regular weight.
+ * - lede: hero/intro paragraph - subheading's 18/28 at regular weight.
  * - wordmark: the interim text wordmark beside the cropped logo mark (brief §7).
  */
 @utility type-lede {
@@ -301,6 +301,19 @@
       animation: none !important;
     }
   }
+}
+
+/* Hero heights: landing pages are tall, detail pages compact. */
+@utility min-h-hero {
+  min-height: clamp(560px, 82vh, 880px);
+}
+@utility min-h-hero-compact {
+  min-height: clamp(460px, 62vh, 660px);
+}
+
+/* Portrait/square photos in wide heroes: keep the upper-middle (faces, heads) in frame. */
+@utility object-upper {
+  object-position: 50% 32%;
 }
 
 @utility paused {

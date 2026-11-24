@@ -32,7 +32,7 @@ const toneClass: Record<TextTone, string> = {
 
 export interface TextProps {
   variant?: TextVariant;
-  /** Override colour. On dark grounds use `mist` — graphite fails contrast there. */
+  /** Override colour. On dark grounds use `mist` - graphite fails contrast there. */
   tone?: TextTone;
   as?: ElementType;
   className?: string;

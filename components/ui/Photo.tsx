@@ -3,7 +3,7 @@ import type { Photo as PhotoData } from "@/content/media";
 import { cn } from "@/lib/cn";
 
 /**
- * Photo — the site's one way to show photography. Crops to a token aspect ratio
+ * Photo - the site's one way to show photography. Crops to a token aspect ratio
  * (or keeps the natural one), radius-lg, lazy by default. `priority` for heroes only.
  */
 const aspectClass = {

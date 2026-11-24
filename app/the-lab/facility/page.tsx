@@ -16,15 +16,19 @@ export default function FacilityPage() {
   return (
     <>
       <PageHero
+        photo={photos["lab/microscope"]}
         title="The facility"
         lede={copy.lede}
         breadcrumbs={[{ label: "The Lab", href: "/the-lab" }, { label: "Facility" }]}
-        aside={<Photo photo={photos["lab/microscope"]} aspect="photo" priority />}
+        actions={[
+          { label: "Book a visit", href: "/book" },
+          { label: "How IVF works", href: "/the-lab/how-ivf-works" },
+        ]}
       />
 
-      <Section tone="mist">
-        <SectionHeader title={copy.areasHeading} />
-        <ol className="grid grid-cols-1 gap-5 md:grid-cols-3">
+      <Section labelledBy="areas">
+        <SectionHeader id="areas" title={copy.areasHeading} />
+        <ol className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {facilityAreas.map((a) => (
             <li key={a.id}>
               <Card>
@@ -40,15 +44,15 @@ export default function FacilityPage() {
         </ol>
       </Section>
 
-      <Section>
+      <Section tone="mist" labelledBy="lab-site">
         <div className="grid items-center gap-7 lg:grid-cols-2">
-          <SectionHeader title={labIntro.heading} intro={labIntro.lede} flush />
+          <SectionHeader id="lab-site" title={labIntro.heading} intro={labIntro.lede} flush />
           <DnaHelix turns={2} rungs={24} className="w-full" />
         </div>
-        <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {(["lab/bench", "lab/egg-cell", "farm/vet-checking", "farm/aerial"] as const).map((k) => (
             <li key={k}>
-              <Photo photo={photos[k]} aspect="square" caption={photos[k].alt} sizes="(min-width: 1024px) 25vw, 50vw" />
+              <Photo photo={photos[k]} aspect="photo" caption={photos[k].alt} sizes="(min-width: 640px) 50vw, 100vw" />
             </li>
           ))}
         </ul>
@@ -59,6 +63,7 @@ export default function FacilityPage() {
         body={copy.cta.body}
         primary={{ label: "Book a Consultation", href: "/book" }}
         secondary={{ label: "How IVF works", href: "/the-lab/how-ivf-works" }}
+        photo={photos["farm/aerial"]}
       />
     </>
   );

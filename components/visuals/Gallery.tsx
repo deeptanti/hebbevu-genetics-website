@@ -8,7 +8,7 @@ import type { Photo } from "@/content/media";
 import { cn } from "@/lib/cn";
 
 /**
- * Gallery — filterable photo grid with a full-screen lightbox.
+ * Gallery - filterable photo grid with a full-screen lightbox.
  * Keyboard: ←/→ to move, Esc to close. Focus returns to the grid when closed.
  */
 export interface GalleryItem {

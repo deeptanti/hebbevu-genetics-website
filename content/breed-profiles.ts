@@ -1,5 +1,5 @@
 /**
- * Researched breed profiles — the depth behind each breed page.
+ * Researched breed profiles - the depth behind each breed page.
  *
  * Sources: primarily ICAR-NBAGR's breed registry (AGRI-IS) and NDDB's Dairy Knowledge Portal,
  * plus peer-reviewed papers listed per breed. "NBAGR average" figures are national breed
@@ -41,11 +41,11 @@ export interface BreedProfile {
 
 const NBAGR: Source = { label: "ICAR-NBAGR breed registry (AGRI-IS)", url: "http://14.139.252.116/agris/breed.aspx" };
 const A1A2: Source = {
-  label: "Sodhi et al. 2012, Indian Journal of Animal Sciences — A1/A2 β-casein in Indian cattle",
+  label: "Sodhi et al. 2012, Indian Journal of Animal Sciences: A1/A2 β-casein in Indian cattle",
   url: "https://epubs.icar.org.in/index.php/IJAnS/article/download/15263/7649/32579",
 };
 const PAB: Source = {
-  label: "Mukhopadhyay et al. 2025, Pesquisa Agropecuária Brasileira — Indian zebu in Brazil",
+  label: "Mukhopadhyay et al. 2025, Pesquisa Agropecuária Brasileira: Indian zebu in Brazil",
   url: "https://www.scielo.br/j/pab/a/rQLytGyzBymxjH4n4z5KCpk/?lang=en",
 };
 
@@ -54,7 +54,7 @@ export const breedProfiles: BreedProfile[] = [
     slug: "gir",
     species: "Cattle · Bos indicus (zebu)",
     intro:
-      "Gir is one of India’s best-known dairy breeds and the foundation of Brazil’s tropical dairy industry. It is hardy, heat-tolerant and gives rich milk — and it responds strongly to selection, which is exactly what IVF multiplies.",
+      "Gir is one of India’s best-known dairy breeds and the foundation of Brazil’s tropical dairy industry. It is hardy, heat-tolerant and gives rich milk, and it responds strongly to selection, which is exactly what IVF multiplies.",
     homeland: {
       tract: "Amreli, Bhavnagar, Junagadh and Rajkot districts in the Saurashtra region of Gujarat, in and around the Gir forest.",
       nameOrigin: "Named after the Gir forest.",
@@ -62,7 +62,7 @@ export const breedProfiles: BreedProfile[] = [
     },
     looks: [
       { label: "Coat", text: "Mostly pure red, sometimes speckled red." },
-      { label: "Horns", text: "Curve sideways, down and back, then up and forward in a spiral — a distinctive half-moon shape." },
+      { label: "Horns", text: "Curve sideways, down and back, then up and forward in a spiral, giving a distinctive half-moon shape." },
       { label: "Ears", text: "Long and pendulous, folded like a leaf." },
     ],
     size: { cow: "310 kg", bull: "544 kg", cowHeight: "131 cm", bullHeight: "160 cm" },
@@ -74,7 +74,7 @@ export const breedProfiles: BreedProfile[] = [
       calvingInterval: "13.4 months",
       note: "Breeding-tract studies record lactations of about 2,030–2,060 litres over 320–326 days.",
     },
-    uses: ["Milk", "Draught — Gir bullocks pull heavy loads on sandy, black or rocky soils"],
+    uses: ["Milk", "Draught: Gir bullocks pull heavy loads on sandy, black or rocky soils"],
     adaptation: [
       "Hardy: survives and produces in difficult environments",
       "Tolerant of heat and stress",
@@ -83,8 +83,8 @@ export const breedProfiles: BreedProfile[] = [
     world: {
       heading: "From Saurashtra to Brazil",
       paragraphs: [
-        "Gir has been exported to Brazil, the USA, Venezuela and Mexico. In Brazil it has been formally recorded since 1938, with more than 600,000 purebreds registered — and Brazil now holds more Gir cows than India.",
-        "Decades of sire selection lifted the average Brazilian Gir cow to about 4,500 kg per 305-day lactation. Crossed with Holstein, Gir created the Girolando (5/8 Holstein, 3/8 Gir), which supplies about 80% of Brazil’s milk. Brazil is now the largest bovine IVF market in the world — built on Indian genetics.",
+        "Gir has been exported to Brazil, the USA, Venezuela and Mexico. In Brazil it has been formally recorded since 1938, with more than 600,000 purebreds registered, and Brazil now holds more Gir cows than India.",
+        "Decades of sire selection lifted the average Brazilian Gir cow to about 4,500 kg per 305-day lactation. Crossed with Holstein, Gir created the Girolando (5/8 Holstein, 3/8 Gir), which supplies about 80% of Brazil’s milk. Brazil is now the largest bovine IVF market in the world, built on Indian genetics.",
       ],
       countries: ["Brazil", "USA", "Venezuela", "Mexico"],
     },
@@ -96,14 +96,14 @@ export const breedProfiles: BreedProfile[] = [
     ],
     sources: [
       NBAGR,
-      { label: "NDDB Dairy Knowledge Portal — Gir", url: "https://www.dairyknowledge.in/dkp/article/gir" },
+      { label: "NDDB Dairy Knowledge Portal: Gir", url: "https://www.dairyknowledge.in/dkp/article/gir" },
       {
-        label: "Gir cattle breed of India: characteristics and present status — Animal Genetic Resources (Cambridge)",
+        label: "Gir cattle breed of India: characteristics and present status: Animal Genetic Resources (Cambridge)",
         url: "https://www.cambridge.org/core/journals/animal-genetic-resources-resources-genetiques-animales-recursos-geneticos-animales/article/gir-cattle-breed-of-india-characteristics-and-present-status/A689843E8FCF994B31C3AF552CA0F356",
       },
       PAB,
       {
-        label: "Embrapa — Brazilian Dairy Gir programme",
+        label: "Embrapa: Brazilian Dairy Gir programme",
         url: "https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1150078/1/Providing-genetics-for-the-dairy-industry-in-the-tropics-the-Brazilian-Daury-Gir.pdf",
       },
       A1A2,
@@ -113,7 +113,7 @@ export const breedProfiles: BreedProfile[] = [
     slug: "sahiwal",
     species: "Cattle · Bos indicus (zebu)",
     intro:
-      "Sahiwal has the highest average yield of the indigenous breeds on this site, and rich milk. It is heat-tolerant and tick-resistant — which is why dairy farmers across Africa and Australia imported it.",
+      "Sahiwal has the highest average yield of the indigenous breeds on this site, and rich milk. It is heat-tolerant and tick-resistant, which is why dairy farmers across Africa and Australia imported it.",
     homeland: {
       tract: "Ferozpur and Amritsar in Punjab and Ganganagar in Rajasthan; the purest herds are found around Fazilka and Abohar.",
       nameOrigin: "Named after the Sahiwal area of Montgomery district, now in Punjab, Pakistan.",
@@ -135,7 +135,7 @@ export const breedProfiles: BreedProfile[] = [
     },
     uses: ["Milk", "Abroad: dual-purpose milk and meat, and as dams for crossbreeding"],
     adaptation: [
-      "Sweats about 2.6 times more than a Holstein — a key reason it copes with heat",
+      "Sweats about 2.6 times more than a Holstein, a key reason it copes with heat",
       "Reported resistance to ticks and tick-borne disease",
     ],
     world: {
@@ -154,11 +154,11 @@ export const breedProfiles: BreedProfile[] = [
     ],
     sources: [
       NBAGR,
-      { label: "NDDB Dairy Knowledge Portal — Sahiwal", url: "https://www.dairyknowledge.in/dkp/article/sahiwal" },
-      { label: "ILRI — Kenyan Sahiwal", url: "https://agtr.ilri.org/kenyan_sahiwal" },
-      { label: "Wang et al. 2015 — sweating rates of zebu and Holstein cattle", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4647095" },
-      { label: "NDRI study — heat stress and Sahiwal milk yield (Indian Journal of Dairy Science)", url: "https://epubs.icar.org.in/index.php/IJDS/article/view/80404" },
-      { label: "FAO — the Australian Milking Zebu", url: "https://www.fao.org/DOCREP/004/X6500E/X6500E09.htm" },
+      { label: "NDDB Dairy Knowledge Portal: Sahiwal", url: "https://www.dairyknowledge.in/dkp/article/sahiwal" },
+      { label: "ILRI: Kenyan Sahiwal", url: "https://agtr.ilri.org/kenyan_sahiwal" },
+      { label: "Wang et al. 2015: sweating rates of zebu and Holstein cattle", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4647095" },
+      { label: "NDRI study: heat stress and Sahiwal milk yield (Indian Journal of Dairy Science)", url: "https://epubs.icar.org.in/index.php/IJDS/article/view/80404" },
+      { label: "FAO: the Australian Milking Zebu", url: "https://www.fao.org/DOCREP/004/X6500E/X6500E09.htm" },
       A1A2,
     ],
   },
@@ -166,7 +166,7 @@ export const breedProfiles: BreedProfile[] = [
     slug: "ongole",
     species: "Cattle · Bos indicus (zebu)",
     intro:
-      "Ongole is Andhra Pradesh’s own breed — a powerful, glossy-white animal prized for strength and hardiness. Its descendants, the Nelore, now form the backbone of Brazil’s beef herd, and a Nelore cow once set the world record as the most expensive cow ever sold.",
+      "Ongole is Andhra Pradesh’s own breed: a powerful, glossy-white animal prized for strength and hardiness. Its descendants, the Nelore, now form the backbone of Brazil’s beef herd, and a Nelore cow once set the world record as the most expensive cow ever sold.",
     homeland: {
       tract: "Prakasam (Ongole), Guntur, Nellore, Kurnool and East Godavari districts of Andhra Pradesh, along the coast from Nellore to Vizianagaram.",
       nameOrigin: "Named after the Ongole area. Also called Nellore, because Ongole taluk was once part of Nellore district.",
@@ -190,8 +190,8 @@ export const breedProfiles: BreedProfile[] = [
     world: {
       heading: "Andhra’s gift to Brazil",
       paragraphs: [
-        "Ongole cattle were shipped from India to Brazil between 1868 and 1963. There they became the Nelore — Brazil’s most important beef breed — and also contributed to the Tabapuã, Indubrasil and American Brahman breeds.",
-        "In 2023 a Nelore cow, Viatina-19, was valued at about US$4.3 million when a one-third share sold at auction — a Guinness World Record at the time. The genetics behind that price started in Andhra Pradesh.",
+        "Ongole cattle were shipped from India to Brazil between 1868 and 1963. There they became the Nelore, Brazil’s most important beef breed, and also contributed to the Tabapuã, Indubrasil and American Brahman breeds.",
+        "In 2023 a Nelore cow, Viatina-19, was valued at about US$4.3 million when a one-third share sold at auction, a Guinness World Record at the time. The genetics behind that price started in Andhra Pradesh.",
       ],
       countries: ["Brazil", "USA", "Australia", "Sri Lanka", "Fiji", "Jamaica"],
     },
@@ -203,11 +203,11 @@ export const breedProfiles: BreedProfile[] = [
     ],
     sources: [
       NBAGR,
-      { label: "NDDB Dairy Knowledge Portal — Ongole", url: "https://www.dairyknowledge.in/dkp/article/ongole" },
-      { label: "Fernandes Júnior et al. 2020, Scientific Reports — Nelore genomics", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7287098" },
+      { label: "NDDB Dairy Knowledge Portal: Ongole", url: "https://www.dairyknowledge.in/dkp/article/ongole" },
+      { label: "Fernandes Júnior et al. 2020, Scientific Reports: Nelore genomics", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7287098" },
       PAB,
       {
-        label: "Guinness World Records — most expensive cow (Viatina-19, 2023)",
+        label: "Guinness World Records: most expensive cow (Viatina-19, 2023)",
         url: "https://www.guinnessworldrecords.com/news/2023/8/worlds-most-expensive-cow-sold-for-an-astronomical-price-in-brazil-756554",
       },
     ],
@@ -216,16 +216,16 @@ export const breedProfiles: BreedProfile[] = [
     slug: "kankrej",
     species: "Cattle · Bos indicus (zebu)",
     intro:
-      "Kankrej is a big, silver-grey dual-purpose breed from the edge of the Rann of Kutch — strong enough to pull, productive enough to milk. In Brazil, where it is called Guzerá, breeders used embryo technology to speed up its genetic gain.",
+      "Kankrej is a big, silver-grey dual-purpose breed from the edge of the Rann of Kutch: strong enough to pull, productive enough to milk. In Brazil, where it is called Guzerá, breeders used embryo technology to speed up its genetic gain.",
     homeland: {
-      tract: "Banaskantha, Mehsana, Sabarkantha, Kutch, Ahmedabad and Kheda in Gujarat, and Barmer and Jodhpur in Rajasthan — south-east of the Rann of Kutch.",
+      tract: "Banaskantha, Mehsana, Sabarkantha, Kutch, Ahmedabad and Kheda in Gujarat, and Barmer and Jodhpur in Rajasthan, south-east of the Rann of Kutch.",
       nameOrigin: "Named after Kankrej taluka in Banaskantha district.",
       localNames: ["Wadad", "Vagadia", "Talabda", "Nagar", "Bonnai"],
     },
     looks: [
       { label: "Coat", text: "Silver-grey to iron-grey; bulls are darker on the fore- and hindquarters and the hump." },
       { label: "Horns", text: "Strong and lyre-shaped, with skin running further up the horn than in other breeds." },
-      { label: "Gait", text: "A distinctive ‘sawai chal’ — an easy one-and-a-quarter pace." },
+      { label: "Gait", text: "A distinctive ‘sawai chal’, an easy one-and-a-quarter pace." },
     ],
     size: { cow: "343 kg", bull: "525 kg", cowHeight: "125 cm", bullHeight: "158 cm" },
     dairy: {
@@ -241,7 +241,7 @@ export const breedProfiles: BreedProfile[] = [
       heading: "Proof that embryo technology works for zebu",
       paragraphs: [
         "Kankrej cattle taken to Brazil at the end of the 19th century became the Guzerá breed, which also helped form the American Brahman.",
-        "From 1994, Brazilian breeders ran a Guzerá dairy programme using embryo transfer and later in-vitro embryo production. Genetic gain for milk was about 9.4 kg a year in the embryo-based nucleus — against about 1 kg a year without it. It is one of the clearest records of what reproductive technology can do for an indigenous breed.",
+        "From 1994, Brazilian breeders ran a Guzerá dairy programme using embryo transfer and later in-vitro embryo production. Genetic gain for milk was about 9.4 kg a year in the embryo-based nucleus, against about 1 kg a year without it. It is one of the clearest records of what reproductive technology can do for an indigenous breed.",
       ],
       countries: ["Brazil", "USA"],
     },
@@ -253,8 +253,8 @@ export const breedProfiles: BreedProfile[] = [
     ],
     sources: [
       NBAGR,
-      { label: "NDDB Dairy Knowledge Portal — Kankrej", url: "https://www.dairyknowledge.in/dkp/article/kankrej" },
-      { label: "Peixoto et al. 2022, Frontiers in Genetics — Guzerá dairy programme and MOET", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9557008" },
+      { label: "NDDB Dairy Knowledge Portal: Kankrej", url: "https://www.dairyknowledge.in/dkp/article/kankrej" },
+      { label: "Peixoto et al. 2022, Frontiers in Genetics: Guzerá dairy programme and MOET", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9557008" },
       PAB,
     ],
   },
@@ -262,9 +262,9 @@ export const breedProfiles: BreedProfile[] = [
     slug: "rathi",
     species: "Cattle · Bos indicus (zebu)",
     intro:
-      "Rathi is the milk cow of the Thar desert. It produces on wheat straw and desert grasses, through 50 °C summers and near-freezing winters, with little shelter — and the best cows give far more than the average.",
+      "Rathi is the milk cow of the Thar desert. It produces on wheat straw and desert grasses, through 50 °C summers and near-freezing winters, with little shelter, and the best cows give far more than the average.",
     homeland: {
-      tract: "Bikaner, Ganganagar and Jaisalmer in Rajasthan, concentrated in Loonkaransar tehsil — the ‘Rathi tract’ of the Thar desert.",
+      tract: "Bikaner, Ganganagar and Jaisalmer in Rajasthan, concentrated in Loonkaransar tehsil, the ‘Rathi tract’ of the Thar desert.",
       nameOrigin: "Named after the Raths, a pastoral community of the region. The breed is thought to blend Sahiwal, Red Sindhi, Tharparkar and Dhanni, mostly Sahiwal.",
     },
     looks: [
@@ -281,7 +281,7 @@ export const breedProfiles: BreedProfile[] = [
       calvingInterval: "17.1 months",
       note: "Selected Rathi cows have produced about 4,800 kg in a lactation at the farmer’s door.",
     },
-    uses: ["Milk — a major source of livelihood in its home region"],
+    uses: ["Milk, a major source of livelihood in its home region"],
     adaptation: [
       "Copes with about 50 °C summers, near-freezing winters and under 200 mm of rain",
       "Produces on wheat straw, pala leaves and sewan grass",
@@ -291,24 +291,24 @@ export const breedProfiles: BreedProfile[] = [
     farmerNotes: [
       { title: "Made for dry country", body: "Where water and fodder are short, Rathi keeps producing when more demanding breeds would not." },
       { title: "Fertility is the bottleneck", body: "An average calving interval of about 17 months is the breed’s biggest economic drag. Reproductive management pays off quickly here." },
-      { title: "A wide range", body: "Yields run from about 1,060 to 2,800 kg per lactation. That spread is exactly what careful selection — and IVF — can work with." },
+      { title: "A wide range", body: "Yields run from about 1,060 to 2,800 kg per lactation. That spread is exactly what careful selection, and IVF, can work with." },
     ],
-    sources: [NBAGR, { label: "NDDB Dairy Knowledge Portal — Rathi", url: "https://www.dairyknowledge.in/dkp/article/rathi" }],
+    sources: [NBAGR, { label: "NDDB Dairy Knowledge Portal: Rathi", url: "https://www.dairyknowledge.in/dkp/article/rathi" }],
   },
   {
     slug: "jaffarabadi",
     species: "Water buffalo · Bubalus bubalis (river type)",
     isBuffalo: true,
     intro:
-      "Jaffarabadi is a buffalo, not a cow — the heaviest buffalo breed in India, with massive ring-shaped horns and milk that averages about 7.7% fat. Its home is the same Saurashtra country as the Gir cattle.",
+      "Jaffarabadi is a buffalo, not a cow: the heaviest buffalo breed in India, with massive ring-shaped horns and milk that averages about 7.7% fat. Its home is the same Saurashtra country as the Gir cattle.",
     homeland: {
       tract: "Amreli, Bhavnagar, Jamnagar, Junagadh, Porbandar and Rajkot in the Saurashtra region of Gujarat, around the Gir forest.",
-      nameOrigin: "Named after the town of Jaffarabad. Traditionally kept by Maldhari herding communities — the Rabari, Bharwad, Aher and Mer.",
+      nameOrigin: "Named after the town of Jaffarabad. Traditionally kept by Maldhari herding communities: the Rabari, Bharwad, Aher and Mer.",
       localNames: ["Bhavnagri", "Gir", "Jaffari"],
     },
     looks: [
       { label: "Coat", text: "Black, sometimes with a white or grey tail switch." },
-      { label: "Horns", text: "Long and heavy, drooping down and sideways, then curling up and inward into a ring — which makes the eyes look small." },
+      { label: "Horns", text: "Long and heavy, drooping down and sideways, then curling up and inward into a ring, which makes the eyes look small." },
       { label: "Build", text: "The heaviest of all Indian buffalo breeds." },
     ],
     size: { cow: "620 kg", bull: "700 kg", cowHeight: "139 cm", bullHeight: "143 cm" },
@@ -318,7 +318,7 @@ export const breedProfiles: BreedProfile[] = [
       fat: "7.7%",
       firstCalving: "45 months",
       calvingInterval: "14.6 months",
-      note: "Fat averages about 7.7% and ranges from 6.8% to 8.5% — far richer than cow’s milk.",
+      note: "Fat averages about 7.7% and ranges from 6.8% to 8.5%, far richer than cow’s milk.",
     },
     uses: ["Milk", "Draught and transport"],
     adaptation: ["A heavy grazer, kept on natural pasture year-round in its home tract", "Strong enough for draught and transport work"],
@@ -337,15 +337,15 @@ export const breedProfiles: BreedProfile[] = [
     ],
     sources: [
       NBAGR,
-      { label: "NDDB Dairy Knowledge Portal — Jaffarabadi", url: "https://www.dairyknowledge.in/dkp/node/1236" },
-      { label: "Bastianetto et al. 2020 — buffalo breeds in Brazil", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7995262" },
+      { label: "NDDB Dairy Knowledge Portal: Jaffarabadi", url: "https://www.dairyknowledge.in/dkp/node/1236" },
+      { label: "Bastianetto et al. 2020: buffalo breeds in Brazil", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7995262" },
     ],
   },
   {
     slug: "holstein-friesian",
     species: "Cattle · Bos taurus (European dairy)",
     intro:
-      "Holstein Friesian is the highest-yielding dairy breed in the world. In cool climates with excellent feed it gives over 10,000 kg a lactation. In Indian heat the picture is very different — and that gap is the whole story.",
+      "Holstein Friesian is the highest-yielding dairy breed in the world. In cool climates with excellent feed it gives over 10,000 kg a lactation. In Indian heat the picture is very different, and that gap is the whole story.",
     homeland: {
       tract: "The Netherlands, where the breed has been developing for some 2,000 years.",
       nameOrigin: "Named after Friesland in the Netherlands and the neighbouring region of Holstein.",
@@ -358,19 +358,19 @@ export const breedProfiles: BreedProfile[] = [
     dairy: {
       lactation: "9,600–12,700 kg",
       fat: "about 4.1%",
-      note: "305-day averages for recorded Holsteins in the Netherlands, Canada and the USA. In India, exotic and crossbred cows averaged 8.55 kg of milk a day in 2022–23 — against 3.44 kg for indigenous and non-descript cows.",
+      note: "305-day averages for recorded Holsteins in the Netherlands, Canada and the USA. In India, exotic and crossbred cows averaged 8.55 kg of milk a day in 2022–23, against 3.44 kg for indigenous and non-descript cows.",
     },
-    uses: ["Milk", "Crossbreeding with indigenous breeds — for example the Girolando in Brazil"],
+    uses: ["Milk", "Crossbreeding with indigenous breeds, for example the Girolando in Brazil"],
     adaptation: [
       "Sweats far less than zebu cattle and pants nearly twice as fast under heat",
-      "Heat stress begins at a temperature-humidity index of about 68 — routinely exceeded in Indian summers",
+      "Heat stress begins at a temperature-humidity index of about 68, routinely exceeded in Indian summers",
       "Needs consistent, high-quality feed and close health management",
     ],
     world: {
       heading: "Crossing, not replacing",
       paragraphs: [
         "India has crossbred Holsteins with indigenous cattle since the early 1900s. Military farm data showed the best results at half to five-eighths Holstein.",
-        "In Brazil, the Girolando — five-eighths Holstein, three-eighths Gir — combines Holstein yield with Gir heat tolerance and now supplies most of the country’s milk.",
+        "In Brazil, the Girolando (five-eighths Holstein, three-eighths Gir) combines Holstein yield with Gir heat tolerance and now supplies most of the country’s milk.",
       ],
       countries: ["Netherlands", "USA", "Canada", "Brazil"],
     },
@@ -380,18 +380,18 @@ export const breedProfiles: BreedProfile[] = [
       { title: "Consider a cross", body: "Crosses of about half to five-eighths Holstein have historically balanced yield and hardiness better than pure Holsteins in Indian conditions." },
     ],
     sources: [
-      { label: "University of Delaware — Holstein breed history", url: "https://sites.udel.edu/canr-animalscience/?p=507" },
+      { label: "University of Delaware: Holstein breed history", url: "https://sites.udel.edu/canr-animalscience/?p=507" },
       {
-        label: "Agriculture and Agri-Food Canada — 305-day production by breed and country",
+        label: "Agriculture and Agri-Food Canada: 305-day production by breed and country",
         url: "https://agriculture.canada.ca/sites/default/files/documents/2024-05/production_breed_select_countries_e.pdf",
       },
       {
         label: "Basic Animal Husbandry Statistics 2023 (via Vikaspedia)",
         url: "https://en.vikaspedia.in/agriculture/agri-directory/reports-and-policy-briefs/basic-animal-husbandry-statistics",
       },
-      { label: "Safa et al. 2018, Journal of Animal Science — heat stress and lactation", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6313133/" },
-      { label: "Wang et al. 2015 — sweating rates of zebu and Holstein cattle", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4647095" },
-      { label: "FAO — crossbreeding in India", url: "https://www.fao.org/4/t0095e/T0095E05.htm" },
+      { label: "Safa et al. 2018, Journal of Animal Science: heat stress and lactation", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6313133/" },
+      { label: "Wang et al. 2015: sweating rates of zebu and Holstein cattle", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4647095" },
+      { label: "FAO: crossbreeding in India", url: "https://www.fao.org/4/t0095e/T0095E05.htm" },
       A1A2,
     ],
   },

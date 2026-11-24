@@ -29,7 +29,7 @@ export function Icon({ name, className, weight = "duotone" }: { name: IconName; 
 }
 
 /**
- * IconTile — a 48px clay square holding a duotone icon. Used for feature claims,
+ * IconTile - a 48px clay square holding a duotone icon. Used for feature claims,
  * service points and facility areas. Inside a linked card (`group`), it fills brown on hover.
  */
 export function IconTile({ name, ground = "light", className }: { name: IconName; ground?: "light" | "dark"; className?: string }) {

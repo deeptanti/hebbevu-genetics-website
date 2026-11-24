@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 /**
- * Chip — traits, export destinations, certifications. Non-interactive.
+ * Chip - traits, export destinations, certifications. Non-interactive.
  * Uses the `label` style: this is where the technical/export register lives.
  * Its edge is decorative (stone). If a chip ever becomes clickable, it is a
  * control and its border must become graphite.

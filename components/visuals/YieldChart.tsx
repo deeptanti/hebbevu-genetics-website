@@ -7,9 +7,9 @@ import { useState } from "react";
 import { cn } from "@/lib/cn";
 
 /**
- * YieldChart — typical milk-yield RANGES for every breed on one 0–30 l/day scale.
+ * YieldChart - typical milk-yield RANGES for every breed on one 0–30 l/day scale.
  * Real data from content/breeds.ts. The scale is a 30-column grid, so each bar is
- * `col-start-{min+1} col-end-{max+1}` — exact, and with no inline styles.
+ * `col-start-{min+1} col-end-{max+1}` - exact, and with no inline styles.
  * Bars grow in on first view; hovering/focusing a row highlights it and dims the rest.
  */
 export interface YieldRow {

@@ -4,7 +4,7 @@ import { Reveal, RevealItem } from "../motion/Reveal";
 import { BrandIcon, type BrandIconName } from "../ui/BrandIcon";
 import { IconTile } from "../ui/Icon";
 
-/** Icon-led claim grid ("Why Hebbevu", differentiators, research). Not cards — no borders needed. */
+/** Icon-led claim grid ("Why Hebbevu", differentiators, research). Not cards - no borders needed. */
 export function FeatureGrid({
   items,
   columns = 4,

@@ -3,8 +3,8 @@ import { CountUp } from "../motion/CountUp";
 import { BrandIcon, type BrandIconName } from "./BrandIcon";
 
 /**
- * Stat — figure in `stat`, label in `label` (brief §13: never bury figures in prose).
- * On dark grounds (bark/deep) both value and label go to mist — graphite fails contrast.
+ * Stat - figure in `stat`, label in `label` (brief §13: never bury figures in prose).
+ * On dark grounds (bark/deep) both value and label go to mist - graphite fails contrast.
  */
 export interface StatProps {
   value: string;

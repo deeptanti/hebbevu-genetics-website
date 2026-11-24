@@ -8,6 +8,7 @@ export const aboutPages = {
         "Learn about Hebbevu Genetics, a leading cattle IVF and genetics company in India focused on improving indigenous breeds through advanced reproductive technology.",
     },
     overviewHeading: "Company Overview",
+    visionMissionHeading: "Our vision and mission",
     visionHeading: "Our Vision",
     missionHeading: "Our Mission",
     impactHeading: "Our Impact in Cattle Genetics",
@@ -26,12 +27,13 @@ export const aboutPages = {
   },
   story: {
     meta: {
-      title: "Our Story — Founders Brief",
+      title: "Our Story: Founders Brief",
       description:
-        "The founders’ vision behind Hebbevu Genetics: “Har ghar mein acchi gai” — high-quality cattle as a standard for every home, not a privilege for a few.",
+        "The founders’ vision behind Hebbevu Genetics: “Har ghar mein acchi gai”: high-quality cattle as a standard for every home, not a privilege for a few.",
     },
     heading: "From vision to reality",
     articleSlug: "story-behind-hebbevu-genetics",
+    accessHeading: "Making quality genetics accessible",
     articleHeading: "Read the full story",
     cta: {
       heading: "Be part of the future of dairy farming",
@@ -60,7 +62,7 @@ export const aboutPages = {
   },
   partners: {
     meta: {
-      title: "Partners — Brazilian Expertise and International Links",
+      title: "Partners: Brazilian Expertise and International Links",
       description:
         "How Hebbevu Genetics integrates Brazilian reproductive expertise to strengthen Indian cattle genetics, and the Gir link between India and Brazil.",
     },
@@ -68,13 +70,14 @@ export const aboutPages = {
     lede: "Integrating Brazilian expertise to strengthen Indian cattle genetics.",
     brazilHeading: "Why Brazil",
     brazil: [
-      "Gir cattle exported from India generations ago became the foundation of Brazil’s dairy Zebu industry — now the largest bovine IVF market in the world.",
+      "Gir cattle exported from India generations ago became the foundation of Brazil’s dairy Zebu industry, now the largest bovine IVF market in the world.",
       "The reproductive expertise Brazil built on Indian Gir is the expertise we are bringing back to Indian farms: protocols and conception rates that stand up to scrutiny, applied to indigenous bloodlines.",
     ],
     linksHeading: "International links",
     countries: ["Brazil", "Mexico", "UAE"],
+    countryNote: "Direction of the link (expertise in, genetics out, or both) to be confirmed.",
     linksNote:
-      "We work with links into Brazil, Mexico and the UAE. Whether each is a source of expertise, a destination for our genetics, or both is being confirmed — this page will say exactly which once it is.",
+      "We work with links into Brazil, Mexico and the UAE. Whether each is a source of expertise, a destination for our genetics, or both is being confirmed. This page will say exactly which once it is.",
     partnersHeading: "Named partners",
     partnersNote: "Partner organisations will be listed here once confirmed for publication.",
     cta: {
@@ -84,12 +87,13 @@ export const aboutPages = {
   },
   farm: {
     meta: {
-      title: "Reynadu Farm — Our Herd, Fodder Land and Lab",
+      title: "Reynadu Farm: Our Herd, Fodder Land and Lab",
       description:
         "Reynadu Farm in Sri Sathya Sai district, Andhra Pradesh: 1700+ indigenous cattle, 400+ acres of fodder land and Hebbevu Genetics’ IVF lab on one site.",
     },
     heading: "Reynadu Farm",
     lede: "Our herd, our fodder land and our lab share one site in Sri Sathya Sai district, Andhra Pradesh. The laboratory sits on the same land as the animals it works with.",
+    numbersHeading: "Reynadu Farm at a glance",
     housingHeading: "Ethical & hygienic housing",
     housing:
       "World-class infrastructure designed for optimal animal health and performance. Every animal is cared for by a named veterinary team that manages treatment, medication schedules, feed and milking records.",

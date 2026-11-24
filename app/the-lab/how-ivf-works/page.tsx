@@ -2,11 +2,12 @@ import { StepList } from "@/components/blocks/StepList";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CTABand, DataTable, SectionHeader } from "@/components/ui";
+import { Photo } from "@/components/ui/Photo";
 import { DnaHelix } from "@/components/visuals/DnaHelix";
 import { IvfTimeline } from "@/components/visuals/IvfTimeline";
 import { ivfCycle, pipeline, pregnancyChecks } from "@/content/lab";
-import { labPages } from "@/content/pages/lab";
 import { photos } from "@/content/media";
+import { labPages } from "@/content/pages/lab";
 import { pageMeta } from "@/lib/metadata";
 
 const copy = labPages.howIvfWorks;
@@ -17,35 +18,44 @@ export default function HowIvfWorksPage() {
   return (
     <>
       <PageHero
-        banner={photos["lab/egg-cell"]}
+        photo={photos["lab/egg-cell"]}
         title="How IVF works"
         lede={copy.lede}
         breadcrumbs={[{ label: "The Lab", href: "/the-lab" }, { label: "How IVF works" }]}
-        aside={<DnaHelix orientation="vertical" length={420} turns={1.5} rungs={18} className="aspect-square w-full" />}
+        actions={[
+          { label: "Book a Consultation", href: "/book" },
+          { label: "Our results", href: "/the-lab/results" },
+        ]}
       />
 
-      <Section tone="mist">
-        <SectionHeader title={copy.pipelineHeading} intro={copy.pipelineIntro} />
+      <Section labelledBy="pipeline">
+        <SectionHeader id="pipeline" title={copy.pipelineHeading} intro={copy.pipelineIntro} />
         <StepList steps={pipeline} />
       </Section>
 
-      <Section>
-        <SectionHeader title={copy.cycleHeading} intro={copy.cycleIntro} />
+      <Section tone="mist" labelledBy="cycle">
+        <div className="mb-6 grid items-center gap-7 lg:grid-cols-2">
+          <SectionHeader id="cycle" title={copy.cycleHeading} intro={copy.cycleIntro} flush />
+          <DnaHelix turns={2} rungs={24} className="w-full" />
+        </div>
         <IvfTimeline days={ivfCycle} />
       </Section>
 
-      <Section tone="mist">
-        <SectionHeader title={copy.checksHeading} intro={copy.checksIntro} />
-        <div className="max-w-prose">
-          <DataTable
-            caption="When pregnancies are checked, by method"
-            hideCaption
-            columns={[
-              { key: "method", header: "Method", rowHeader: true },
-              { key: "checks", header: "Checked at" },
-            ]}
-            rows={pregnancyChecks.map((r) => ({ id: r.method, ...r }))}
-          />
+      <Section labelledBy="checks">
+        <div className="grid items-center gap-7 lg:grid-cols-2">
+          <div className="flex flex-col gap-6">
+            <SectionHeader id="checks" title={copy.checksHeading} intro={copy.checksIntro} flush />
+            <DataTable
+              caption="When pregnancies are checked, by method"
+              hideCaption
+              columns={[
+                { key: "method", header: "Method", rowHeader: true },
+                { key: "checks", header: "Checked at" },
+              ]}
+              rows={pregnancyChecks.map((r) => ({ id: r.method, ...r }))}
+            />
+          </div>
+          <Photo photo={photos["farm/vet-checking"]} aspect="photo" />
         </div>
       </Section>
 
@@ -54,6 +64,7 @@ export default function HowIvfWorksPage() {
         body={copy.cta.body}
         primary={{ label: "Book a Consultation", href: "/book" }}
         secondary={{ label: "Read the glossary", href: "/knowledge/glossary" }}
+        photo={photos["farm/cow-and-calf"]}
       />
     </>
   );

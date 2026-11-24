@@ -19,14 +19,18 @@ export default function TeamPage() {
   return (
     <>
       <PageHero
-        banner={photos["banners/team-fence"]}
+        photo={photos["banners/team-fence"]}
         title={copy.heading}
         lede={site.teamLine}
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Our team" }]}
+        actions={[
+          { label: "Book a Consultation", href: "/book" },
+          { label: "Contact us", href: "/contact" },
+        ]}
       />
 
-      <Section tone="mist">
-        <SectionHeader title={copy.teamHeading} intro={teamIntro} />
+      <Section labelledBy="team">
+        <SectionHeader id="team" title={copy.teamHeading} intro={teamIntro} />
         <div className="flex flex-col gap-7">
           <div>
             <Heading level={3} className="mb-5">
@@ -89,8 +93,11 @@ export default function TeamPage() {
 
       <StatsBand title={copy.milestonesHeading} stats={milestoneStats} />
 
-      <Section>
-        <SectionHeader title={teamCommitment.heading} intro={teamCommitment.paragraphs} flush />
+      <Section labelledBy="commitment">
+        <div className="grid items-center gap-7 lg:grid-cols-2">
+          <SectionHeader id="commitment" title={teamCommitment.heading} intro={teamCommitment.paragraphs} flush />
+          <Photo photo={photos["people/team-at-fence"]} aspect="photo" />
+        </div>
       </Section>
 
       <CTABand
@@ -98,6 +105,7 @@ export default function TeamPage() {
         body={copy.cta.body}
         primary={{ label: "Book a Consultation", href: "/book" }}
         secondary={{ label: "Contact us", href: "/contact" }}
+        photo={photos["people/two-at-fence"]}
       />
     </>
   );
