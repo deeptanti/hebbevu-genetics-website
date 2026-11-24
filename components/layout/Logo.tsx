@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
 export function Logo({ className, priority }: { className?: string; priority?: boolean }) {
   return (
     <Link href="/" className={cn("inline-flex min-h-7 items-center gap-3", className)} aria-label="Hebbevu Genetics — home">
-      <Image src="/brand/mark.png" alt="" width={72} height={48} priority={priority} className="h-7 w-auto" />
+      <Image src="/brand/mark.png" alt="" width={77} height={64} priority={priority} className="h-7 w-auto lg:h-8" />
       <span className="flex flex-col">
         <span className="type-wordmark text-deep">HEBBEVU</span>
         <span className="type-label text-brown">Genetics</span>
