@@ -1,0 +1,251 @@
+/*
+ * Hebbevu Genetics — design system as the Tailwind theme.
+ * Source of truth: HEBBEVU-GENETICS-BRIEF.md §6.
+ *
+ * Tailwind's default theme is deliberately NOT imported. Only the tokens below
+ * exist, so `bg-red-500`, `p-13`, `rounded-xl`, `shadow-2xl` etc. do not
+ * generate. Arbitrary values (`p-[13px]`) can't be disabled by Tailwind, so
+ * `npm run check:tokens` fails the build if one appears.
+ */
+@layer theme, base, components, utilities;
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  /* ---- Colour (§6) ---------------------------------------------------- */
+  /* Grounds */
+  --color-white: #ffffff;
+  --color-mist: #f7f6f4; /* alt sections, card fills; ALSO text on dark grounds */
+  --color-stone: #e4e1dc; /* DECORATIVE ONLY — never a control boundary or focus ring */
+  /* Working neutrals */
+  --color-graphite: #5a564f; /* meta text AND every control border */
+  --color-ink: #23211e; /* body copy, h3 */
+  /* Brand browns */
+  --color-brown: #8d4a2d; /* the only accent */
+  --color-brown-dark: #613825; /* hover / pressed */
+  --color-bark: #38271d; /* stat bands, inset panels */
+  --color-deep: #241a14; /* darkest ground; h1/h2 */
+  /* Signal */
+  --color-danger: #a33a26; /* form validation only */
+
+  /* ---- Spacing — 8px base (§6) ---------------------------------------- */
+  --spacing-0: 0px;
+  --spacing-px: 1px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+  --spacing-7: 48px;
+  --spacing-8: 64px;
+  --spacing-9: 96px;
+  --spacing-10: 128px;
+
+  /* ---- Layout widths -------------------------------------------------- */
+  --container-content: 1200px; /* content column cap */
+  --container-prose: 720px; /* body text and section headers */
+
+  /* ---- Radius (§6) ---------------------------------------------------- */
+  --radius-sm: 2px; /* chips, inputs, tables */
+  --radius-md: 4px; /* buttons */
+  --radius-lg: 8px; /* cards, media */
+  --radius-full: 9999px; /* circular only */
+
+  /* ---- Elevation (§6) — borders before shadows ------------------------ */
+  --shadow-sm: 0 1px 2px rgba(35, 33, 30, 0.06);
+  --shadow-md: 0 2px 8px rgba(35, 33, 30, 0.08); /* sticky nav once scrolled, dropdowns */
+  --shadow-lg: 0 8px 24px rgba(35, 33, 30, 0.12); /* modals, mobile drawer ONLY */
+
+  /* ---- Breakpoints ---------------------------------------------------- */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* ---- Type (§6) ------------------------------------------------------ */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --tracking-label: 0.08em;
+  --tracking-display: -0.02em;
+  --tracking-normal: 0em;
+
+  /* Media aspect ratios */
+  --aspect-photo: 3 / 2;
+  --aspect-portrait: 4 / 5;
+  --aspect-wide: 16 / 9;
+
+  /* Motion: 120ms on colour and border only. Nothing moves. */
+  --default-transition-duration: 120ms;
+  --default-transition-timing-function: ease-out;
+}
+
+/* next/font variables → font tokens (runtime vars, so `inline`) */
+@theme inline {
+  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-montserrat), system-ui, sans-serif;
+}
+
+/* ===================================================================== *
+ * Typography layer (§6 type scale + `display` tier)
+ *
+ * Desktop sizes are exactly the brief's. Below `md`, h1/h2/h3/stat step
+ * down one notch (assumption — the brief gives no mobile scale).
+ * ===================================================================== */
+
+/* display — added above h1 for heroes (brief §6 "Known gap"). */
+@utility type-display {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(44px, 5.6vw, 84px);
+  line-height: 1.06;
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+}
+@utility type-h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  text-wrap: balance;
+  @media (width >= 768px) {
+    font-size: 56px;
+    line-height: 64px;
+  }
+}
+@utility type-h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  text-wrap: balance;
+  @media (width >= 768px) {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+@utility type-h3 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  @media (width >= 768px) {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+@utility type-stat {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  font-variant-numeric: tabular-nums lining-nums;
+  @media (width >= 768px) {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+@utility type-subheading {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+}
+@utility type-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
+@utility type-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+}
+@utility type-small {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/*
+ * Two small additions outside the brief's table (flagged in README):
+ * - lede: hero/intro paragraph — subheading's 18/28 at regular weight.
+ * - wordmark: the interim text wordmark beside the cropped logo mark (brief §7).
+ */
+@utility type-lede {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+}
+@utility type-wordmark {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: var(--tracking-label);
+}
+
+/* Colour is applied by <Heading>/<Text> (deep for display/h1/h2, ink for h3, mist on dark). */
+
+/* Colour + border transitions only, 120ms. */
+@utility transition-ui {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-duration: var(--default-transition-duration);
+  transition-timing-function: var(--default-transition-timing-function);
+}
+
+/* ===================================================================== *
+ * Base
+ * ===================================================================== */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: var(--spacing-10);
+  }
+  body {
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 26px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* One focus treatment, site-wide (§6). Never removed. */
+  :focus-visible {
+    outline: 2px solid var(--color-brown);
+    outline-offset: 2px;
+  }
+  [data-ground="dark"] :focus-visible {
+    outline-color: var(--color-mist);
+  }
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  ::selection {
+    background: var(--color-brown);
+    color: var(--color-white);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0ms !important;
+    }
+  }
+}
