@@ -151,7 +151,7 @@ export const photos = {
   },
   "articles/ivf-revolutionizing-indian-dairy": {
     "src": "/photos/articles/ivf-revolutionizing-indian-dairy.jpg",
-    "alt": "A vet with a cow and her calf in the shed",
+    "alt": "From donor cow to the lab to a herd of calves: the stages of cattle IVF",
     "width": 1500,
     "height": 1000
   },
@@ -220,12 +220,6 @@ export const photos = {
     "alt": "Laboratory work at the bench",
     "width": 1920,
     "height": 500
-  },
-  "farm/vet-checking": {
-    "src": "/photos/farm/vet-checking.jpg",
-    "alt": "A vet checking on a cow and her calf in the shed",
-    "width": 1500,
-    "height": 1000
   },
   "banners/herd-road": {
     "src": "/photos/banners/herd-road.jpg",

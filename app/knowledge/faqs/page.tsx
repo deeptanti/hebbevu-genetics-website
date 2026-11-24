@@ -27,7 +27,7 @@ export default function FaqPage() {
             <FaqList items={faqs} headingLevel={3} />
           </div>
           <aside aria-labelledby="faq-side" className="flex flex-col gap-5">
-            <Photo photo={photos["farm/vet-checking"]} aspect="photo" />
+            <Photo photo={photos["people/handler-red-calf"]} aspect="photo" />
             <h3 id="faq-side" className="type-h3 text-ink">
               {faqPage.sideHeading}
             </h3>

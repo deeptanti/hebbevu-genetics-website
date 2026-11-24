@@ -27,7 +27,7 @@ export const servicesPage = {
     intro: "Two short pages answer the questions most farmers ask first.",
   },
   heroPhoto: "banners/herd-close" as PhotoKey,
-  supportPhoto: "farm/vet-checking" as PhotoKey,
+  supportPhoto: "farm/calves-resting" as PhotoKey,
   ctaPhoto: "farm/barn-row" as PhotoKey,
   helpLinks: [
     { label: "Is IVF right for you?", href: "/services/is-ivf-right-for-you" },
@@ -147,7 +147,7 @@ export const embryoTransferPage = {
     intro:
       "Embryo transfer pregnancies are checked at 35 and 60 days. Our published conception rate is the 60-day figure, the harder test.",
   },
-  heroPhoto: "farm/vet-checking" as PhotoKey,
+  heroPhoto: "farm/calves-resting" as PhotoKey,
   photo: "farm/cow-and-calf" as PhotoKey,
   ctaPhoto: "farm/calves-at-barn" as PhotoKey,
 };

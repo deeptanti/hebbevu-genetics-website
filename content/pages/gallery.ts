@@ -41,7 +41,6 @@ export const galleryPage = {
     ["lab/microscope", "Lab"],
     ["lab/bench", "Lab"],
     ["lab/egg-cell", "Lab"],
-    ["farm/vet-checking", "Lab"],
     ["farm/aerial", "The farm"],
     ["banners/herd-road", "The farm"],
     ["banners/field-herd", "The farm"],

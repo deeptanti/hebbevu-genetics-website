@@ -50,7 +50,7 @@ export default function FacilityPage() {
           <DnaHelix turns={2} rungs={24} className="w-full" />
         </div>
         <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {(["lab/bench", "lab/egg-cell", "farm/vet-checking", "farm/aerial"] as const).map((k) => (
+          {(["lab/bench", "lab/egg-cell", "farm/barn-row", "farm/aerial"] as const).map((k) => (
             <li key={k}>
               <Photo photo={photos[k]} aspect="photo" caption={photos[k].alt} sizes="(min-width: 640px) 50vw, 100vw" />
             </li>

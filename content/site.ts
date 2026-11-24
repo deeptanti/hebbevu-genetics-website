@@ -145,9 +145,9 @@ export const revolution = {
   ],
 };
 
-/** Home hero (client doc). See README note: "10X" is the client's claim, flagged. */
+/** Home hero (client doc). See README note: "10x" is the client's claim, flagged. */
 export const homeHero = {
-  heading: "Boost your herd’s quality by 10X",
+  heading: "Boost your herd’s quality by 10x",
   lede: "Accelerating herd improvement through proven IVF and embryo transfer services in India.",
 };
 

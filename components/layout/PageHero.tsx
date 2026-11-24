@@ -5,6 +5,7 @@ import { cn } from "@/lib/cn";
 import { Reveal, RevealItem } from "../motion/Reveal";
 import { Button, ButtonGroup } from "../ui/Button";
 import { BreedVideo } from "../visuals/BreedVideo";
+import { HeroSlideshow } from "../visuals/HeroSlideshow";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { Container } from "./Container";
 
@@ -24,6 +25,8 @@ export interface HeroAction {
 export interface PageHeroProps {
   title: ReactNode;
   photo: Photo;
+  /** Several photos that crossfade and drift (home). `photo` is the first/fallback. */
+  slides?: Photo[];
   /** Looping video that replaces the photo (the photo becomes its fallback). */
   video?: { src: string; poster: string; label: string };
   kicker?: string;
@@ -53,6 +56,7 @@ const DISPLAY_MAX_CHARS = 36;
 export function PageHero({
   title,
   photo,
+  slides,
   video,
   kicker,
   lede,
@@ -70,7 +74,9 @@ export function PageHero({
   const ledes = lede === undefined ? [] : Array.isArray(lede) ? lede : [lede];
   return (
     <section data-ground="dark" className="relative isolate overflow-hidden bg-deep">
-      {video ? (
+      {slides && slides.length > 1 ? (
+        <HeroSlideshow photos={slides} />
+      ) : video ? (
         <div className="absolute inset-0 -z-20">
           <BreedVideo src={video.src} poster={video.poster} label={video.label} fill />
         </div>

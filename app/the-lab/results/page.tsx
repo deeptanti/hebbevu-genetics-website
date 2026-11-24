@@ -55,7 +55,7 @@ export default function ResultsPage() {
             <SectionHeader id="trace" title={copy.traceHeading} intro={traceExplainer} flush />
             <TraceChain links={traceChain} />
           </div>
-          <Photo photo={photos["farm/vet-checking"]} aspect="photo" />
+          <Photo photo={photos["farm/calves-at-barn"]} aspect="photo" />
         </div>
       </Section>
 

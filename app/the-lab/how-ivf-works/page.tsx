@@ -55,7 +55,7 @@ export default function HowIvfWorksPage() {
               rows={pregnancyChecks.map((r) => ({ id: r.method, ...r }))}
             />
           </div>
-          <Photo photo={photos["farm/vet-checking"]} aspect="photo" />
+          <Photo photo={photos["farm/calves-resting"]} aspect="photo" />
         </div>
       </Section>
 

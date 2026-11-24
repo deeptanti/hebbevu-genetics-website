@@ -48,6 +48,14 @@ export default function HomePage() {
         title={homeHero.heading}
         lede={homeHero.lede}
         photo={photos["farm/barn-row"]}
+        slides={[
+          photos["farm/barn-row"],
+          photos["farm/calves-resting"],
+          photos["lab/microscope"],
+          photos["farm/gir-bull-fence"],
+          photos["people/two-with-bull"],
+          photos["farm/aerial"],
+        ]}
         actions={[homeCopy.heroActions.primary, homeCopy.heroActions.secondary]}
         highlight={
           <div className="flex items-center gap-4">
@@ -68,24 +76,22 @@ export default function HomePage() {
         <FeatureGrid items={pillars} columns={4} />
       </Section>
 
-      <Section tone="mist" labelledBy="farm">
-        <SectionHeader id="farm" kicker={homeCopy.farm.kicker} title={homeCopy.farm.heading} flush />
-        <PhotoStrip
-          label={homeCopy.farm.stripLabel}
-          photos={[
-            photos["farm/cow-and-calf"],
-            photos["people/handler-long-horns"],
-            photos["farm/calves-at-barn"],
-            photos["farm/handler-with-calf"],
-            photos["farm/gir-bull"],
-            photos["people/handler-white-bull"],
-            photos["farm/young-calves"],
-            photos["people/handler-red-calf"],
-            photos["farm/handler-with-bulls"],
-            photos["farm/herd-walking"],
-            photos["people/team-at-fence"],
-          ]}
-        />
+      <Section tone="mist" labelledBy="revolution">
+        <div className="grid items-center gap-7 lg:grid-cols-2">
+          <Photo photo={photos["people/two-with-bull"]} aspect="photo" caption="Mr. Amith Kishan, founder (left), and Mr. Ashrith Kishan, co-founder" />
+          <div className="flex flex-col gap-5">
+          <SectionHeader id="revolution" kicker={revolution.kicker} title={revolution.heading} intro={revolution.paragraphs} flush />
+          <div className="flex flex-col gap-5 rounded-lg border border-stone bg-white p-5 md:p-6">
+            <h3 className="type-h3 text-ink">{revolution.listHeading}</h3>
+            <BulletList items={revolution.points} />
+            <div>
+              <Button href="/about" variant="ghost" arrow>
+                Know More
+              </Button>
+            </div>
+          </div>
+          </div>
+        </div>
       </Section>
 
       <StatsBand title={homeCopy.statsHeading} stats={impactStats} />
@@ -108,22 +114,24 @@ export default function HomePage() {
         </ButtonGroup>
       </Section>
 
-      <Section tone="mist" labelledBy="revolution">
-        <div className="grid items-center gap-7 lg:grid-cols-2">
-          <Photo photo={photos["people/two-with-bull"]} aspect="photo" caption="Mr. Amith Kishan, founder (left), and Mr. Ashrith Kishan, co-founder" />
-          <div className="flex flex-col gap-5">
-          <SectionHeader id="revolution" kicker={revolution.kicker} title={revolution.heading} intro={revolution.paragraphs} flush />
-          <div className="flex flex-col gap-5 rounded-lg border border-stone bg-white p-5 md:p-6">
-            <h3 className="type-h3 text-ink">{revolution.listHeading}</h3>
-            <BulletList items={revolution.points} />
-            <div>
-              <Button href="/about" variant="ghost" arrow>
-                Know More
-              </Button>
-            </div>
-          </div>
-          </div>
-        </div>
+      <Section tone="mist" labelledBy="farm">
+        <SectionHeader id="farm" kicker={homeCopy.farm.kicker} title={homeCopy.farm.heading} flush />
+        <PhotoStrip
+          label={homeCopy.farm.stripLabel}
+          photos={[
+            photos["farm/cow-and-calf"],
+            photos["people/handler-long-horns"],
+            photos["farm/calves-at-barn"],
+            photos["farm/handler-with-calf"],
+            photos["farm/gir-bull"],
+            photos["people/handler-white-bull"],
+            photos["farm/young-calves"],
+            photos["people/handler-red-calf"],
+            photos["farm/handler-with-bulls"],
+            photos["farm/herd-walking"],
+            photos["people/team-at-fence"],
+          ]}
+        />
       </Section>
 
       <Section labelledBy="lab">
