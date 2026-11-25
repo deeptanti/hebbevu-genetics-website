@@ -47,6 +47,11 @@ export function EnquiryForm({ defaultService }: { defaultService?: string }) {
         error={e.service}
       />
       <div className="flex flex-col gap-3">
+        {state.formError && (
+          <p role="alert" className="type-small text-ink">
+            {state.formError}
+          </p>
+        )}
         <Button type="submit" disabled={pending} className="self-start">
           {pending ? "Sending…" : enquiryCopy.submit}
         </Button>
