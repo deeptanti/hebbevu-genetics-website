@@ -277,9 +277,15 @@ export const photos = {
   },
   "breeds/murrah": {
     "src": "/photos/breeds/murrah.jpg",
-    "alt": "A Murrah-type buffalo with tightly curled horns at the farm",
-    "width": 800,
-    "height": 800
+    "alt": "A jet-black Murrah buffalo with tightly curled horns, side profile",
+    "width": 1080,
+    "height": 1080
+  },
+  "breeds/jersey": {
+    "src": "/photos/breeds/jersey-cow.jpg",
+    "alt": "A fawn Jersey cow in a halter, side profile",
+    "width": 1080,
+    "height": 1080
   },
   "farm/buffalo-group": {
     "src": "/photos/farm/buffalo-group.jpg",
