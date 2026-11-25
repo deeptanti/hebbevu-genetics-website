@@ -1,3 +1,5 @@
+import { FilmSection } from "@/components/blocks/FilmSection";
+import { films } from "@/content/pages/films";
 import { BulletList } from "@/components/blocks/BulletList";
 import { ContactPanel } from "@/components/blocks/ContactPanel";
 import { FaqList } from "@/components/blocks/FaqList";
@@ -80,6 +82,8 @@ export default function HomePage() {
           </div>
         </div>
       </Section>
+
+      <FilmSection id="films" block={films.home} />
 
       <StatsBand title={homeCopy.statsHeading} stats={impactStats} />
 

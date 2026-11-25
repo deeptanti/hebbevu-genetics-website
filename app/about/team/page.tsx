@@ -1,3 +1,5 @@
+import { FilmSection } from "@/components/blocks/FilmSection";
+import { films } from "@/content/pages/films";
 import { StatsBand } from "@/components/blocks/StatsBand";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
@@ -90,6 +92,8 @@ export default function TeamPage() {
           })}
         </div>
       </Section>
+
+      <FilmSection id="podcast" tone="mist" block={films.team} />
 
       <StatsBand title={copy.milestonesHeading} stats={milestoneStats} />
 

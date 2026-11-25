@@ -1,3 +1,5 @@
+import { FilmSection } from "@/components/blocks/FilmSection";
+import { films } from "@/content/pages/films";
 import { BulletList } from "@/components/blocks/BulletList";
 import { FeatureGrid } from "@/components/blocks/FeatureGrid";
 import { StatsBand } from "@/components/blocks/StatsBand";
@@ -89,7 +91,9 @@ export default function AboutPage() {
         <FeatureGrid items={pillars} columns={4} />
       </Section>
 
-      <Section labelledBy="more">
+      <FilmSection id="films" block={films.about} />
+
+      <Section tone="mist" labelledBy="more">
         <SectionHeader id="more" title={copy.moreHeading} />
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {copy.more.map((m) => (

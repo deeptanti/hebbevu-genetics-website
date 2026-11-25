@@ -1,3 +1,5 @@
+import { FilmSection } from "@/components/blocks/FilmSection";
+import { films } from "@/content/pages/films";
 import { ContactPanel } from "@/components/blocks/ContactPanel";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
@@ -58,7 +60,9 @@ export default function FarmPage() {
         </ul>
       </Section>
 
-      <Section labelledBy="visit">
+      <FilmSection id="films" block={films.farm} />
+
+      <Section tone="mist" labelledBy="visit">
         <div className="grid items-center gap-7 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
             <SectionHeader id="visit" title={copy.visitHeading} flush />

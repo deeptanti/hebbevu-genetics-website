@@ -46,15 +46,18 @@ const ICM: Slot[] = [
 ].map(([dx, dy]) => circ(C + dx, C + dy, 15));
 const S_BLAST = pad([...TE, ...ICM]);
 
-// Deterministic "random" for particles and grain.
+// Deterministic "random" for particles and grain: an integer hash, so the server and the
+// browser compute identical values (Math.sin on large inputs differs between engines).
 const rand = (n: number) => {
-  const x = Math.sin(n * 9301 + 49297) * 233280;
-  return x - Math.floor(x);
+  let h = Math.imul(n + 0x9e3779b9, 0x85ebca6b);
+  h = Math.imul(h ^ (h >>> 13), 0xc2b2ae35);
+  return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
 };
+const round = (v: number) => Math.round(v * 1000) / 1000;
 const PARTICLES = Array.from({ length: 18 }, (_, k) => {
   const a = rand(k) * Math.PI * 2;
   const r = 40 + rand(k + 50) * 140;
-  return { x: C + Math.cos(a) * r, y: C + Math.sin(a) * r, s: 0.8 + rand(k + 99) * 1.6, dx: (rand(k + 7) - 0.5) * 16, dy: (rand(k + 13) - 0.5) * 16, d: 6 + rand(k + 21) * 8 };
+  return { x: round(C + Math.cos(a) * r), y: round(C + Math.sin(a) * r), s: 0.8 + rand(k + 99) * 1.6, dx: (rand(k + 7) - 0.5) * 16, dy: (rand(k + 13) - 0.5) * 16, d: 6 + rand(k + 21) * 8 };
 });
 const GRAIN = Array.from({ length: 40 }, (_, k) => ({ x: rand(k + 200) * 24, y: rand(k + 300) * 24, r: 0.4 + rand(k + 400) * 0.8 }));
 const CRYSTALS = [

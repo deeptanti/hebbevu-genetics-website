@@ -1,3 +1,5 @@
+import { FilmSection } from "@/components/blocks/FilmSection";
+import { films } from "@/content/pages/films";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { BrandIcon, Button, Card, CTABand, SectionHeader } from "@/components/ui";
@@ -53,6 +55,9 @@ export default function PartnersPage() {
           ))}
         </ul>
       </Section>
+
+      <FilmSection id="films" block={films.partners} />
+      <FilmSection id="world" tone="mist" block={films.partnersShorts} />
 
       <CTABand
         heading={copy.cta.heading}

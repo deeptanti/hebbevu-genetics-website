@@ -1,3 +1,5 @@
+import { FilmSection } from "@/components/blocks/FilmSection";
+import { films } from "@/content/pages/films";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { CTABand, SectionHeader } from "@/components/ui";
@@ -41,6 +43,7 @@ export default function GalleryPage() {
           ))}
         </ul>
       </Section>
+      <FilmSection id="youtube" block={films.gallery} />
       <CTABand {...copy.cta} photo={photos["farm/barn-row"]} />
     </>
   );

@@ -87,6 +87,7 @@
   --aspect-photo: 3 / 2;
   --aspect-portrait: 4 / 5;
   --aspect-wide: 16 / 9;
+  --aspect-short: 9 / 16; /* YouTube Shorts */
   --aspect-banner: 16 / 5; /* wide page banners */
 
   /* Motion. Colour/border stay at 120ms. Movement (added at client request,

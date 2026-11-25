@@ -1,3 +1,5 @@
+import { FilmSection } from "@/components/blocks/FilmSection";
+import { films } from "@/content/pages/films";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
 import { ArticleCard, BrandIcon, CTABand, SectionHeader } from "@/components/ui";
@@ -60,6 +62,9 @@ export default function StoryPage() {
           <Photo photo={photos["farm/calves-resting"]} aspect="portrait" />
         </div>
       </Section>
+
+      <FilmSection id="films" block={films.story} />
+      <FilmSection id="origins" tone="mist" block={films.origins} />
 
       <CTABand
         heading={copy.cta.heading}
