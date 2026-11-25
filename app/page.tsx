@@ -83,9 +83,9 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <FilmSection id="films" block={films.home} />
-
       <StatsBand title={homeCopy.statsHeading} stats={impactStats} />
+
+      <FilmSection id="films" tone="mist" block={films.home} />
 
 
       <Section labelledBy="services">
