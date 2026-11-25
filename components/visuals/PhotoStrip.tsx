@@ -36,18 +36,15 @@ export function PhotoStrip({ photos, label }: { photos: Photo[]; label: string }
       >
         {photos.map((p) => (
           <li key={p.src} className="group w-4/5 shrink-0 snap-start sm:w-2/5 lg:w-1/4">
-            <figure className="flex flex-col gap-3">
-              <div className="relative aspect-portrait overflow-hidden rounded-lg bg-clay">
-                <Image
-                  src={p.src}
-                  alt={p.alt}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 40vw, 80vw"
-                  className="transition-move object-cover group-hover:scale-105"
-                />
-              </div>
-              <figcaption className="type-small text-graphite">{p.alt}</figcaption>
-            </figure>
+            <div className="relative aspect-portrait overflow-hidden rounded-lg bg-clay">
+              <Image
+                src={p.src}
+                alt={p.alt}
+                fill
+                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 40vw, 80vw"
+                className="transition-move object-cover group-hover:scale-105"
+              />
+            </div>
           </li>
         ))}
       </ul>
