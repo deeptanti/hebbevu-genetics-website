@@ -10,7 +10,7 @@ export const founders = [
 export const team: TeamMember[] = [
   {
     slug: "dr-amol",
-    name: "Dr. Amol",
+    name: "Dr. Amol Sahare",
     role: "Director, Hebbevu Genetics",
     group: "leadership",
     responsibility:
@@ -18,7 +18,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: "dr-neha",
-    name: "Dr. Neha",
+    name: "Dr. Neha Saini",
     role: "Lead Director, Embryology",
     group: "leadership",
     responsibility:

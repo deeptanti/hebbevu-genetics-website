@@ -93,13 +93,13 @@ export const photos = {
   },
   "people/dr-neha": {
     "src": "/photos/people/dr-neha.jpg",
-    "alt": "Dr. Neha",
+    "alt": "Dr. Neha Saini",
     "width": 1080,
     "height": 1080
   },
   "people/dr-amol": {
     "src": "/photos/people/dr-amol.jpg",
-    "alt": "Dr. Amol",
+    "alt": "Dr. Amol Sahare",
     "width": 1080,
     "height": 1080
   },
