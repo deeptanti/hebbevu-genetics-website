@@ -61,9 +61,10 @@ async function telecrmUpsert(enterpriseId: string, apiKey: string, body: object)
  *   2. Only if TeleCRM reports the lead as Created, fill in name, city, source and message.
  */
 export async function sendToTeleCRM(lead: Lead): Promise<DeliveryResult> {
-  const enterpriseId = process.env.TELECRM_ENTERPRISE_ID;
-  const apiKey = process.env.TELECRM_API_KEY;
-  const actionCode = process.env.TELECRM_ENQUIRY_ACTION;
+  // trim(): a stray space or newline pasted into Vercel otherwise causes a 403.
+  const enterpriseId = process.env.TELECRM_ENTERPRISE_ID?.trim();
+  const apiKey = process.env.TELECRM_API_KEY?.trim().replace(/^Bearer\s+/i, "");
+  const actionCode = process.env.TELECRM_ENQUIRY_ACTION?.trim();
   if (!enterpriseId || !apiKey) {
     console.warn("[enquiry] TeleCRM not configured; skipping");
     return "skipped";
