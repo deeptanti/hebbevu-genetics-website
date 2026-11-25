@@ -21,6 +21,7 @@ export default function BreedsPage() {
     <>
       <PageHero
         size="tall"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Breeds" }]}
         photo={photos["banners/herd-road"]}
         kicker={breedsIntro.kicker}
         title={breedsIntro.heading}

@@ -22,6 +22,7 @@ export default function AboutPage() {
     <>
       <PageHero
         size="tall"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
         photo={photos["banners/field-herd"]}
         kicker="About Hebbevu Genetics"
         title={about.heading}

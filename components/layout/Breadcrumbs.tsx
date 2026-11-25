@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { cn } from "@/lib/cn";
+import { breadcrumbSchema } from "@/lib/schema";
+import { JsonLd } from "../seo/JsonLd";
 
 export function Breadcrumbs({ items, ground = "light", className }: { items: { label: string; href?: string }[]; ground?: "light" | "dark"; className?: string }) {
   const dark = ground === "dark";
   return (
     <nav aria-label="Breadcrumb" className={cn("mb-5", className)}>
+      {items.length > 1 && <JsonLd data={breadcrumbSchema(items)} />}
       <ol className={cn("type-small flex flex-wrap items-center gap-2", dark ? "text-mist" : "text-graphite")}>
         {items.map((it, i) => (
           <li key={it.label} className="flex items-center gap-2">

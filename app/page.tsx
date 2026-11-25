@@ -17,13 +17,15 @@ import { PathChooser } from "@/components/visuals/PathChooser";
 import { Ticker } from "@/components/visuals/Ticker";
 import { YieldChart } from "@/components/visuals/YieldChart";
 import { breeds, parseYield } from "@/content/breeds";
-import { faqs } from "@/content/faq";
+import { homeFaqs } from "@/content/faq";
 import { ivfCycle, traceChain, traceExplainer, labIntro } from "@/content/lab";
 import { homeCopy } from "@/content/pages/home";
 import { pathOptions, servicesCta } from "@/content/services";
 import { homeHero, pillars, revolution } from "@/content/site";
 import { impactStats } from "@/content/stats";
 import { pageMeta } from "@/lib/metadata";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata = pageMeta({
   title: "Cattle IVF & Embryo Transfer in India | Hebbevu Genetics",
@@ -41,6 +43,8 @@ export default function HomePage() {
   });
   return (
     <>
+      <JsonLd data={organizationSchema()} />
+      <JsonLd data={websiteSchema()} />
       <PageHero
         size="tall"
         focus="bottom"
@@ -170,7 +174,7 @@ export default function HomePage() {
             }
           />
           <div className="lg:col-span-2">
-            <FaqList items={faqs} />
+            <FaqList items={homeFaqs} />
           </div>
         </div>
       </Section>

@@ -18,6 +18,7 @@ export default function LabPage() {
     <>
       <PageHero
         size="tall"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "The Lab" }]}
         photo={photos["lab/bench"]}
         kicker={copy.kicker}
         title={labIntro.heading}

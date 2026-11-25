@@ -10,6 +10,8 @@ import { articlePageCopy, knowledgePage } from "@/content/pages/knowledge";
 import { ReadingHelix } from "@/components/visuals/ReadingHelix";
 import { getPhoto, photos } from "@/content/media";
 import { pageMeta } from "@/lib/metadata";
+import { articleSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const dynamicParams = false;
 
@@ -34,12 +36,21 @@ export default async function ArticlePage({ params }: Props) {
   const topic = topics.find((t) => t.id === article.topic);
   const related = articlesByTopic(article.topic).filter((a) => a.slug !== article.slug);
   const [primary, secondary] = article.cta?.links ?? [];
+  const heroPhoto = getPhoto(`articles/${article.slug}`) ?? photos["farm/barn-row"];
 
   return (
     <>
       <ReadingHelix />
+      <JsonLd
+        data={articleSchema({
+          title: article.title,
+          description: article.description,
+          path: `/knowledge/${article.slug}`,
+          image: heroPhoto.src,
+        })}
+      />
       <PageHero
-        photo={getPhoto(`articles/${article.slug}`) ?? photos["farm/barn-row"]}
+        photo={heroPhoto}
         kicker={topic?.question}
         title={article.title}
         lede={article.description}

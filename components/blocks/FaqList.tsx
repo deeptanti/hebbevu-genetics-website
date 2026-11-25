@@ -3,7 +3,7 @@ import type { FaqItem } from "@/content/types";
 import { Accordion } from "../ui/Accordion";
 
 /** FAQ accordion - first answer open (brief §6). */
-export function FaqList({ items, headingLevel = 3 }: { items: FaqItem[]; headingLevel?: 2 | 3 }) {
+export function FaqList({ items, headingLevel = 3 }: { items: FaqItem[]; headingLevel?: 2 | 3 | 4 }) {
   return (
     <Accordion
       headingLevel={headingLevel}

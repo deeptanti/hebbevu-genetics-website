@@ -29,8 +29,10 @@ export const articlePageCopy = {
 
 export const faqPage = {
   title: "Frequently asked questions",
-  metaDescription: "Answers to common questions about cattle IVF, embryo transfer and working with Hebbevu Genetics.",
-  lede: "Short answers to what farmers ask us most.",
+  metaDescription:
+    "Cattle IVF and embryo transfer FAQs: how IVF works, safety, sex-sorted embryos, surrogate cows, cost, conception rates and how to get started with Hebbevu Genetics.",
+  lede: "Straight answers on cattle IVF, embryo transfer, cost and results, from the team that runs South India’s first private cattle IVF lab.",
+  intro: "Jump to a topic, or open any question below.",
   heading: "What farmers ask us most",
   sideHeading: "Can’t find your answer?",
   sideBody: "Call or WhatsApp our team. We will talk you through your herd, your goals and which path fits.",
