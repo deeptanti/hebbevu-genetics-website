@@ -1,6 +1,5 @@
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { Pending } from "@/components/typography";
 import { CTABand, SectionHeader } from "@/components/ui";
 import { glossary } from "@/content/knowledge";
 import { photos } from "@/content/media";
@@ -22,9 +21,6 @@ export default function GlossaryPage() {
       />
       <Section labelledBy="terms">
         <SectionHeader id="terms" title={glossaryPage.heading} intro={glossaryPage.intro} />
-        <p className="mb-6">
-          <Pending>{glossaryPage.draftNote}</Pending>
-        </p>
         <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {glossary.map((g) => (
             <div key={g.term} id={anchor(g.term)} className="flex h-full flex-col gap-3 rounded-lg border border-stone bg-white p-4 md:p-5">

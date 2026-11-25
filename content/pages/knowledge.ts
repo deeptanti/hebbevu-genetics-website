@@ -48,7 +48,6 @@ export const glossaryPage = {
   title: "Glossary",
   metaDescription: "Cattle IVF terms in plain language: OPU, IVF, ET, recipient, CL, vitrification and more.",
   lede: "Nobody should have to pretend they know what OPU means.",
-  draftNote: "Draft definitions, pending review by the Hebbevu lab team.",
   heading: "Terms in plain language",
   intro: "The words you will hear from our team, explained without the jargon.",
   cta: {
