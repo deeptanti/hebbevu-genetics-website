@@ -43,7 +43,7 @@ export async function sendToTeleCRM(lead: Lead): Promise<DeliveryResult> {
           name: lead.name,
           phone: normalisePhone(lead.phone),
           location: lead.district,
-          lead_source: "Website",
+          lead_source: "Hebbevu Genetics Website",
           message: `Hebbevu Genetics website: ${lead.serviceLabel}`,
         },
         actions: [
