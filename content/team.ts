@@ -34,14 +34,14 @@ export const team: TeamMember[] = [
   },
   {
     slug: "susha",
-    name: "Susha",
+    name: "Susha Shetty",
     role: "Embryologist",
     group: "lab",
     responsibility: "Supports embryo processing and day-to-day IVF lab procedures.",
   },
   {
     slug: "dr-raju",
-    name: "Dr. Raju",
+    name: "Dr. Raju Modhwadiya",
     role: "Veterinary",
     group: "veterinary",
     responsibility: "Leads cattle treatment, medication schedules, and overall herd health management.",
@@ -55,14 +55,14 @@ export const team: TeamMember[] = [
   },
   {
     slug: "dr-atish",
-    name: "Dr. Atish",
+    name: "Dr. Atish Chavhan",
     role: "Veterinary",
     group: "veterinary",
     responsibility: "Supports cattle treatment, reproductive health checks, and day-to-day herd care.",
   },
   {
     slug: "dr-aryan",
-    name: "Dr. Aryan",
+    name: "Dr. Aryan Pawar",
     role: "Veterinary",
     group: "veterinary",
     responsibility: "Supports cattle treatment, reproductive health checks, and day-to-day herd care.",
