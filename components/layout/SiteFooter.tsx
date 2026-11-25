@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { contact, footerNav, site } from "@/content/site";
+import { FacebookLogo, InstagramLogo, LinkedinLogo, YoutubeLogo } from "@phosphor-icons/react/dist/ssr";
+import { contact, footerNav, site, socials } from "@/content/site";
+
+const socialIcons = { Instagram: InstagramLogo, Facebook: FacebookLogo, YouTube: YoutubeLogo, LinkedIn: LinkedinLogo } as const;
 import { Icon } from "../ui/Icon";
 import { Container } from "./Container";
 import { LogoPlate } from "./Logo";
@@ -33,6 +36,24 @@ export function SiteFooter() {
                 </span>
               </span>
             </address>
+            <ul aria-label="Hebbevu Genetics on social media" className="flex gap-3">
+              {socials.map((s) => {
+                const Glyph = socialIcons[s.name];
+                return (
+                  <li key={s.name}>
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${s.name} (opens in a new tab)`}
+                      className="transition-ui flex size-7 items-center justify-center rounded-full border border-graphite text-mist hover:border-mist hover:text-white"
+                    >
+                      <Glyph aria-hidden="true" weight="regular" className="size-5" />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
           <nav aria-label="Footer" className="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:col-span-2">
             {footerNav.map((col) => (
@@ -65,7 +86,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-7 flex flex-col gap-2 border-t border-graphite pt-5 sm:flex-row sm:justify-between">
           <p className="type-small text-mist">
-            © {new Date().getFullYear()} {site.name}. Part of the Hebbevu group.
+            © {new Date().getFullYear()} {site.name}. Part of Nisarga Woods.
           </p>
           <p className="type-small text-mist">{site.tagline}.</p>
         </div>

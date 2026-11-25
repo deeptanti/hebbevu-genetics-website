@@ -16,6 +16,14 @@ export const site = {
   careersUrl: "https://careers.hebbevu.com",
 } as const;
 
+/** Official social profiles (supplied by the client, Nov 2026). */
+export const socials = [
+  { name: "Instagram", href: "https://www.instagram.com/hebbevu_genetics" },
+  { name: "Facebook", href: "https://www.facebook.com/share/17xXVFvEyP/" },
+  { name: "YouTube", href: "https://www.youtube.com/@hebbevugenetics" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/hebbevu-genetics/" },
+] as const;
+
 export const contact = {
   phoneDisplay: "+91 80505 39391",
   phoneHref: "tel:+918050539391",
