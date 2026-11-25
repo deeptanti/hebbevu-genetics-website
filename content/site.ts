@@ -2,7 +2,7 @@ import type { Feature, NavItem } from "./types";
 
 export const site = {
   name: "Hebbevu Genetics",
-  url: "https://hebbevugenetics.com",
+  url: "https://www.hebbevugenetics.com",
   tagline: "South India’s first private cattle IVF lab",
   vision: {
     hindi: "Har ghar mein acchi gai",
