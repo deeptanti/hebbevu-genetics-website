@@ -7,9 +7,8 @@ import { Section, type SectionTone } from "@/components/layout/Section";
 import { Reveal, RevealItem } from "@/components/motion/Reveal";
 import { Accordion, ArticleCard, Card, Chip, ChipList, CTABand, DataTable, IconTile, SectionHeader, Stat, StatGrid } from "@/components/ui";
 import { DnaHelix } from "@/components/visuals/DnaHelix";
-import { YieldChart } from "@/components/visuals/YieldChart";
 import { getBreedProfile } from "@/content/breed-profiles";
-import { breedSelection, breeds, getBreed, parseYield, yieldDisclaimer } from "@/content/breeds";
+import { breedSelection, breeds, getBreed } from "@/content/breeds";
 import { getArticle, readingMinutes, topics } from "@/content/knowledge";
 import { getPhoto, photos } from "@/content/media";
 import { breedDetailCopy as copy } from "@/content/pages/breeds";
@@ -74,12 +73,6 @@ export default async function BreedPage({ params }: Props) {
     profile.population && { id: "pop", attribute: "Population", value: profile.population },
   ].filter(Boolean) as { id: string; attribute: string; value: string }[];
 
-  const yieldRows = breeds.map((b) => {
-    const [min, max] = parseYield(b.milkYield);
-    const img = getPhoto(`breeds/${b.slug}`);
-    return { slug: b.slug, name: b.name, epithet: b.epithet, min, max, a2: b.milkType === "A2", image: img && { src: img.src, alt: img.alt } };
-  });
-
   const glanceTone = tone();
   const profileTone = tone();
   const detailTone = breed.detail || breed.tradeoff ? tone() : "white";
@@ -125,10 +118,6 @@ export default async function BreedPage({ params }: Props) {
           {profile.size.cow && <Stat value={profile.size.cow} label={profile.isBuffalo ? "Female body weight" : "Cow body weight"} />}
         </StatGrid>
         {profile.dairy.note && <p className="type-body mt-6 max-w-prose text-ink">{profile.dairy.note}</p>}
-        <div className="mt-7 rounded-lg border border-stone bg-white p-4 md:p-6">
-          <h3 className="type-subheading mb-4 text-ink">{copy.chartHeading}</h3>
-          <YieldChart rows={yieldRows} caption={yieldDisclaimer} highlight={breed.slug} />
-        </div>
       </Section>
 
       {/* Profile */}

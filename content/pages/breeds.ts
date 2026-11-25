@@ -52,7 +52,6 @@ export const breedDetailCopy = {
   factsHeading: "At a glance",
   glanceIntro:
     "Two kinds of number, side by side: what this breed typically gives under good management, and the national breed average recorded by ICAR-NBAGR across every kind of farm.",
-  chartHeading: "Typical daily yield, every breed",
   profileHeading: "Getting to know the",
   sizeNote: "Average adult size, ICAR-NBAGR.",
   strengthsHeading: "Strengths in the field",
