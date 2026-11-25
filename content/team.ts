@@ -9,6 +9,14 @@ export const founders = [
 
 export const team: TeamMember[] = [
   {
+    slug: "dr-amol",
+    name: "Dr. Amol",
+    role: "Director, Hebbevu Genetics",
+    group: "leadership",
+    responsibility:
+      "Manages embryo production, donor cow health, reproductive monitoring, and supports both lab and veterinary operations.",
+  },
+  {
     slug: "dr-neha",
     name: "Dr. Neha",
     role: "Lead Director, Embryology",
@@ -17,20 +25,19 @@ export const team: TeamMember[] = [
       "Oversees IVF procedures, OPU processes, embryo grading, and lab protocols with a strong focus on quality and consistency.",
   },
   {
-    slug: "dr-amol",
-    name: "Dr. Amol",
-    role: "Director, Operations",
-    group: "leadership",
-    responsibility:
-      "Manages embryo production, donor cow health, reproductive monitoring, and supports both lab and veterinary operations.",
-  },
-  {
     slug: "anupama",
     name: "Anupama",
     role: "Embryologist",
     group: "lab",
     responsibility:
       "Handles embryo processing, vitrification, and maintains complete data records for IVF cycles and lab procedures.",
+  },
+  {
+    slug: "susha",
+    name: "Susha",
+    role: "Embryologist",
+    group: "lab",
+    responsibility: "Supports embryo processing and day-to-day IVF lab procedures.",
   },
   {
     slug: "dr-raju",
@@ -47,8 +54,22 @@ export const team: TeamMember[] = [
     responsibility: "Oversees feed management, medication schedules, and Gir cow milking records.",
   },
   {
-    slug: "susha",
-    name: "Susha",
+    slug: "dr-atish",
+    name: "Dr. Atish",
+    role: "Veterinary",
+    group: "veterinary",
+    responsibility: "Supports cattle treatment, reproductive health checks, and day-to-day herd care.",
+  },
+  {
+    slug: "dr-aryan",
+    name: "Dr. Aryan",
+    role: "Veterinary",
+    group: "veterinary",
+    responsibility: "Supports cattle treatment, reproductive health checks, and day-to-day herd care.",
+  },
+  {
+    slug: "varsha",
+    name: "Varsha",
     role: "Data & Dairy Management",
     group: "data",
     responsibility:
