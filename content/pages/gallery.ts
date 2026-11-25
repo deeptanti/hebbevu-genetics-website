@@ -23,6 +23,8 @@ export const galleryPage = {
     ["farm/gir-bull-fence", "The herd"],
     ["farm/jaffarabadi-yard", "The herd"],
     ["breeds/gir", "Breeds"],
+    ["farm/marcelo-portrait", "Breeds"],
+    ["farm/marcelo-walking", "Breeds"],
     ["breeds/sahiwal", "Breeds"],
     ["breeds/ongole", "Breeds"],
     ["breeds/kankrej", "Breeds"],

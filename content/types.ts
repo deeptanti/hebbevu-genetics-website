@@ -80,6 +80,8 @@ export interface Breed {
   strength: string;
   /** Breed-specific long copy, only where the client/brief supplied it. */
   detail?: { heading: string; paragraphs: string[]; points?: string[] }[];
+  /** One of our own animals of this breed, shown beside the detail copy (photo key in content/media). */
+  feature?: { photo: string; caption: string };
   /** Honest trade-off note (Holstein Friesian, brief §8). */
   tradeoff?: { heading: string; paragraphs: string[] };
   /** Related knowledge article slugs. */

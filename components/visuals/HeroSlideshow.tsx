@@ -96,7 +96,7 @@ export function HeroSlideshow({ photos }: { photos: Photo[] }) {
                   loading={k === 0 ? "eager" : "lazy"}
                   fetchPriority={k === 0 ? "high" : "auto"}
                   sizes="100vw"
-                  className={cn("object-cover", isTall(p) ? "object-upper" : "object-center")}
+                  className={cn("object-cover", isTall(p) ? "object-upper" : p.focus === "right" ? "object-focus-right" : p.focus === "left" ? "object-focus-left" : "object-center")}
                 />
               </motion.div>
             </motion.div>

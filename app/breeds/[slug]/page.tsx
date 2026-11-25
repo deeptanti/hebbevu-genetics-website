@@ -12,6 +12,8 @@ import { breedSelection, breeds, getBreed } from "@/content/breeds";
 import { getArticle, readingMinutes, topics } from "@/content/knowledge";
 import { getPhoto, photos } from "@/content/media";
 import { breedDetailCopy as copy } from "@/content/pages/breeds";
+import { Photo } from "@/components/ui/Photo";
+import { cn } from "@/lib/cn";
 import { pageMeta } from "@/lib/metadata";
 
 export const dynamicParams = false;
@@ -46,6 +48,7 @@ export default async function BreedPage({ params }: Props) {
   const related = (breed.articles ?? []).map(getArticle).filter((a) => a !== undefined);
   const topicLabel = (id: string) => topics.find((t) => t.id === id)?.question;
   const photo = getPhoto(`breeds/${breed.slug}`);
+  const feature = breed.feature && getPhoto(breed.feature.photo) && { photo: getPhoto(breed.feature.photo)!, caption: breed.feature.caption };
 
   // Alternate white/mist after the white hero, whatever optional sections render.
   let n = 0;
@@ -179,7 +182,13 @@ export default async function BreedPage({ params }: Props) {
           <h2 id="breed-detail" className="sr-only">
             About {breed.name}
           </h2>
-          <div className="grid gap-7 lg:grid-cols-2">
+          <div className={cn("grid gap-7", feature ? "lg:grid-cols-12" : "lg:grid-cols-2")}>
+            {feature && (
+              <div className="lg:col-span-4">
+                <Photo photo={feature.photo} aspect="portrait" caption={feature.caption} sizes="(min-width: 1024px) 400px, 100vw" />
+              </div>
+            )}
+            <div className={feature ? "flex flex-col gap-7 lg:col-span-8" : "contents"}>
             {breed.detail?.map((d) => (
               <div key={d.heading} className="flex flex-col gap-4">
                 <h3 className="type-h3 text-ink">{d.heading}</h3>
@@ -191,6 +200,7 @@ export default async function BreedPage({ params }: Props) {
                 {d.points && <BulletList items={d.points} />}
               </div>
             ))}
+            </div>
             {breed.tradeoff && (
               <div className="flex flex-col gap-4 rounded-lg border border-graphite bg-white p-5 md:p-6 lg:col-span-2">
                 <h3 className="type-h3 text-ink">{breed.tradeoff.heading}</h3>

@@ -332,6 +332,14 @@
   object-position: 50% 32%;
 }
 
+/* Off-centre subjects in wide photos: keeps them in frame on narrow (phone) crops. */
+@utility object-focus-left {
+  object-position: 28% 50%;
+}
+@utility object-focus-right {
+  object-position: 72% 50%;
+}
+
 @utility paused {
   animation-play-state: paused;
 }

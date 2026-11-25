@@ -8,6 +8,8 @@ export interface Photo {
   alt: string;
   width: number;
   height: number;
+  /** Where the subject sits, so narrow crops (phone heroes) keep it in frame. */
+  focus?: "left" | "right";
 }
 
 export const photos = {
@@ -190,6 +192,25 @@ export const photos = {
     "alt": "Indigenous cows lined up in front of the thatched barn at the farm",
     "width": 1920,
     "height": 1080
+  },
+  "farm/marcelo-paddock": {
+    "src": "/photos/farm/marcelo-paddock.jpg",
+    "alt": "Marcelo, our elite Gir bull, walking along the paddock fence",
+    "width": 1920,
+    "height": 1280,
+    "focus": "right"
+  },
+  "farm/marcelo-portrait": {
+    "src": "/photos/farm/marcelo-portrait.jpg",
+    "alt": "Marcelo, our elite Gir bull, facing the camera under the paddock gate",
+    "width": 1200,
+    "height": 1797
+  },
+  "farm/marcelo-walking": {
+    "src": "/photos/farm/marcelo-walking.jpg",
+    "alt": "Marcelo, our elite Gir bull, in profile by the paddock fence",
+    "width": 1200,
+    "height": 1797
   },
   "farm/gir-bull-fence": {
     "src": "/photos/farm/gir-bull-fence.jpg",

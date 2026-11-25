@@ -18,6 +18,7 @@ export const breeds: Breed[] = [
     milkType: "A2",
     traits: ["Docile nature", "Heat tolerance", "Disease resistance"],
     strength: "High adaptability and consistent milk productivity",
+    feature: { photo: "farm/marcelo-portrait", caption: "Marcelo, our elite Gir bull" },
     detail: [
       {
         heading: "Why Gir is our flagship",

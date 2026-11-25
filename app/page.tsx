@@ -56,7 +56,7 @@ export default function HomePage() {
           photos["farm/barn-row"],
           photos["farm/calves-resting"],
           photos["lab/microscope"],
-          photos["farm/gir-bull-fence"],
+          photos["farm/marcelo-paddock"],
           photos["people/two-with-bull"],
           photos["farm/aerial"],
         ]}
