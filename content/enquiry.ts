@@ -1,4 +1,4 @@
-/** Enquiry form options (brief §14: short, phone-first - name, phone, district, service interest). */
+/** Enquiry form options (brief §14: short, phone-first - name, phone, city, service interest). */
 export const serviceInterests = [
   { value: "ivf-own-donors", label: "IVF with my own donor cows" },
   { value: "sex-sorted-embryos", label: "Buy sex-sorted embryos" },

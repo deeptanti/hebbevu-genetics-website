@@ -35,7 +35,7 @@ export function EnquiryForm({ defaultService }: { defaultService?: string }) {
         defaultValue={v.phone}
         error={e.phone}
       />
-      <Field label="District" name="district" required autoComplete="address-level2" defaultValue={v.district} error={e.district} />
+      <Field label="City or town" name="city" required autoComplete="address-level2" defaultValue={v.city} error={e.city} />
       <Field
         as="select"
         label="What are you interested in?"

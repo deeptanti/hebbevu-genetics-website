@@ -6,7 +6,8 @@
  *     components/visuals, where `style` carries runtime motion values (e.g. scroll progress).
  *  3. `stone` is used as a control boundary or focus ring (brief §6 contrast trap):
  *     ring-stone / outline-stone anywhere, or border-stone on input/select/textarea/button.
- *  4. Raw hex colours appear outside globals.css.
+ *  4. Raw hex colours appear outside globals.css. Exception: lib/email/, because email
+ *     clients cannot read CSS variables; its palette mirrors the tokens in globals.css.
  *  5. An em dash (U+2014) appears anywhere: house style is no em dashes, in copy or code.
  * Run: npm run check:tokens
  */
@@ -41,8 +42,9 @@ function check(file) {
     if (/\bstyle=\{\{/.test(line) && !motionDir) problems.push(`${at}  inline style prop`);
     // 5. em dash, anywhere
     if (line.includes("\u2014")) problems.push(`${at}  em dash (house style: none, rewrite the sentence)`);
-    // 4. raw hex outside the theme (allow viewport themeColor white)
-    if (/#[0-9a-fA-F]{6}\b/.test(line) && !/themeColor/.test(line)) problems.push(`${at}  raw hex colour`);
+    // 4. raw hex outside the theme (allow viewport themeColor white, and email templates)
+    const emailDir = /lib\/email\//.test(file);
+    if (/#[0-9a-fA-F]{6}\b/.test(line) && !/themeColor/.test(line) && !emailDir) problems.push(`${at}  raw hex colour`);
   });
   // 3. stone on form controls / buttons (JSX element with border-stone)
   for (const m of src.matchAll(/<(input|select|textarea|button)\b[^>]*border-stone[^>]*>/gs)) {

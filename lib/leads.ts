@@ -9,10 +9,12 @@
  *   ENQUIRY_EMAIL_FROM     Verified sender, e.g. "Hebbevu Genetics <leads@hebbevugenetics.com>"
  */
 
+import { enquiryEmailHtml, enquiryEmailSubject, enquiryEmailText } from "./email/enquiry";
+
 export interface Lead {
   name: string;
   phone: string;
-  district: string;
+  city: string;
   service: string;
   serviceLabel: string;
   submittedAt: string;
@@ -42,14 +44,14 @@ export async function sendToTeleCRM(lead: Lead): Promise<DeliveryResult> {
         fields: {
           name: lead.name,
           phone: normalisePhone(lead.phone),
-          location: lead.district,
+          location: lead.city,
           lead_source: "Hebbevu Genetics Website",
           message: `Hebbevu Genetics website: ${lead.serviceLabel}`,
         },
         actions: [
           {
             type: "SYSTEM_NOTE",
-            text: `Enquiry from hebbevugenetics.com/book. Interested in: ${lead.serviceLabel}. District: ${lead.district}.`,
+            text: `Enquiry from hebbevugenetics.com/book. Interested in: ${lead.serviceLabel}. City: ${lead.city}.`,
           },
         ],
       }),
@@ -66,9 +68,6 @@ export async function sendToTeleCRM(lead: Lead): Promise<DeliveryResult> {
   }
 }
 
-const escape = (s: string) =>
-  s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
-
 export async function sendTeamEmail(lead: Lead): Promise<DeliveryResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.ENQUIRY_EMAIL_TO?.split(",").map((s) => s.trim()).filter(Boolean);
@@ -78,16 +77,7 @@ export async function sendTeamEmail(lead: Lead): Promise<DeliveryResult> {
     return "skipped";
   }
 
-  const phone = `+${normalisePhone(lead.phone)}`;
-  const when = new Date(lead.submittedAt).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
-  const rows: [string, string][] = [
-    ["Name", lead.name],
-    ["Mobile", phone],
-    ["District", lead.district],
-    ["Interested in", lead.serviceLabel],
-    ["Submitted", `${when} IST`],
-  ];
-
+  const data = { ...lead, phone: normalisePhone(lead.phone) };
   try {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -95,11 +85,9 @@ export async function sendTeamEmail(lead: Lead): Promise<DeliveryResult> {
       body: JSON.stringify({
         from,
         to,
-        subject: `New enquiry: ${lead.name}, ${lead.district} (${lead.serviceLabel})`,
-        text: [...rows.map(([k, v]) => `${k}: ${v}`), "", "Please call them back."].join("\n"),
-        html: `<p>New enquiry from hebbevugenetics.com</p><table cellpadding="6">${rows
-          .map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${escape(v)}</td></tr>`)
-          .join("")}</table><p><a href="tel:${phone}">Call ${escape(phone)}</a></p>`,
+        subject: enquiryEmailSubject(data),
+        text: enquiryEmailText(data),
+        html: enquiryEmailHtml(data),
       }),
       signal: AbortSignal.timeout(10_000),
     });

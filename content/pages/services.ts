@@ -192,7 +192,7 @@ export const pricingPage = {
   quoteHeader: {
     title: "Getting a quote",
     intro:
-      "Pricing is shared on request. Tell us your district, how many embryos you want, which type, and whose recipient cows, and we’ll give you a figure.",
+      "Pricing is shared on request. Tell us your city, how many embryos you want, which type, and whose recipient cows, and we’ll give you a figure.",
   },
 };
 
@@ -200,7 +200,7 @@ export const bookPage = {
   meta: {
     title: "Book a Consultation",
     description:
-      "Book a consultation with Hebbevu Genetics. Leave your name, mobile number and district and our cattle genetics team will call you back.",
+      "Book a consultation with Hebbevu Genetics. Leave your name, mobile number and city and our cattle genetics team will call you back.",
   },
   kicker: "Book a consultation",
   heroPhoto: "people/two-at-fence" as PhotoKey,
@@ -250,7 +250,7 @@ export const bookCta = {
 export const contactCta = {
   photo: "farm/barn-row" as PhotoKey,
   heading: "Ready to talk about your herd?",
-  body: "Leave your name, number and district, and our team will call you back.",
+  body: "Leave your name, number and city, and our team will call you back.",
   primary: { label: "Book a Consultation", href: "/book" },
   secondary: { label: "Explore our services", href: "/services" },
 };
