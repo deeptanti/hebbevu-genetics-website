@@ -54,7 +54,7 @@ export default function FarmPage() {
             ] as const
           ).map((k) => (
             <li key={k}>
-              <Photo photo={photos[k]} aspect="square" caption={photos[k].alt} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
+              <Photo photo={photos[k]} aspect="square" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
             </li>
           ))}
         </ul>
