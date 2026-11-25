@@ -108,26 +108,26 @@ export const photos = {
     "height": 1000
   },
   "breeds/gir": {
-    "src": "/photos/breeds/gir.jpg",
-    "alt": "A Gir cow, side profile",
+    "src": "/photos/breeds/gir-cow.jpg",
+    "alt": "A red-and-white Gir cow with curled horns, side profile",
     "width": 1080,
     "height": 1080
   },
   "breeds/sahiwal": {
-    "src": "/photos/breeds/sahiwal.jpg",
+    "src": "/photos/breeds/sahiwal-cow.jpg",
     "alt": "A Sahiwal cow, side profile",
     "width": 1080,
     "height": 1080
   },
   "breeds/ongole": {
-    "src": "/photos/breeds/ongole.jpg",
-    "alt": "An Ongole, side profile",
+    "src": "/photos/breeds/ongole-cow.jpg",
+    "alt": "A white Ongole cow with her calf suckling",
     "width": 1080,
     "height": 1080
   },
   "breeds/kankrej": {
-    "src": "/photos/breeds/kankrej.jpg",
-    "alt": "A Kankrej bull with lyre-shaped horns, side profile",
+    "src": "/photos/breeds/kankrej-cow.jpg",
+    "alt": "A silver-grey Kankrej cow with lyre-shaped horns, side profile",
     "width": 1080,
     "height": 1080
   },
@@ -144,7 +144,7 @@ export const photos = {
     "height": 1080
   },
   "breeds/holstein-friesian": {
-    "src": "/photos/breeds/holstein-friesian.jpg",
+    "src": "/photos/breeds/holstein-friesian-cow.jpg",
     "alt": "A black-and-white Holstein Friesian cow, side profile",
     "width": 1080,
     "height": 1080
