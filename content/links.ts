@@ -1,7 +1,9 @@
 /**
  * The /links page (our own link-in-bio, replacing Linktree).
  *
- * TO EDIT: change this file only. Order in the arrays is the order on the page.
+ * TO EDIT: change this file only. Order in the arrays is the order on the page
+ * (the untitled "actions" section renders as the contact buttons; the social icons
+ * always come last, after every section).
  * - Add a link: copy an entry, give it a new unique `id`.
  * - Hide a link without deleting it: set `hidden: true`.
  * - Keep `id` stable once a link is live: GA4 reports clicks by it (event link_click,
@@ -49,11 +51,16 @@ const linksPage: LinksPage = {
   intro: "South India’s first private cattle IVF lab. Elite indigenous genetics for dairy farmers in India and worldwide.",
   sections: [
     {
-      id: "actions",
+      id: "watch",
+      title: "Watch",
+      layout: "grid",
       links: [
-        { id: "book", label: "Book a consultation", href: "/book", icon: "calendar" },
-        { id: "whatsapp", label: "WhatsApp us", href: contact.whatsappHref, icon: "whatsapp" },
-        { id: "call", label: `Call ${contact.phoneDisplay}`, href: contact.phoneHref, icon: "phone" },
+        { id: "yt-ongole-legacy", label: "The legacy of Ongole lives on", href: "https://youtu.be/sDZ3VOSc5MY" },
+        { id: "yt-cattle-parlour", label: "Our newly installed cattle parlour", href: "https://youtu.be/WGcFP4J1ejI" },
+        { id: "yt-brazil-genetics", label: "Why Brazil is deeply connected to Indian genetics", href: "https://youtu.be/-0o939iKkfg" },
+        { id: "yt-nandi", label: "Nandi", href: "https://youtu.be/mlEZWqcoD5U" },
+        { id: "yt-full-podcast", label: "Full podcast", href: "https://youtu.be/nrBHtS2aBGA" },
+        { id: "yt-brazil-trip-4", label: "My solo trip to Brazil, episode 4", href: "https://www.youtube.com/watch?v=VbnM4Rayj6s" },
       ],
     },
     {
@@ -65,19 +72,6 @@ const linksPage: LinksPage = {
         { id: "embryo-transfer", label: "Embryo transfer and surrogates", href: "/services/embryo-transfer", icon: "baby" },
         { id: "breeds", label: "Our breeds", sublabel: "Gir, Sahiwal, Ongole, Kankrej and more", href: "/breeds", icon: "cow" },
         { id: "website", label: "Visit our website", href: "/", icon: "globe" },
-      ],
-    },
-    {
-      id: "watch",
-      title: "Watch",
-      layout: "grid",
-      links: [
-        { id: "yt-ongole-legacy", label: "The legacy of Ongole lives on", href: "https://youtu.be/sDZ3VOSc5MY" },
-        { id: "yt-cattle-parlour", label: "Our newly installed cattle parlour", href: "https://youtu.be/WGcFP4J1ejI" },
-        { id: "yt-brazil-genetics", label: "Why Brazil is deeply connected to Indian genetics", href: "https://youtu.be/-0o939iKkfg" },
-        { id: "yt-nandi", label: "Nandi", href: "https://youtu.be/mlEZWqcoD5U" },
-        { id: "yt-full-podcast", label: "Full podcast", href: "https://youtu.be/nrBHtS2aBGA" },
-        { id: "yt-brazil-trip-4", label: "My solo trip to Brazil, episode 4", href: "https://www.youtube.com/watch?v=VbnM4Rayj6s" },
       ],
     },
     {
@@ -139,6 +133,14 @@ const linksPage: LinksPage = {
           sublabel: "Launch of Hebbevu Genetics",
           href: "https://thestartupstory.co.in/index.php/2024/07/23/hebbevu-managed-farmland-launches-hebbevu-genetics-to-transform-cattle-ivfs-in-india/",
         },
+      ],
+    },
+    {
+      id: "actions",
+      links: [
+        { id: "book", label: "Book a consultation", href: "/book", icon: "calendar" },
+        { id: "whatsapp", label: "WhatsApp us", href: contact.whatsappHref, icon: "whatsapp" },
+        { id: "call", label: `Call ${contact.phoneDisplay}`, href: contact.phoneHref, icon: "phone" },
       ],
     },
   ],

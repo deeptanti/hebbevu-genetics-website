@@ -8,6 +8,8 @@ import { socials } from "@/content/site";
 import { pageMeta } from "@/lib/metadata";
 
 const page = getLinksPage();
+/** Social icons sit after every link, so their positions continue the count. */
+const linkCount = page.sections.reduce((n, s) => n + s.links.length, 0);
 
 /**
  * /links: our own link-in-bio page (replaces Linktree). Bios point at /ig, /yt, /fb or /in,
@@ -31,27 +33,27 @@ export default function LinksPage() {
             {page.title}
           </h1>
           <p className="type-body text-graphite">{page.intro}</p>
-          <ul aria-label="Hebbevu Genetics on social media" className="flex gap-3">
-            {socials.map((s, k) => {
-              const Glyph = socialIcons[s.name];
-              return (
-                <li key={s.name}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${s.name} (opens in a new tab)`}
-                    {...linkTracking(`social-${s.name.toLowerCase()}`, s.name, "socials", k + 1)}
-                    className="transition-ui flex size-7 items-center justify-center rounded-full border border-graphite text-brown hover:border-brown-dark hover:text-brown-dark"
-                  >
-                    <Glyph aria-hidden="true" weight="regular" className="size-5" />
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
         </header>
-        <LinkList sections={page.sections} startAt={socials.length} />
+        <LinkList sections={page.sections} />
+        <ul aria-label="Hebbevu Genetics on social media" className="flex justify-center gap-3">
+          {socials.map((s, k) => {
+            const Glyph = socialIcons[s.name];
+            return (
+              <li key={s.name}>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${s.name} (opens in a new tab)`}
+                  {...linkTracking(`social-${s.name.toLowerCase()}`, s.name, "socials", linkCount + k + 1)}
+                  className="transition-ui flex size-7 items-center justify-center rounded-full border border-graphite text-brown hover:border-brown-dark hover:text-brown-dark"
+                >
+                  <Glyph aria-hidden="true" weight="regular" className="size-5" />
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </Section>
   );
