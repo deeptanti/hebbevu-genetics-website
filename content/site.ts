@@ -4,6 +4,13 @@ export const site = {
   name: "Hebbevu Genetics",
   url: "https://www.hebbevugenetics.com",
   tagline: "South India’s first private cattle IVF lab",
+  /** Footer disclaimer, client-supplied 2026-11-26. "terms and conditions" links to /legal/terms. */
+  disclaimer: {
+    before:
+      "Disclaimer: All information, content, services, and representations provided on this website are for informational purposes only, do not constitute any guarantee, warranty, or professional advice, and are subject to applicable laws, regulatory approvals, and the",
+    link: "terms and conditions",
+    after: "of Hebbevu Genetics Farms Private Limited.",
+  },
   vision: {
     hindi: "Har ghar mein acchi gai",
     english: "A good cow in every home.",

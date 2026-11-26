@@ -97,6 +97,13 @@ export function SiteFooter() {
             <span>{site.tagline}.</span>
           </p>
         </div>
+        <p className="type-small mt-5 max-w-prose text-mist">
+          {site.disclaimer.before}{" "}
+          <Link href="/legal/terms" className="transition-ui underline underline-offset-4 hover:text-white">
+            {site.disclaimer.link}
+          </Link>{" "}
+          {site.disclaimer.after}
+        </p>
       </Container>
     </footer>
   );
