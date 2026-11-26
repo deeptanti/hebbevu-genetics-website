@@ -1,5 +1,6 @@
 import { articles } from "@/content/articles";
 import { breeds } from "@/content/breeds";
+import { formatPressDate, press } from "@/content/press";
 import { contact, primaryNav, site } from "@/content/site";
 
 /**
@@ -43,6 +44,11 @@ export function GET() {
   lines.push("", "## Articles", "");
   for (const a of articles) {
     lines.push(`- [${a.title}](${url(`/knowledge/${a.slug}`)}): ${a.description}`);
+  }
+
+  lines.push("", "## In the news", "");
+  for (const p of press) {
+    lines.push(`- [${p.outlet}: ${p.headline}](${p.url}) (${formatPressDate(p.date)})`);
   }
 
   lines.push(

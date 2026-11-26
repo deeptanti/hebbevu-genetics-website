@@ -19,6 +19,8 @@ export const aboutPages = {
       { href: "/about/team", title: "Our team", summary: "The named embryologists, vets and managers who do the work.", icon: "users" },
       { href: "/about/partners", title: "Partners", summary: "Brazilian expertise, and where our genetics are going.", icon: "globe" },
       { href: "/about/farm", title: "Reynadu Farm", summary: "The herd, the fodder land and the lab, on one site.", icon: "leaf" },
+      { href: "/about/news", title: "In the news", summary: "Press coverage, from our 2024 launch to ExpoZebu in Brazil.", icon: "sparkles" },
+      { href: "/about/gallery", title: "Gallery", summary: "Photos and films from the farm, the lab and the herd.", icon: "cow" },
     ],
     cta: {
       heading: "Contact our team to get started",

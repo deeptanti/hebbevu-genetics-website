@@ -1,4 +1,5 @@
 import type { FaqItem } from "@/content/types";
+import { press, type PressItem } from "@/content/press";
 import { contact, site, socials } from "@/content/site";
 import { uploadDates, youtubeThumb, youtubeWatchUrl, type Video } from "@/content/videos";
 
@@ -55,6 +56,8 @@ export function organizationSchema() {
       contactType: "customer service",
     },
     sameAs: [...socials.map((s) => s.href), contact.mapsHref],
+    // Independent coverage helps search and AI engines tie the brand to its claims.
+    subjectOf: press.map(pressWork),
   };
 }
 
@@ -138,5 +141,34 @@ export function videoSchema(v: Video) {
     embedUrl: `https://www.youtube-nocookie.com/embed/${v.id}`,
     url: youtubeWatchUrl(v),
     publisher: { "@id": ORG_ID },
+  };
+}
+
+/** A press item as a schema.org NewsArticle or VideoObject published by the outlet. */
+function pressWork(p: PressItem) {
+  const common = {
+    url: p.url,
+    datePublished: p.date,
+    publisher: { "@type": "Organization", name: p.outlet },
+    about: { "@id": ORG_ID },
+  };
+  return p.kind === "video"
+    ? { "@type": "VideoObject", name: p.headline, description: p.headline, uploadDate: p.date, thumbnailUrl: p.image ? abs(p.image) : undefined, ...common }
+    : { "@type": "NewsArticle", headline: p.headline, ...(p.image ? { image: abs(p.image) } : {}), ...common };
+}
+
+/** /about/news: the coverage as an ItemList on a CollectionPage. */
+export function pressPageSchema(path: string, name: string, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name,
+    description,
+    url: abs(path),
+    about: { "@id": ORG_ID },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: press.map((p, i) => ({ "@type": "ListItem", position: i + 1, item: pressWork(p) })),
+    },
   };
 }

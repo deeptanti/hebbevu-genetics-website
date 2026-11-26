@@ -82,6 +82,7 @@ export const primaryNav: NavItem[] = [
       { label: "Our story", href: "/about/story" },
       { label: "Our team", href: "/about/team" },
       { label: "Partners", href: "/about/partners" },
+      { label: "In the news", href: "/about/news" },
       { label: "Reynadu Farm", href: "/about/farm" },
       { label: "Gallery", href: "/about/gallery" },
     ],

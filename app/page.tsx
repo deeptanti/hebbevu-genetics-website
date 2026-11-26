@@ -3,6 +3,7 @@ import { films } from "@/content/pages/films";
 import { BulletList } from "@/components/blocks/BulletList";
 import { ContactPanel } from "@/components/blocks/ContactPanel";
 import { FaqList } from "@/components/blocks/FaqList";
+import { PressStrip } from "@/components/blocks/PressStrip";
 import { FeatureGrid } from "@/components/blocks/FeatureGrid";
 import { TraceChain } from "@/components/blocks/TraceChain";
 import { Section } from "@/components/layout/Section";
@@ -65,6 +66,7 @@ export default function HomePage() {
       <Ticker items={homeCopy.ticker} />
 
       <Section labelledBy="pillars">
+        <PressStrip />
         <SectionHeader id="pillars" title={homeCopy.pillarsHeading} />
         <FeatureGrid items={pillars} columns={4} />
       </Section>

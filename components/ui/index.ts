@@ -14,3 +14,4 @@ export * from "./ServiceCard";
 export * from "./Stat";
 export * from "./Photo";
 export * from "./BrandIcon";
+export * from "./PressCard";

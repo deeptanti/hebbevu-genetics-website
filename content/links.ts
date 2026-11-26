@@ -13,6 +13,7 @@
  * House style: no em dashes.
  */
 import type { IconName } from "./types";
+import { press } from "./press";
 import { contact } from "./site";
 
 export interface LinkEntry {
@@ -77,63 +78,10 @@ const linksPage: LinksPage = {
     {
       id: "news",
       title: "In the news",
-      links: [
-        {
-          id: "news-tribune-expozebu",
-          image: "/press/news-tribune-expozebu.jpg",
-          label: "The Tribune",
-          sublabel: "Hebbevu Genetics marks the first Indian presence at ExpoZebu in 70 years",
-          href: "https://www.tribuneindia.com/news/business/hebbevu-genetics-partners-acn-agropecuaria-at-expozebu-marks-first-indian-presence-at-abcz-in-70-years",
-        },
-        {
-          id: "news-hindustan-times-expozebu",
-          image: "/press/news-hindustan-times-expozebu.jpg",
-          label: "Hindustan Times",
-          sublabel: "Hebbevu Genetics partners ACN Agropecuária at ExpoZebu",
-          href: "https://www.hindustantimes.com/brand-stories/hebbevu-genetics-partners-acn-agropecu-ria-at-expozebu-marks-first-indian-presence-at-abcz-in-70-years-101777888021625.html",
-        },
-        {
-          id: "news-dailyhunt-expozebu",
-          image: "/press/news-dailyhunt-expozebu.jpg",
-          label: "Dailyhunt",
-          sublabel: "ExpoZebu coverage",
-          href: "https://m.dailyhunt.in/news/india/english/sangri+times-epaper-dh95df621a7fd04fa4860b3336547dd507/hebbevu+genetics+partners+acn+agropecuria+at+expozebu+marks+first+indian+presence+at+abcz+in+70+years-newsid-dh95df621a7fd04fa4860b3336547dd507_1630dcc0479b11f18f4e596ccb0d1bd2?sm=Y",
-        },
-        {
-          id: "news-yourstory",
-          image: "/press/news-yourstory.jpg",
-          label: "YourStory",
-          sublabel: "Hebbevu Genetics uses IVF to make dairy farming sustainable",
-          href: "https://yourstory.com/2024/07/hebbevu-genetics-uses-ivf-making-dairy-farming-sustainable",
-        },
-        {
-          id: "news-deccan-herald",
-          image: "/press/news-deccan-herald.jpg",
-          label: "Deccan Herald",
-          sublabel: "Launch of Hebbevu Genetics",
-          href: "https://www.deccanherald.com/brandspot/featured/hebbevu-managed-farmland-launches-hebbevu-genetics-to-transform-cattle-ivfs-in-india-3119829",
-        },
-        {
-          id: "news-republic",
-          image: "/press/news-republic.jpg",
-          label: "Republic",
-          sublabel: "Launch of Hebbevu Genetics",
-          href: "https://www.republicworld.com/initiatives/hebbevu-managed-farmland-launches-hebbevu-genetics-to-transform-cattle-ivf-in-india",
-        },
-        {
-          id: "news-ny-weekly",
-          image: "/press/news-ny-weekly.jpg",
-          label: "New York Weekly",
-          sublabel: "Launch of Hebbevu Genetics",
-          href: "https://nyweekly.com/science/hebbevu-managed-farmland-launches-hebbevu-genetics/",
-        },
-        {
-          id: "news-startup-story",
-          label: "The Startup Story",
-          sublabel: "Launch of Hebbevu Genetics",
-          href: "https://thestartupstory.co.in/index.php/2024/07/23/hebbevu-managed-farmland-launches-hebbevu-genetics-to-transform-cattle-ivfs-in-india/",
-        },
-      ],
+      // From content/press.ts (articles only; the AgroTill film is on /about/news).
+      links: press
+        .filter((p) => p.kind === "article")
+        .map((p) => ({ id: p.id, label: p.outlet, sublabel: p.headline, href: p.url, image: p.image })),
     },
     {
       id: "actions",
