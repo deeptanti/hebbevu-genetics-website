@@ -11,7 +11,9 @@ export type TrackEvent =
   | "enquiry_error" // validation or delivery failure
   | "contact_click" // phone, WhatsApp or email link
   | "cta_click" // any link to /book
-  | "video_play";
+  | "video_play"
+  | "video_progress" // 25, 50, 75% watched
+  | "video_complete";
 
 /** Every parameter key we use. Each push clears the others so GTM never reuses a stale value. */
 const KEYS = [
@@ -25,6 +27,7 @@ const KEYS = [
   "video_title",
   "video_id",
   "video_kind",
+  "video_percent",
 ] as const;
 
 export type TrackParams = Partial<Record<(typeof KEYS)[number], string>>;

@@ -4,7 +4,9 @@ import Image from "next/image";
 import { Play, SpeakerHigh } from "@phosphor-icons/react";
 import { useState } from "react";
 import { youtubeThumb, type Video } from "@/content/videos";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { cn } from "@/lib/cn";
+import { videoSchema } from "@/lib/schema";
 import { YouTubePlayer } from "./YouTubePlayer";
 
 /**
@@ -40,8 +42,11 @@ export function FilmPlaylist({ films, label }: { films: Video[]; label: string }
       <ul aria-label={label} className="flex flex-col gap-3 lg:col-span-4">
         {films.map((f, k) => {
           const on = k === i;
+          // The player marks up the current film; the rest are playable from this list.
+          const schema = on ? null : videoSchema(f);
           return (
             <li key={f.id}>
+              {schema && <JsonLd data={schema} />}
               <button
                 type="button"
                 aria-current={on}

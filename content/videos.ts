@@ -73,6 +73,58 @@ export const videos = {
 
 export type VideoKey = keyof typeof videos;
 
+/**
+ * Upload dates from YouTube (read from each public watch page, Nov 2026). Google needs
+ * uploadDate for video rich results; see videoSchema in lib/schema.ts.
+ */
+export const uploadDates: Record<string, string> = {
+  "QLiPlO-Em6I": "2026-02-13T04:32:42-08:00",
+  "4fajEO0BDmQ": "2026-01-28T04:26:12-08:00",
+  "Vi3AhuL5ios": "2025-07-01T21:47:20-07:00",
+  "M2XorRA46G4": "2026-02-26T02:23:43-08:00",
+  "jsTkLAGA0js": "2025-12-30T20:28:45-08:00",
+  "ksTZXUkG-u8": "2026-09-24T02:25:43-07:00",
+  "q1yeZ8srpAc": "2025-08-06T21:57:04-07:00",
+  "HYepQCU7Q4M": "2024-12-28T01:30:03-08:00",
+  "xm4DCrrfMKk": "2025-03-05T17:46:06-08:00",
+  "7pggXYPPjPY": "2025-11-19T04:49:51-08:00",
+  "cQ4T8wOR4FM": "2025-11-28T02:30:25-08:00",
+  "WGcFP4J1ejI": "2025-06-20T01:32:18-07:00",
+  "mlEZWqcoD5U": "2025-04-24T07:18:09-07:00",
+  "rNvMJBr8lyg": "2025-04-16T05:03:37-07:00",
+  "sDZ3VOSc5MY": "2025-06-26T04:33:12-07:00",
+  "mN2Co3R7rOQ": "2025-09-24T05:27:29-07:00",
+  "qbtKVzWefzI": "2024-11-26T23:44:50-08:00",
+  "_3rx225GqPE": "2024-11-29T20:56:21-08:00",
+  "C9O6tBvfh9M": "2024-12-12T03:52:12-08:00",
+  "VbnM4Rayj6s": "2024-12-18T03:24:45-08:00",
+  "-0o939iKkfg": "2025-06-17T05:33:40-07:00",
+  "ZKYTn-QHL4w": "2025-12-24T01:30:35-08:00",
+  "DyhVix0p3dQ": "2024-07-12T00:22:36-07:00",
+  "VQNUUZWF_y4": "2024-07-12T07:30:09-07:00",
+  "qWkvRTvnuA0": "2024-07-13T07:30:26-07:00",
+  "uqgpl_S0wuQ": "2024-07-14T21:46:48-07:00",
+  "1DHwBhRH0rs": "2024-07-22T19:30:00-07:00",
+  "RkItv1fVbFg": "2024-07-26T04:30:15-07:00",
+  "DYRHHlV55GA": "2025-03-22T03:54:25-07:00",
+  "wPhLXY_w_9A": "2025-10-29T21:54:31-07:00",
+  "Ht2o1jv_IuY": "2025-12-16T04:42:59-08:00",
+  "HRN89KVb030": "2026-04-22T02:30:39-07:00",
+  "gysdH0VUQ2U": "2026-01-08T23:01:48-08:00",
+  "hNjGBP97FmM": "2025-12-23T22:56:33-08:00",
+  "5MzHT19vG_8": "2026-02-24T05:36:13-08:00",
+  "S_Jr0IF_AuE": "2026-03-03T04:20:22-08:00",
+  "kUKsLSLIlwQ": "2025-12-08T04:31:10-08:00",
+  "wbI2hy64bxo": "2025-11-14T20:47:39-08:00",
+  "uTJmZavrdoQ": "2026-05-14T23:36:38-07:00",
+  "fL_WBn49V8k": "2024-12-12T22:28:14-08:00",
+  "GUNAoafvrFY": "2026-01-30T04:31:27-08:00",
+  "wwCf4uTYVXM": "2026-04-29T05:08:38-07:00",
+  "_RU5gHlAPfI": "2026-04-30T05:09:58-07:00",
+  "sKsgUSF2L9A": "2024-05-09T06:00:55-07:00",
+  "9eUZorHKVEU": "2025-11-04T04:31:59-08:00",
+};
+
 export const youtubeThumb = (v: Video) => `/video/yt/${v.id}.jpg`;
 export const youtubeWatchUrl = (v: Video) =>
   v.kind === "short" ? `https://www.youtube.com/shorts/${v.id}` : `https://www.youtube.com/watch?v=${v.id}`;

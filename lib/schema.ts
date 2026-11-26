@@ -1,5 +1,6 @@
 import type { FaqItem } from "@/content/types";
 import { contact, site, socials } from "@/content/site";
+import { uploadDates, youtubeThumb, youtubeWatchUrl, type Video } from "@/content/videos";
 
 /**
  * schema.org JSON-LD builders, following Google Search Central's structured data guides
@@ -108,5 +109,34 @@ export function articleSchema(a: { title: string; description: string; path: str
     inLanguage: "en-IN",
     author: { "@type": "Organization", name: site.name, url: site.url },
     publisher: { "@id": ORG_ID, "@type": "Organization", name: site.name, logo: abs("/brand/logo-stacked.png") },
+  };
+}
+
+/** "1:12:03" or "13:31" -> ISO 8601 duration ("PT1H12M3S"). */
+function isoDuration(d?: string) {
+  if (!d) return undefined;
+  const [s = 0, m = 0, h = 0] = d.split(":").map(Number).reverse();
+  return `PT${h ? `${h}H` : ""}${m ? `${m}M` : ""}${s}S`;
+}
+
+/**
+ * VideoObject for an embedded YouTube film or Short, so the page can show in Google's video
+ * results and the Search Console "Video pages" report. Returns null without an upload date
+ * (Google requires one): add new videos to uploadDates in content/videos.ts.
+ */
+export function videoSchema(v: Video) {
+  const uploadDate = uploadDates[v.id];
+  if (!uploadDate) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: v.title,
+    description: v.note ?? v.title,
+    thumbnailUrl: [abs(youtubeThumb(v)), `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`],
+    uploadDate,
+    ...(isoDuration(v.duration) ? { duration: isoDuration(v.duration) } : {}),
+    embedUrl: `https://www.youtube-nocookie.com/embed/${v.id}`,
+    url: youtubeWatchUrl(v),
+    publisher: { "@id": ORG_ID },
   };
 }
