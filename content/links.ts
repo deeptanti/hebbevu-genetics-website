@@ -21,6 +21,11 @@ export interface LinkEntry {
   sublabel?: string;
   href: string;
   icon?: IconName;
+  /**
+   * Thumbnail (a /public path, 16:9 works best). YouTube links get theirs automatically
+   * from /video/yt/<id>.jpg; for news links save the article's preview image in /public/press.
+   */
+  image?: string;
   hidden?: boolean;
 }
 
@@ -28,6 +33,8 @@ export interface LinkSection {
   id: string;
   /** Omit for the top action row. */
   title?: string;
+  /** "grid" shows two thumbnail cards per row (used for videos). Default: one row per link. */
+  layout?: "list" | "grid";
   links: LinkEntry[];
 }
 
@@ -63,6 +70,7 @@ const linksPage: LinksPage = {
     {
       id: "watch",
       title: "Watch",
+      layout: "grid",
       links: [
         { id: "yt-ongole-legacy", label: "The legacy of Ongole lives on", href: "https://youtu.be/sDZ3VOSc5MY" },
         { id: "yt-cattle-parlour", label: "Our newly installed cattle parlour", href: "https://youtu.be/WGcFP4J1ejI" },
@@ -78,42 +86,49 @@ const linksPage: LinksPage = {
       links: [
         {
           id: "news-tribune-expozebu",
+          image: "/press/news-tribune-expozebu.jpg",
           label: "The Tribune",
           sublabel: "Hebbevu Genetics marks the first Indian presence at ExpoZebu in 70 years",
           href: "https://www.tribuneindia.com/news/business/hebbevu-genetics-partners-acn-agropecuaria-at-expozebu-marks-first-indian-presence-at-abcz-in-70-years",
         },
         {
           id: "news-hindustan-times-expozebu",
+          image: "/press/news-hindustan-times-expozebu.jpg",
           label: "Hindustan Times",
           sublabel: "Hebbevu Genetics partners ACN Agropecuária at ExpoZebu",
           href: "https://www.hindustantimes.com/brand-stories/hebbevu-genetics-partners-acn-agropecu-ria-at-expozebu-marks-first-indian-presence-at-abcz-in-70-years-101777888021625.html",
         },
         {
           id: "news-dailyhunt-expozebu",
+          image: "/press/news-dailyhunt-expozebu.jpg",
           label: "Dailyhunt",
           sublabel: "ExpoZebu coverage",
           href: "https://m.dailyhunt.in/news/india/english/sangri+times-epaper-dh95df621a7fd04fa4860b3336547dd507/hebbevu+genetics+partners+acn+agropecuria+at+expozebu+marks+first+indian+presence+at+abcz+in+70+years-newsid-dh95df621a7fd04fa4860b3336547dd507_1630dcc0479b11f18f4e596ccb0d1bd2?sm=Y",
         },
         {
           id: "news-yourstory",
+          image: "/press/news-yourstory.jpg",
           label: "YourStory",
           sublabel: "Hebbevu Genetics uses IVF to make dairy farming sustainable",
           href: "https://yourstory.com/2024/07/hebbevu-genetics-uses-ivf-making-dairy-farming-sustainable",
         },
         {
           id: "news-deccan-herald",
+          image: "/press/news-deccan-herald.jpg",
           label: "Deccan Herald",
           sublabel: "Launch of Hebbevu Genetics",
           href: "https://www.deccanherald.com/brandspot/featured/hebbevu-managed-farmland-launches-hebbevu-genetics-to-transform-cattle-ivfs-in-india-3119829",
         },
         {
           id: "news-republic",
+          image: "/press/news-republic.jpg",
           label: "Republic",
           sublabel: "Launch of Hebbevu Genetics",
           href: "https://www.republicworld.com/initiatives/hebbevu-managed-farmland-launches-hebbevu-genetics-to-transform-cattle-ivf-in-india",
         },
         {
           id: "news-ny-weekly",
+          image: "/press/news-ny-weekly.jpg",
           label: "New York Weekly",
           sublabel: "Launch of Hebbevu Genetics",
           href: "https://nyweekly.com/science/hebbevu-managed-farmland-launches-hebbevu-genetics/",
@@ -129,12 +144,22 @@ const linksPage: LinksPage = {
   ],
 };
 
+const YOUTUBE_ID = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/))([\w-]{11})/;
+
 /** Visible sections and links, in page order. A CMS can replace this function later. */
 export function getLinksPage(): LinksPage {
   return {
     ...linksPage,
     sections: linksPage.sections
-      .map((s) => ({ ...s, links: s.links.filter((l) => !l.hidden) }))
+      .map((s) => ({
+        ...s,
+        links: s.links
+          .filter((l) => !l.hidden)
+          .map((l) => {
+            const yt = l.href.match(YOUTUBE_ID)?.[1];
+            return l.image || !yt ? l : { ...l, image: `/video/yt/${yt}.jpg` };
+          }),
+      }))
       .filter((s) => s.links.length > 0),
   };
 }
