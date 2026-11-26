@@ -1,12 +1,15 @@
 import Script from "next/script";
 
 /**
- * GTM + Meta Pixel (brief §14). Renders nothing until the IDs are set:
- *   NEXT_PUBLIC_GTM_ID, NEXT_PUBLIC_META_PIXEL_ID
- * Use the same containers as the group's main site.
+ * GTM + Meta Pixel (brief §14). GTM defaults to the site's container
+ * (public ID, safe in source); NEXT_PUBLIC_GTM_ID overrides it.
+ * Meta Pixel renders nothing until NEXT_PUBLIC_META_PIXEL_ID is set.
+ * GA4 itself is configured inside the GTM container, not here.
  */
+const DEFAULT_GTM_ID = "GTM-TCZS844J";
+
 export function Analytics() {
-  const gtm = process.env.NEXT_PUBLIC_GTM_ID;
+  const gtm = process.env.NEXT_PUBLIC_GTM_ID || DEFAULT_GTM_ID;
   const pixel = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   return (
     <>
@@ -14,6 +17,16 @@ export function Analytics() {
         <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtm}');`}
         </Script>
+      )}
+      {gtm && (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${gtm}`}
+            height="0"
+            width="0"
+            className="hidden"
+          />
+        </noscript>
       )}
       {pixel && (
         <Script id="meta-pixel" strategy="afterInteractive">
