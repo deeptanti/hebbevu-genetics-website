@@ -5,25 +5,15 @@
  * em dashes rewritten, typos and duplicate numbering corrected, and the indemnity in 14.1
  * names the Company rather than another firm left over from a template.
  */
+import type { LegalDoc, LegalSection } from "./legal";
 
-/** A clause: optional number, optional bold lead-in, then text. Or a bulleted list. */
-export type LegalBlock = { n?: string; lead?: string; text: string } | { list: string[] };
-
-export interface LegalSection {
-  id: string;
-  n?: string;
-  title: string;
-  blocks: LegalBlock[];
-}
-
-export const termsPage = {
+export const termsPage: LegalDoc = {
   title: "Terms and conditions",
   metaDescription:
     "Terms and conditions for using the Hebbevu Genetics website and for our bovine IVF, embryo supply and related reproductive services.",
-  company: "Hebbevu Genetics Farms Private Limited",
+  path: "/legal/terms",
   lede: "The terms that govern your use of this website and how our services are engaged.",
   updated: "Last updated 26 November 2026",
-  tocHeading: "Contents",
   sections: [
     {
       id: "about",
@@ -36,7 +26,7 @@ export const termsPage = {
           text: 'These Terms govern your access to and use of this website, including all webpages, digital platforms, product catalogues, technical literature, downloadable documents, scientific publications, research content, enquiry forms, communication channels, software, applications, databases and all other information, content and services made available through this website (collectively referred to as the "Website").',
         },
         {
-          text: "By accessing or using the Website, you acknowledge that you have carefully read, understood and agreed to be legally bound by these Terms, together with the Company's Privacy Policy and any other policies published on the Website from time to time. If you do not agree with these Terms, you must immediately discontinue your access to and use of the Website.",
+          text: "By accessing or using the Website, you acknowledge that you have carefully read, understood and agreed to be legally bound by these Terms, together with the Company's [Privacy Policy](/legal/privacy) and any other policies published on the Website from time to time. If you do not agree with these Terms, you must immediately discontinue your access to and use of the Website.",
         },
       ],
     },
@@ -392,13 +382,15 @@ export const termsPage = {
       ],
     },
   ] satisfies LegalSection[],
-  contactSection: {
+  contact: {
     id: "contact",
     n: "19",
     title: "Contact",
-    privacyNote: "For privacy matters, see our",
-    privacyLink: { label: "Privacy Policy", href: "/legal/privacy" },
-    privacyNoteEnd: "and contact the Grievance Officer named there.",
+    after: [
+      {
+        text: "For privacy matters, see our [Privacy Policy](/legal/privacy) and contact the [Grievance Officer](/legal/privacy#grievance-officer) named there.",
+      },
+    ],
   },
   cta: {
     heading: "Questions about these terms or a programme?",

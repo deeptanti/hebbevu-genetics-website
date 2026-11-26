@@ -16,5 +16,5 @@ export const enquiryCopy = {
   submit: "Request a call back",
   success: "Thank you. Our team will call you on the number you gave us.",
   deliveryError: "Sorry, we could not send your enquiry just now. Please call us on +91 80505 39391 and we will help you straight away.",
-  privacy: "We use your details only to contact you about your enquiry.",
+  privacy: { text: "We use your details only to contact you about your enquiry. See our", link: "privacy policy", href: "/legal/privacy" },
 };

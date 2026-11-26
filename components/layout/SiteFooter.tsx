@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { FacebookLogo, InstagramLogo, LinkedinLogo, YoutubeLogo } from "@phosphor-icons/react/dist/ssr";
+import { cookieConsentCopy } from "@/content/consent";
 import { contact, footerNav, site, socials } from "@/content/site";
+import { COOKIE_SETTINGS_HASH } from "@/lib/consent";
 
 const socialIcons = { Instagram: InstagramLogo, Facebook: FacebookLogo, YouTube: YoutubeLogo, LinkedIn: LinkedinLogo } as const;
 import { Icon } from "../ui/Icon";
@@ -88,7 +90,12 @@ export function SiteFooter() {
           <p className="type-small text-mist">
             © {new Date().getFullYear()} {site.name}. Part of Nisarga Woods.
           </p>
-          <p className="type-small text-mist">{site.tagline}.</p>
+          <p className="type-small flex flex-wrap gap-x-5 gap-y-2 text-mist">
+            <a href={COOKIE_SETTINGS_HASH} className="transition-ui underline-offset-4 hover:text-white hover:underline">
+              {cookieConsentCopy.footerLink}
+            </a>
+            <span>{site.tagline}.</span>
+          </p>
         </div>
       </Container>
     </footer>

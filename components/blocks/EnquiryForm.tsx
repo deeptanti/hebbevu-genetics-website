@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useActionState, useEffect, useRef } from "react";
 import { submitEnquiry, type EnquiryState } from "@/app/actions/enquiry";
 import { enquiryCopy, serviceInterests } from "@/content/enquiry";
@@ -82,7 +83,13 @@ export function EnquiryForm({ defaultService }: { defaultService?: string }) {
         <Button type="submit" disabled={pending} className="self-start">
           {pending ? "Sending…" : enquiryCopy.submit}
         </Button>
-        <p className="type-small text-graphite">{enquiryCopy.privacy}</p>
+        <p className="type-small text-graphite">
+          {enquiryCopy.privacy.text}{" "}
+          <Link href={enquiryCopy.privacy.href} className="text-brown underline underline-offset-4 hover:text-brown-dark">
+            {enquiryCopy.privacy.link}
+          </Link>
+          .
+        </p>
       </div>
     </form>
   );
