@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { submitEnquiry, type EnquiryState } from "@/app/actions/enquiry";
 import { enquiryCopy, serviceInterests } from "@/content/enquiry";
+import { track } from "@/lib/analytics";
 import { Button } from "../ui/Button";
 import { Field } from "../ui/Field";
 
@@ -10,6 +11,20 @@ const initial: EnquiryState = { status: "idle" };
 
 export function EnquiryForm({ defaultService }: { defaultService?: string }) {
   const [state, action, pending] = useActionState(submitEnquiry, initial);
+  const started = useRef(false);
+  const service = useRef("");
+
+  // One analytics event per server response (state is a new object each time).
+  useEffect(() => {
+    const form_location = window.location.pathname;
+    if (state.status === "success") track("generate_lead", { service: service.current, form_location });
+    if (state.status === "error")
+      track("enquiry_error", {
+        service: service.current,
+        form_location,
+        error_type: state.formError ? "delivery" : `validation:${Object.keys(state.errors ?? {}).join(",")}`,
+      });
+  }, [state]);
 
   if (state.status === "success") {
     return (
@@ -22,7 +37,19 @@ export function EnquiryForm({ defaultService }: { defaultService?: string }) {
   const v = state.values ?? {};
   const e = state.errors ?? {};
   return (
-    <form action={action} noValidate className="flex flex-col gap-5">
+    <form
+      action={action}
+      noValidate
+      className="flex flex-col gap-5"
+      onFocus={() => {
+        if (started.current) return;
+        started.current = true;
+        track("enquiry_start", { form_location: window.location.pathname });
+      }}
+      onSubmit={(ev) => {
+        service.current = String(new FormData(ev.currentTarget).get("service") ?? "");
+      }}
+    >
       <Field label="Your name" name="name" required autoComplete="name" defaultValue={v.name} error={e.name} />
       <Field
         label="Mobile number"

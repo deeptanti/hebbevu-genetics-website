@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Play } from "@phosphor-icons/react";
 import { useState } from "react";
 import { youtubeThumb, type Video } from "@/content/videos";
+import { track } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 
 /**
@@ -31,6 +32,7 @@ export function YouTubePlayer({
   const play = () => {
     setOwn(true);
     onPlay?.();
+    track("video_play", { video_title: video.title, video_id: video.id, video_kind: video.kind });
   };
 
   return (
