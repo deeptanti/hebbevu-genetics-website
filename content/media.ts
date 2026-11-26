@@ -139,6 +139,12 @@ export const photos = {
     "width": 960,
     "height": 960
   },
+  "people/varsha": {
+    "src": "/photos/people/varsha.jpg",
+    "alt": "Venna Varsha, data and dairy management, in a Hebbevu Genetics polo",
+    "width": 960,
+    "height": 960
+  },
   "articles/story-behind-hebbevu-genetics": {
     "src": "/photos/articles/story-behind-hebbevu-genetics.jpg",
     "alt": "Aerial view of the farm and fodder land",
