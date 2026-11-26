@@ -19,7 +19,7 @@ export const site = {
 /** Official social profiles (supplied by the client, Nov 2026). */
 export const socials = [
   { name: "Instagram", href: "https://www.instagram.com/hebbevu_genetics" },
-  { name: "Facebook", href: "https://www.facebook.com/share/17xXVFvEyP/" },
+  { name: "Facebook", href: "https://www.facebook.com/HebbevuGenetics" },
   { name: "YouTube", href: "https://www.youtube.com/@hebbevugenetics" },
   { name: "LinkedIn", href: "https://www.linkedin.com/company/hebbevu-genetics/" },
 ] as const;
