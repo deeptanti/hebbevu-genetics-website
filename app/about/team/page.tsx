@@ -62,11 +62,19 @@ export default function TeamPage() {
                   {g.heading}
                 </Heading>
                 <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                  {members.map((m) => (
+                  {members.map((m) => {
+                    const portrait = getPhoto(`people/${m.slug}`);
+                    return (
                     <li key={m.slug} id={m.slug}>
-                      <Card flush>
-                        {getPhoto(`people/${m.slug}`) ? (
-                          <Photo photo={getPhoto(`people/${m.slug}`)!} aspect="portrait" rounded={false} sizes="(min-width: 1024px) 33vw, 100vw" />
+                      <Card flush className="group h-full">
+                        {portrait ? (
+                          <Photo
+                            photo={portrait}
+                            aspect="portrait"
+                            rounded={false}
+                            zoom
+                            sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                          />
                         ) : (
                           <div className="flex items-center gap-4 p-4 pb-0 md:p-5 md:pb-0">
                             <span
@@ -78,14 +86,15 @@ export default function TeamPage() {
                             <span className="type-small text-graphite">Portrait to follow</span>
                           </div>
                         )}
-                        <div className={getPhoto(`people/${m.slug}`) ? "flex flex-col gap-2 border-t border-stone p-4 md:p-5" : "flex flex-col gap-2 p-4 md:p-5"}>
+                        <div className={portrait ? "flex flex-col gap-2 border-t border-stone p-4 md:p-5" : "flex flex-col gap-2 p-4 md:p-5"}>
                           <p className="type-label text-graphite">{m.role}</p>
                           <p className="type-subheading text-ink">{m.name}</p>
                           <p className="type-small text-ink">{m.responsibility}</p>
                         </div>
                       </Card>
                     </li>
-                  ))}
+                    );
+                  })}
                 </ul>
               </div>
             );

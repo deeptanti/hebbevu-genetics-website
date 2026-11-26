@@ -103,6 +103,42 @@ export const photos = {
     "width": 1080,
     "height": 1080
   },
+  "people/anupama": {
+    "src": "/photos/people/anupama.jpg",
+    "alt": "Anupama, embryologist, in a Hebbevu Genetics lab coat",
+    "width": 960,
+    "height": 960
+  },
+  "people/susha": {
+    "src": "/photos/people/susha.jpg",
+    "alt": "Susha Shetty, embryologist, in a Hebbevu Genetics lab coat",
+    "width": 960,
+    "height": 960
+  },
+  "people/dr-raju": {
+    "src": "/photos/people/dr-raju.jpg",
+    "alt": "Dr. Raju Modhwadiya, veterinarian, in Hebbevu Genetics scrubs",
+    "width": 960,
+    "height": 960
+  },
+  "people/dr-narendra": {
+    "src": "/photos/people/dr-narendra.jpg",
+    "alt": "Dr. Yoganarendra Padamata, veterinarian, in a Hebbevu Genetics polo",
+    "width": 960,
+    "height": 960
+  },
+  "people/dr-atish": {
+    "src": "/photos/people/dr-atish.jpg",
+    "alt": "Dr. Atish Chavhan, veterinarian, in Hebbevu Genetics scrubs",
+    "width": 960,
+    "height": 960
+  },
+  "people/dr-aryan": {
+    "src": "/photos/people/dr-aryan.jpg",
+    "alt": "Dr. Aryan Pawar, veterinarian, in Hebbevu Genetics scrubs",
+    "width": 960,
+    "height": 960
+  },
   "articles/story-behind-hebbevu-genetics": {
     "src": "/photos/articles/story-behind-hebbevu-genetics.jpg",
     "alt": "Aerial view of the farm and fodder land",
