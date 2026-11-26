@@ -45,13 +45,13 @@ export function organizationSchema() {
       opens: contact.opens,
       closes: contact.closes,
     },
-    areaServed: { "@type": "Country", name: "India" },
+    // Clients worldwide (confirmed by the client, Nov 2026); matches the Business Profile.
+    areaServed: { "@type": "Place", name: "Worldwide" },
     contactPoint: {
       "@type": "ContactPoint",
       telephone: contact.phoneHref.replace("tel:", ""),
       email: contact.email,
       contactType: "customer service",
-      areaServed: "IN",
     },
     sameAs: [...socials.map((s) => s.href), contact.mapsHref],
   };

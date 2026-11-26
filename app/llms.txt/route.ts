@@ -15,12 +15,13 @@ export function GET() {
   const lines: string[] = [
     `# ${site.name}`,
     "",
-    `> ${site.tagline}. Hebbevu Genetics produces cattle and buffalo embryos by IVF (in vitro fertilisation) at its own laboratory in Andhra Pradesh, India, and transfers them into farmers' herds, so a proven high-yield cow can be multiplied across a herd instead of giving one calf a year. It works with indigenous breeds such as Gir, Sahiwal, Ongole and Kankrej, and with Murrah and Jaffarabadi buffalo.`,
+    `> ${site.tagline}. Hebbevu Genetics produces cattle and buffalo embryos by IVF (in vitro fertilisation) at its own laboratory in Andhra Pradesh, India, and transfers them into farmers' herds, so a proven high-yield cow can be multiplied across a herd instead of giving one calf a year. It works with indigenous breeds such as Gir, Sahiwal, Ongole and Kankrej, and with Murrah and Jaffarabadi buffalo. It serves dairy farmers and breeders in India and clients worldwide.`,
     "",
     `- Location: ${contact.addressLines.join(", ")}`,
     `- Phone and WhatsApp: ${contact.phoneDisplay}`,
     `- Email: ${contact.email}`,
     `- Hours: ${contact.hoursDisplay}`,
+    "- Service area: worldwide",
     `- Book a consultation: ${url("/book")}`,
     "",
   ];
