@@ -25,6 +25,17 @@ export function ClickTracker() {
         link_url: href,
       };
 
+      // /links page: every link carries data-link-* (see components/blocks/LinkList).
+      if (a.dataset.linkId) {
+        track("link_click", {
+          link_id: a.dataset.linkId,
+          link_text: a.dataset.linkLabel,
+          link_url: href,
+          link_section: a.dataset.linkSection,
+          link_position: a.dataset.linkPosition,
+        });
+      }
+
       let method: string | undefined;
       if (href.startsWith("tel:")) method = "phone";
       else if (href.startsWith("mailto:")) method = "email";

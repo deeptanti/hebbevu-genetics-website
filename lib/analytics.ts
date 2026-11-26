@@ -13,7 +13,8 @@ export type TrackEvent =
   | "cta_click" // any link to /book
   | "video_play"
   | "video_progress" // 25, 50, 75% watched
-  | "video_complete";
+  | "video_complete"
+  | "link_click"; // any link on /links
 
 /** Every parameter key we use. Each push clears the others so GTM never reuses a stale value. */
 const KEYS = [
@@ -28,6 +29,9 @@ const KEYS = [
   "video_id",
   "video_kind",
   "video_percent",
+  "link_id",
+  "link_section",
+  "link_position",
 ] as const;
 
 export type TrackParams = Partial<Record<(typeof KEYS)[number], string>>;
