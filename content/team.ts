@@ -48,7 +48,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: "dr-narendra",
-    name: "Dr. Narendra",
+    name: "Dr. Yoganarendra Padamata",
     role: "Veterinary",
     group: "veterinary",
     responsibility: "Oversees feed management, medication schedules, and Gir cow milking records.",
@@ -69,7 +69,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: "varsha",
-    name: "Varsha",
+    name: "Venna Varsha",
     role: "Data & Dairy Management",
     group: "data",
     responsibility:

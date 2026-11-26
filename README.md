@@ -79,4 +79,4 @@ Legacy redirects from the content doc: /blogs, /blog/:slug, /about-us, /our-serv
 
 ## Waiting on the client
 
-Lab figures + sample sizes · photography still missing: the lab/facility, OPU and transfer in progress, and portraits for Anupama, Susha, Dr. Raju, Dr. Narendra, Dr. Atish, Dr. Aryan and Varsha · horizontal & reversed logo, vectors · Hindi copy · privacy/terms · lead destination for the enquiry form · GTM / Meta Pixel IDs (`NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_META_PIXEL_ID`) · confirmation that +91 80505 39391 is on WhatsApp.
+Lab figures + sample sizes · photography still missing: the lab/facility, OPU and transfer in progress, and portraits for Anupama, Susha, Dr. Raju, Dr. Yoganarendra, Dr. Atish, Dr. Aryan and Venna Varsha · horizontal & reversed logo, vectors · Hindi copy · privacy/terms · lead destination for the enquiry form · GTM / Meta Pixel IDs (`NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_META_PIXEL_ID`) · confirmation that +91 80505 39391 is on WhatsApp.
