@@ -29,6 +29,7 @@ export function ClickTracker() {
       if (href.startsWith("tel:")) method = "phone";
       else if (href.startsWith("mailto:")) method = "email";
       else if (/wa\.me|whatsapp\.com/.test(href)) method = "whatsapp";
+      else if (/google\.[a-z.]+\/maps|maps\.app\.goo\.gl/.test(href)) method = "directions";
       if (method) return track("contact_click", { ...base, contact_method: method });
 
       if (a.origin === window.location.origin && /^\/book\/?$/.test(a.pathname)) track("cta_click", base);

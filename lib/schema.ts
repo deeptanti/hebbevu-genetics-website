@@ -37,6 +37,14 @@ export function organizationSchema() {
       postalCode: "515124",
       addressCountry: "IN",
     },
+    geo: { "@type": "GeoCoordinates", latitude: contact.geo.latitude, longitude: contact.geo.longitude },
+    hasMap: contact.mapsHref,
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: contact.opens,
+      closes: contact.closes,
+    },
     areaServed: { "@type": "Country", name: "India" },
     contactPoint: {
       "@type": "ContactPoint",
@@ -45,7 +53,7 @@ export function organizationSchema() {
       contactType: "customer service",
       areaServed: "IN",
     },
-    sameAs: socials.map((s) => s.href),
+    sameAs: [...socials.map((s) => s.href), contact.mapsHref],
   };
 }
 

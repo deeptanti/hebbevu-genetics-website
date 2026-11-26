@@ -52,6 +52,17 @@ export function ContactPanel({ showAddress = true, wide = false }: { showAddress
                 ))}
               </address>
             </dd>
+            <dd className="type-body text-ink">{contact.hoursDisplay}</dd>
+            <dd>
+              <a
+                href={contact.mapsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-ui type-body text-brown underline underline-offset-4 hover:text-brown-dark"
+              >
+                Get directions on Google Maps
+              </a>
+            </dd>
             </div>
           </div>
         )}

@@ -36,6 +36,13 @@ export const contact = {
     "Reynadu Farm, Cholemarri Chinnamanthur",
     "Sri Sathya Sai, Andhra Pradesh 515124",
   ],
+  /** Must match the Google Business Profile (checked Nov 2026: every day, 10:00 to 19:00). */
+  hoursDisplay: "Open every day, 10 am to 7 pm",
+  opens: "10:00",
+  closes: "19:00",
+  /** The Google Business Profile listing (place CID), so "Directions" opens the verified pin. */
+  mapsHref: "https://www.google.com/maps?cid=1301139962017632836",
+  geo: { latitude: 14.0253404, longitude: 77.4563698 },
 } as const;
 
 /** Primary nav: 5 + CTA (brief §5). */

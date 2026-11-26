@@ -1,7 +1,7 @@
 import { ContactPanel } from "@/components/blocks/ContactPanel";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/layout/Section";
-import { BrandIcon, CTABand, SectionHeader } from "@/components/ui";
+import { BrandIcon, Button, CTABand, Icon, SectionHeader } from "@/components/ui";
 import { Photo } from "@/components/ui/Photo";
 import { photos } from "@/content/media";
 import { contactCta, contactPage as page } from "@/content/pages/services";
@@ -42,6 +42,10 @@ export default function ContactPage() {
                 </span>
               ))}
             </address>
+            <p className="type-body mt-4 text-ink">{contact.hoursDisplay}</p>
+            <Button href={contact.mapsHref} variant="secondary" icon={<Icon name="map" />} className="mt-5">
+              Get directions on Google Maps
+            </Button>
           </div>
           <Photo photo={photos[page.photo]} aspect="photo" />
         </div>
