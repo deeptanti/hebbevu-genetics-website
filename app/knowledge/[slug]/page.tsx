@@ -25,7 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const a = getArticle(slug);
   if (!a) return {};
-  return pageMeta({ title: a.metaTitle, description: a.description, path: `/knowledge/${a.slug}`, absoluteTitle: true });
+  const image = (getPhoto(`articles/${a.slug}`) ?? photos["farm/barn-row"]).src;
+  return pageMeta({ title: a.metaTitle, description: a.description, path: `/knowledge/${a.slug}`, absoluteTitle: true, image });
 }
 
 export default async function ArticlePage({ params }: Props) {
