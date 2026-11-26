@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${b.name}: ${b.epithet}`,
     description: p?.intro ?? `${b.name}: origin ${b.origin}, typical milk yield ${b.milkYield}. ${b.strength}.`,
     path: `/breeds/${b.slug}`,
+    image: getPhoto(`breeds/${b.slug}`)?.src,
   });
 }
 

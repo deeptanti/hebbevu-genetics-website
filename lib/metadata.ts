@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { site } from "@/content/site";
 
 /** Per-page metadata. Titles from the client doc are used verbatim where they exist. */
+/** Site-wide share image (1200x630), used when a page has no photo of its own. */
+export const DEFAULT_SHARE_IMAGE = { url: "/brand/og-default.jpg", width: 1200, height: 630, alt: "Gir cattle lined up at the Hebbevu Genetics farm" };
+
 /**
- * Social share image: pass `image` (a /public path) to override the site default
- * (app/opengraph-image.jpg), e.g. an article's hero photo.
+ * Social share image: pass `image` (a /public path) to override the site default,
+ * e.g. an article's hero photo.
  */
 export function pageMeta({
   title,
@@ -30,8 +33,8 @@ export function pageMeta({
       siteName: site.name,
       locale: "en_IN",
       type: image ? "article" : "website",
-      ...(image ? { images: [{ url: image, alt: title }] } : {}),
+      images: [image ? { url: image, alt: title } : DEFAULT_SHARE_IMAGE],
     },
-    twitter: { card: "summary_large_image", ...(image ? { images: [image] } : {}) },
+    twitter: { card: "summary_large_image", images: [image ?? DEFAULT_SHARE_IMAGE.url] },
   };
 }

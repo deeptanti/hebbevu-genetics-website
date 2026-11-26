@@ -5,6 +5,7 @@ import { Analytics } from "@/components/layout/Analytics";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { site } from "@/content/site";
+import { DEFAULT_SHARE_IMAGE } from "@/lib/metadata";
 import "./globals.css";
 
 /** Brief §6: Playfair Display (headings) + Montserrat (body). Do not substitute. */
@@ -30,7 +31,8 @@ export const metadata: Metadata = {
   },
   description:
     "Hebbevu Genetics offers advanced cattle IVF and embryo transfer services in India, helping farmers improve herd quality with elite indigenous genetics.",
-  openGraph: { siteName: site.name, locale: "en_IN", type: "website" },
+  openGraph: { siteName: site.name, locale: "en_IN", type: "website", images: [DEFAULT_SHARE_IMAGE] },
+  twitter: { card: "summary_large_image", images: [DEFAULT_SHARE_IMAGE.url] },
 };
 
 export const viewport: Viewport = { themeColor: "#ffffff" };
