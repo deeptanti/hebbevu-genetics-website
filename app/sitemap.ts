@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     paths.add(n.href);
     n.children?.forEach((c) => paths.add(c.href));
   }
-  footerNav.flatMap((c) => c.items).forEach((i) => !["/careers", "/legal/privacy", "/legal/terms"].includes(i.href) && paths.add(i.href));
+  footerNav.flatMap((c) => c.items).forEach((i) => !["/careers", "/legal/privacy"].includes(i.href) && paths.add(i.href));
   breeds.forEach((b) => paths.add(`/breeds/${b.slug}`));
   articles.forEach((a) => paths.add(`/knowledge/${a.slug}`));
   return [...paths].map((p) => ({ url: `${site.url}${p === "/" ? "" : p}` }));
